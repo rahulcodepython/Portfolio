@@ -1,0 +1,17 @@
+svg text {
+	animation: stroke 10s infinite alternate;
+	stroke: #FFFFFF;
+    font-size: 50px;
+}
+@keyframes stroke {
+	0%   {
+		fill: rgba(255,255,255,0); stroke: rgba(255,255,255,1);
+		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+	}
+	70%  {fill: rgba(255,255,255,0); stroke: rgba(255,255,255,1); }
+	80%  {fill: rgba(255,255,255,0); stroke: rgba(255,255,255,1); stroke-width: 3; }
+	100% {
+		fill: rgba(255,255,255,1); stroke: rgba(255,255,255,0);
+		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+	}
+}
