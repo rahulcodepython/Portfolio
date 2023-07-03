@@ -8,4 +8,5 @@ body {
     padding: 0;
     font-family: 'ubuntu';
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
