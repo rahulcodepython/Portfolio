@@ -8,19 +8,19 @@ const Navbar = () => {
     const [menu, setmenu] = React.useState(false)
 
     const links = [
-        ['/', <BiHome key={1} />, 'Home'],
-        ['/', <BiUser key={1} />, 'About'],
-        ['/', <BiFile key={1} />, 'Resume'],
-        ['/', <BiServer key={1} />, 'Services'],
+        ['/#hero', <BiHome key={1} />, 'Home'],
+        ['/#about', <BiUser key={1} />, 'About'],
+        ['/#resume', <BiFile key={1} />, 'Resume'],
+        ['/#services', <BiServer key={1} />, 'Services'],
         ['/', <BiIdCard key={1} />, 'Portfolio'],
         ['/', <BiBookOpen key={1} />, 'Blogs'],
         ['/', <BiGitBranch key={1} />, 'Repositories'],
-        ['/', <BiEnvelope key={1} />, 'Contact'],
+        ['/#contact', <BiEnvelope key={1} />, 'Contact'],
     ]
 
     return (
         <>
-            <nav className="bg-white hidden lg:block sticky top-0 py-3 shadow-2xl">
+            <nav className="bg-white hidden lg:block sticky top-0 py-3 shadow-2xl z-10">
                 <ul className="flex justify-around items-center">
                     {
                         links.map((item, index) => {
@@ -48,7 +48,10 @@ const Navbar = () => {
                 <ul className="flex flex-col bg-white">
                     {
                         links.map((item, index) => {
-                            return <Link href={item[0]} key={index} onClick={() => setmenu(false)}>
+                            return <Link href={item[0]} key={index} onClick={(e) => {
+                                e.preventDefault()
+                                setmenu(false)
+                            }}>
                                 <li className="btn flex gap-1 items-center">
                                     <span className="text-lg">
                                         {item[1]}

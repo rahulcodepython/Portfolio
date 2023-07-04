@@ -25,11 +25,10 @@ const Resume = () => {
     ]
 
     return (
-        <div className='bg-white py-10 -mt-1 px-10 flex flex-col gap-10'>
+        <section className='bg-white py-10 -mt-1 px-10 flex flex-col items-center gap-10' id='resume'>
             <h1 className='text-xl md:text-3xl font-semibold'>My Resume</h1>
             <div className='flex justify-around gap-4 flex-col lg:flex-row'>
-
-                <div className='shadow-lg rounded-lg p-10 flex flex-col w-full lg:w-1/3'>
+                <div className='shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out rounded-lg p-10 flex flex-col w-full lg:w-1/3'>
                     <span className='text-md md:text-lg lg:text-xl font-extrabold mb-7 first-letter:underline first-letter:underline-offset-[20px] first-letter:decoration-primary'>
                         Education
                     </span>
@@ -51,8 +50,7 @@ const Resume = () => {
                         }
                     </div>
                 </div>
-
-                <div className='shadow-lg rounded-lg p-10 flex flex-col flex-wrap gap-5 w-full lg:w-1/3'>
+                <div className='shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out rounded-lg p-10 flex flex-col flex-wrap gap-5 w-full lg:w-1/3'>
                     <span className='text-md md:text-lg lg:text-xl font-extrabold mb-7 first-letter:underline first-letter:underline-offset-[20px] first-letter:decoration-primary'>
                         Skills
                     </span>
@@ -61,19 +59,18 @@ const Resume = () => {
                             skills.map((item, index) => {
                                 return <div className='w-full' key={index}>
                                     <div className="flex justify-between mb-1">
-                                        <span className="text-base font-semibold">{item[0]}</span>
+                                        <span className="text-sm font-semibold">{item[0]}</span>
                                         <span className="text-sm font-medium">{item[1]}</span>
                                     </div>
-                                    <div className="w-full rounded-full h-2.5 bg-gray-700">
-                                        <div className="bg-primary h-2.5 rounded-full" style={{ "width": item[1] }}></div>
+                                    <div className="w-full rounded-full h-2.5">
+                                        <div className="bg-primary h-1 rounded-full" style={{ "width": item[1] }}></div>
                                     </div>
                                 </div>
                             })
                         }
                     </div>
                 </div>
-
-                <div className='shadow-lg rounded-lg p-10 flex flex-col flex-wrap gap-5 w-full lg:w-1/3'>
+                <div className='shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out rounded-lg p-10 flex flex-col flex-wrap gap-5 w-full lg:w-1/3'>
                     <span className='text-md md:text-lg lg:text-xl font-extrabold mb-7 first-letter:underline first-letter:underline-offset-[20px] first-letter:decoration-primary'>
                         Language
                     </span>
@@ -82,20 +79,19 @@ const Resume = () => {
                             language.map((item, index) => {
                                 return <div className='w-full' key={index}>
                                     <div className="flex justify-between mb-1">
-                                        <span className="text-base font-semibold">{item[0]}</span>
+                                        <span className="text-sm font-semibold">{item[0]}</span>
                                         <span className="text-sm font-medium">{item[1]}</span>
                                     </div>
-                                    <div className="w-full rounded-full h-2.5 bg-gray-700">
-                                        <div className="bg-primary h-2.5 rounded-full" style={{ "width": item[1] }}></div>
+                                    <div className="w-full rounded-full h-2.5">
+                                        <div className="bg-primary h-1 rounded-full" style={{ "width": item[1] }}></div>
                                     </div>
                                 </div>
                             })
                         }
                     </div>
                 </div>
-
             </div>
-        </div>
+        </section>
     )
 }
 

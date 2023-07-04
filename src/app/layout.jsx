@@ -9,7 +9,7 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
     return (
-        <html lang="en">
+        <html lang="en" className='scroll-smooth'>
             <body className="h-screen bg-[url('/image/background.png')] bg-cover bg-fixed">
                 {children}
                 <ScrollToTop />
