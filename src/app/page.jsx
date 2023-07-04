@@ -2,6 +2,8 @@ import SocialIcons from '@/components/Home/socialicons'
 import Navbar from '@/components/base/navbar'
 import Hero from '@/components/Home/hero'
 import React from 'react'
+import About from '@/components/Home/about'
+import Resume from '@/components/Home/resume'
 
 const Home = () => {
     return (
@@ -9,6 +11,8 @@ const Home = () => {
             <SocialIcons />
             <Hero />
             <Navbar />
+            <About />
+            <Resume />
             <div>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque a cum rerum sed soluta saepe nisi! Praesentium magni incidunt autem dolore sint similique maiores, id laboriosam odio. Libero dolore dolor nihil corrupti ipsum temporibus obcaecati atque sapiente accusamus minima repellendus, vero odit dolorum nisi itaque. Accusamus vitae assumenda delectus aliquid quae modi nisi ab itaque ullam voluptatibus. Dolores optio excepturi perferendis. Quidem nulla et harum culpa praesentium molestias? Ducimus officia consequatur dolorum in eaque non omnis veniam recusandae corporis iusto similique placeat atque, ratione maxime asperiores sint eius voluptas? Molestias, dolores ex deleniti provident nam culpa voluptatem ipsa corporis reiciendis!
             </div>

@@ -20,7 +20,7 @@ const ScrollToTop = () => {
     }, [])
 
     return (
-        visible ? <div className='z-20 fixed bottom-5 right-7 text-4xl bg-primary text-white rounded-full cursor-pointer'>
+        visible ? <div className='z-20 fixed bottom-5 right-7 text-2xl bg-primary p-1 text-white rounded-md cursor-pointer'>
             <BiUpArrowAlt onClick={moveToTop} />
         </div> : null
     )
