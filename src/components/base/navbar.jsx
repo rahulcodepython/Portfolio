@@ -7,15 +7,15 @@ const Navbar = () => {
     const [menu, setmenu] = React.useState(false)
 
     const links = [
-        ['/#hero', <BiHome key={1} />, 'Home'],
-        ['/#about', <BiUser key={1} />, 'About'],
-        ['/#resume', <BiFile key={1} />, 'Resume'],
-        ['/#services', <BiServer key={1} />, 'Services'],
-        ['/#pricing', <BiRupee key={1} />, 'Pricing'],
-        ['/#portfolio', <BiIdCard key={1} />, 'Portfolio'],
-        ['/#repositiories', <BiGitBranch key={1} />, 'Repositories'],
-        ['/#blogs', <BiBookOpen key={1} />, 'Blogs'],
-        ['/#contact', <BiEnvelope key={1} />, 'Contact'],
+        ['#hero', <BiHome key={1} />, 'Home'],
+        ['#about', <BiUser key={1} />, 'About'],
+        ['#resume', <BiFile key={1} />, 'Resume'],
+        ['#services', <BiServer key={1} />, 'Services'],
+        ['#pricing', <BiRupee key={1} />, 'Pricing'],
+        ['#portfolio', <BiIdCard key={1} />, 'Portfolio'],
+        ['#repositiories', <BiGitBranch key={1} />, 'Repositories'],
+        ['#blogs', <BiBookOpen key={1} />, 'Blogs'],
+        ['#contact', <BiEnvelope key={1} />, 'Contact'],
     ]
 
     return (
