@@ -30,21 +30,21 @@ const Pricing = () => {
         },
     ]
     return (
-        <section className="bg-white py-10 px-10 flex flex-col items-center gap-10 -my-1" id='pricing'>
+        <section className="bg-white p-5 sm:p-10 flex flex-col items-center gap-5 sm:gap-10 -my-1" id='pricing'>
             <h1 className='text-xl md:text-3xl font-semibold'>Pricing</h1>
             <div className="flex flex-col lg:flex-row gap-10 w-full justify-around">
                 {
                     pricing.map((item, index) => {
                         return <div className="flex flex-col gap-10 justify-between p-6 md:p-8 lg:p-10 rounded-lg shadow-lg hover:shadow-2xl transition-all ease-in-out duration-300" key={index}>
                             <div className='flex flex-col gap-5 justify-center items-center'>
-                                <h3 className="text-2xl font-semibold">
+                                <h3 className="text-lg md:2xl font-semibold">
                                     {item.heading}
                                 </h3>
                                 <p className="text-sm text-center">
                                     {item.desc}
                                 </p>
                                 <div className="flex justify-center items-baseline">
-                                    <span className="mr-2 text-3xl font-extrabold text-primary">
+                                    <span className="mr-2 text-xl md:text-3xl font-extrabold text-primary">
                                         ₹ {item.price}
                                     </span>
                                     <span className="">

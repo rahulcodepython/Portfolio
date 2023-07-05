@@ -15,7 +15,7 @@ const About = () => {
     ]
 
     return (
-        <section className='bg-white flex flex-col lg:flex-row justify-around gap-5 p-10' id='about'>
+        <section className='bg-white flex flex-col lg:flex-row justify-around gap-2 sm:gap-5 p-5 sm:p-10' id='about'>
             <div className='p-10 flex flex-col items-start justify-start gap-5 shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out rounded-lg w-full lg:w-1/3'>
                 <div className='text-lg md:text-xl lg:text-2xl font-extrabold mb-10 first-letter:underline first-letter:underline-offset-[20px] first-letter:decoration-primary'>
                     Who am I ?

@@ -1,6 +1,5 @@
 "use client"
 import { BiRightArrowAlt, BiSolidPlusCircle, BiSolidCloudDownload } from 'react-icons/bi'
-import '../../../public/css/hero.css'
 import Typed from "typed.js";
 import React from 'react'
 import Link from 'next/link';
@@ -39,7 +38,7 @@ const Hero = () => {
                 <p className="text-white font-bold text-md sm:text-lg md:text-xl lg:text-2xl mb-2 md:mb-1">
                     Hello, It{`'`}s me
                 </p>
-                <p className="uppercase text-white font-extrabold">
+                <p className="hero-text uppercase text-white font-extrabold">
                     <svg>
                         <text x="50%" y="50%" dy=".35em" textAnchor="middle">
                             Rahul Das
@@ -60,7 +59,7 @@ const Hero = () => {
                                 <span className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200 text-white">
                                     {item[2]}
                                 </span>
-                                <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
+                                <span className="relative text-xs sm:text-sm lg:text-md w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
                                     {item[1]}
                                 </span>
                             </Link>

@@ -1,3 +1,4 @@
+import { BiSolidChevronRight } from 'react-icons/bi'
 import React from 'react'
 
 const Resume = () => {
@@ -7,7 +8,7 @@ const Resume = () => {
         ['2023-Present', 'BCA Degree', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, reprehenderit?'],
     ]
 
-    const skills = [
+    const tech = [
         ['HTML', '97%',],
         ['CSS', '85%',],
         ['JS', '90%',],
@@ -18,16 +19,20 @@ const Resume = () => {
         ['OOP', '70%',],
     ]
 
-    const language = [
-        ['English', '80%'],
-        ['Hindi', '70%'],
-        ['Bengali', '90%'],
+    const skills = [
+        'Backend Developer',
+        'Frontend Developer',
+        'Database',
+        'Server Management',
+        'Project Manager',
+        'Full Stack Developer',
+        'Cloud Management',
     ]
 
     return (
-        <section className='bg-white py-10 -mt-1 px-10 flex flex-col items-center gap-10' id='resume'>
+        <section className='bg-white p-5 sm:p-10 -mt-1 flex flex-col items-center gap-5 sm:gap-10' id='resume'>
             <h1 className='text-xl md:text-3xl font-semibold'>My Resume</h1>
-            <div className='flex justify-around gap-4 flex-col lg:flex-row'>
+            <div className='flex justify-around gap-4 flex-col lg:flex-row w-full'>
                 <div className='shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out rounded-lg p-10 flex flex-col w-full lg:w-1/3'>
                     <span className='text-md md:text-lg lg:text-xl font-extrabold mb-7 first-letter:underline first-letter:underline-offset-[20px] first-letter:decoration-primary'>
                         Education
@@ -50,33 +55,28 @@ const Resume = () => {
                         }
                     </div>
                 </div>
-                <div className='shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out rounded-lg p-10 flex flex-col flex-wrap gap-5 w-full lg:w-1/3'>
+                <div className='shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out rounded-lg p-10 flex flex-col gap-5 w-full lg:w-1/3'>
                     <span className='text-md md:text-lg lg:text-xl font-extrabold mb-7 first-letter:underline first-letter:underline-offset-[20px] first-letter:decoration-primary'>
                         Skills
                     </span>
-                    <div className='flex flex-wrap gap-5'>
+                    <ul className="divide-y divide-primary flex flex-col w-full">
                         {
                             skills.map((item, index) => {
-                                return <div className='w-full' key={index}>
-                                    <div className="flex justify-between mb-1">
-                                        <span className="text-sm font-semibold">{item[0]}</span>
-                                        <span className="text-sm font-medium">{item[1]}</span>
-                                    </div>
-                                    <div className="w-full rounded-full h-2.5">
-                                        <div className="bg-primary h-1 rounded-full" style={{ "width": item[1] }}></div>
-                                    </div>
-                                </div>
+                                return <li className="py-2 first:pt-0 last:pb-0 flex items-center" key={index}>
+                                    <BiSolidChevronRight className='text-primary' />
+                                    <p className="text-sm lg:text-md font-semibold">{item}</p>
+                                </li>
                             })
                         }
-                    </div>
+                    </ul>
                 </div>
-                <div className='shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out rounded-lg p-10 flex flex-col flex-wrap gap-5 w-full lg:w-1/3'>
+                <div className='shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out rounded-lg p-10 flex flex-col gap-5 w-full lg:w-1/3'>
                     <span className='text-md md:text-lg lg:text-xl font-extrabold mb-7 first-letter:underline first-letter:underline-offset-[20px] first-letter:decoration-primary'>
-                        Language
+                        Technologies
                     </span>
                     <div className='flex flex-wrap gap-5'>
                         {
-                            language.map((item, index) => {
+                            tech.map((item, index) => {
                                 return <div className='w-full' key={index}>
                                     <div className="flex justify-between mb-1">
                                         <span className="text-sm font-semibold">{item[0]}</span>

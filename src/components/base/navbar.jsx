@@ -1,8 +1,7 @@
 "use client"
-import { BiHome, BiUser, BiFile, BiServer, BiIdCard, BiBookOpen, BiGitBranch, BiEnvelope, BiMenu } from "react-icons/bi";
+import { BiHome, BiUser, BiFile, BiServer, BiIdCard, BiBookOpen, BiGitBranch, BiEnvelope, BiMenu, BiRupee } from "react-icons/bi";
 import React from 'react'
 import Link from "next/link";
-import '../../../public/css/navicons.css'
 
 const Navbar = () => {
     const [menu, setmenu] = React.useState(false)
@@ -12,20 +11,21 @@ const Navbar = () => {
         ['/#about', <BiUser key={1} />, 'About'],
         ['/#resume', <BiFile key={1} />, 'Resume'],
         ['/#services', <BiServer key={1} />, 'Services'],
-        ['/', <BiIdCard key={1} />, 'Portfolio'],
-        ['/', <BiBookOpen key={1} />, 'Blogs'],
-        ['/', <BiGitBranch key={1} />, 'Repositories'],
+        ['/#pricing', <BiRupee key={1} />, 'Pricing'],
+        ['/#portfolio', <BiIdCard key={1} />, 'Portfolio'],
+        ['/#repositiories', <BiGitBranch key={1} />, 'Repositories'],
+        ['/#blogs', <BiBookOpen key={1} />, 'Blogs'],
         ['/#contact', <BiEnvelope key={1} />, 'Contact'],
     ]
 
     return (
         <>
-            <nav className="bg-white hidden lg:block sticky top-0 py-3 shadow-2xl z-10">
+            <nav className="bg-white hidden lg:block sticky top-0 py-3 shadow-2xl z-20">
                 <ul className="flex justify-around items-center">
                     {
                         links.map((item, index) => {
                             return <Link href={item[0]} key={index}>
-                                <li className="btn flex gap-1 items-center justify-center">
+                                <li className="nav-button flex gap-1 items-center justify-center">
                                     <span className="text-md">
                                         {item[1]}
                                     </span>
@@ -39,20 +39,17 @@ const Navbar = () => {
                 </ul>
             </nav>
 
-            <nav className="bg-white text-primary flex justify-end mx-auto lg:hidden sticky top-0 px-5 py-4">
+            <nav className="bg-white text-primary flex justify-end mx-auto lg:hidden sticky top-0 px-5 py-4 shadow-2xl z-20">
                 <button className="flex items-center justify-center text-2xl" onClick={() => setmenu((pre) => !pre)}>
                     <BiMenu />
                 </button>
             </nav>
-            <div className={`${menu ? 'sticky' : 'hidden'} lg:hidden w-full sticky top-12 border`}>
-                <ul className="flex flex-col bg-white">
+            <div className={`${menu ? 'sticky' : 'hidden'} lg:hidden w-full sticky top-12 border -mb-1 bg-white z-20`}>
+                <ul className="flex flex-col">
                     {
                         links.map((item, index) => {
-                            return <Link href={item[0]} key={index} onClick={(e) => {
-                                e.preventDefault()
-                                setmenu(false)
-                            }}>
-                                <li className="btn flex gap-1 items-center">
+                            return <Link href={item[0]} key={index} onClick={(e) => { setmenu(false) }}>
+                                <li className="nav-button flex gap-1 items-center">
                                     <span className="text-lg">
                                         {item[1]}
                                     </span>

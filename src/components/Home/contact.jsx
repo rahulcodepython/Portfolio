@@ -1,6 +1,5 @@
 "use client"
 import { BiMap, BiEnvelope, BiPhoneCall } from 'react-icons/bi'
-import '../../../public/css/sendbutton.css'
 import React from 'react'
 
 const Contact = () => {
@@ -13,10 +12,10 @@ const Contact = () => {
         [<BiPhoneCall key={1} />, 'Call', 'Lorem ipsum dolor sit amet.'],
     ]
     return (
-        <section className='bg-white py-10 px-10 flex flex-col items-center gap-10' id='contact'>
+        <section className='bg-white p-5 sm:p-10 flex flex-col items-center gap-5 sm:gap-10' id='contact'>
             <h1 className='text-xl md:text-3xl font-semibold'>Contact Me</h1>
             <div className='flex flex-col lg:flex-row-reverse justify-between gap-10 lg:gap-5 w-full'>
-                <form onSubmit={(e) => handleForm(e)} className='flex flex-col gap-5 justify-center items-center px-10 w-full lg:w-2/3'>
+                <form onSubmit={(e) => handleForm(e)} className='flex flex-col gap-5 justify-center items-center px-0 lg:px-10 w-full lg:w-2/3'>
                     <div className='flex gap-4 items-center justify-center w-full'>
                         <input type='text' name='name' placeholder='Your Name' className='focus:outline-primary focus:ring-0 border border-slate-300 rounded-sm h-10 py-1 px-3 text-sm placeholder:text-primary placeholder:text-sm w-1/2' />
                         <input type='email' name='email' placeholder='@gmail.com' className='focus:outline-primary focus:ring-0 border border-slate-300 rounded-sm  h-10 py-1 px-3 text-sm placeholder:text-primary placeholder:text-sm w-1/2' />
