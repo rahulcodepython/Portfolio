@@ -3,9 +3,9 @@ import React from 'react'
 
 const Facts = () => {
     const facts = [
-        [<BiNews />, 520, 'Projects'],
-        [<BiTimeFive />, 520, 'Year Of Experience'],
-        [<BiSupport />, '24x7', 'Support'],
+        [<BiNews key={1} />, 520, 'Projects'],
+        [<BiTimeFive key={1} />, 520, 'Year Of Experience'],
+        [<BiSupport key={1} />, '24x7', 'Support'],
     ]
     return (
         <section className='backdrop-brightness-75 py-10 -mt-1 px-10 flex flex-col items-center gap-10'>
