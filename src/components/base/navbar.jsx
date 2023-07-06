@@ -14,7 +14,7 @@ const Navbar = () => {
         ['#pricing', <BiRupee key={1} />, 'Pricing'],
         ['#portfolio', <BiIdCard key={1} />, 'Portfolio'],
         ['#repositiories', <BiGitBranch key={1} />, 'Repositories'],
-        ['#blogs', <BiBookOpen key={1} />, 'Blogs'],
+        ['/blogs', <BiBookOpen key={1} />, 'Blogs'],
         ['#contact', <BiEnvelope key={1} />, 'Contact'],
     ]
 
