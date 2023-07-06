@@ -24,7 +24,7 @@ const Navbar = () => {
                 <ul className="flex justify-around items-center">
                     {
                         links.map((item, index) => {
-                            return <a href={item[0]} key={index} prefetch={false} scroll={false}>
+                            return <Link href={item[0]} key={index} prefetch={false} scroll={false}>
                                 <li className="nav-button flex gap-1 items-center justify-center">
                                     <span className="text-md">
                                         {item[1]}
@@ -33,7 +33,7 @@ const Navbar = () => {
                                         {item[2]}
                                     </span>
                                 </li>
-                            </a>
+                            </Link>
                         })
                     }
                     <Link href='/blogs' prefetch={false}>
