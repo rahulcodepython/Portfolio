@@ -14,7 +14,7 @@ const Navbar = () => {
         ['#pricing', <BiRupee key={1} />, 'Pricing'],
         ['#portfolio', <BiIdCard key={1} />, 'Portfolio'],
         ['#repositiories', <BiGitBranch key={1} />, 'Repositories'],
-        ['/blogs', <BiBookOpen key={1} />, 'Blogs'],
+        // ['/blogs', <BiBookOpen key={1} />, 'Blogs'],
         ['#contact', <BiEnvelope key={1} />, 'Contact'],
     ]
 
@@ -36,6 +36,16 @@ const Navbar = () => {
                             </a>
                         })
                     }
+                    <Link href='/blogs' prefetch={false}>
+                        <li className="nav-button flex gap-1 items-center justify-center">
+                            <span className="text-md">
+                                <BiBookOpen />
+                            </span>
+                            <span className="font-semibold text-[0.8rem]">
+                                Blogs
+                            </span>
+                        </li>
+                    </Link>
                 </ul>
             </nav>
 
