@@ -7,15 +7,15 @@ const Navbar = () => {
     const [menu, setmenu] = React.useState(false)
 
     const links = [
-        ['/#hero', <BiHome key={1} />, 'Home'],
-        ['/#about', <BiUser key={1} />, 'About'],
-        ['/#resume', <BiFile key={1} />, 'Resume'],
-        ['/#services', <BiServer key={1} />, 'Services'],
-        ['/#pricing', <BiRupee key={1} />, 'Pricing'],
-        ['/#portfolio', <BiIdCard key={1} />, 'Portfolio'],
-        ['/#repositiories', <BiGitBranch key={1} />, 'Repositories'],
-        ['/#blogs', <BiBookOpen key={1} />, 'Blogs'],
-        ['/#contact', <BiEnvelope key={1} />, 'Contact'],
+        ['#hero', <BiHome key={1} />, 'Home'],
+        ['#about', <BiUser key={1} />, 'About'],
+        ['#resume', <BiFile key={1} />, 'Resume'],
+        ['#services', <BiServer key={1} />, 'Services'],
+        ['#pricing', <BiRupee key={1} />, 'Pricing'],
+        ['#portfolio', <BiIdCard key={1} />, 'Portfolio'],
+        ['#repositiories', <BiGitBranch key={1} />, 'Repositories'],
+        ['#blogs', <BiBookOpen key={1} />, 'Blogs'],
+        ['#contact', <BiEnvelope key={1} />, 'Contact'],
     ]
 
     return (
@@ -24,7 +24,7 @@ const Navbar = () => {
                 <ul className="flex justify-around items-center">
                     {
                         links.map((item, index) => {
-                            return <Link href={item[0]} key={index} prefetch={false}>
+                            return <Link href={item[0]} key={index} prefetch={false} scroll={false}>
                                 <li className="nav-button flex gap-1 items-center justify-center">
                                     <span className="text-md">
                                         {item[1]}
@@ -48,7 +48,7 @@ const Navbar = () => {
                 <ul className="flex flex-col">
                     {
                         links.map((item, index) => {
-                            return <Link href={item[0]} key={index} onClick={(e) => { setmenu(false) }} prefetch={false}>
+                            return <Link href={item[0]} key={index} onClick={(e) => { setmenu(false) }} prefetch={false} scroll={false}>
                                 <li className="nav-button flex gap-1 items-center">
                                     <span className="text-lg">
                                         {item[1]}
