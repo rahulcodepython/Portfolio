@@ -1,4 +1,4 @@
-import ScrollToTop from '@/components/base/scrollToTop'
+import ScrollToTop from '@/components/client/scrollToTop'
 import React from 'react'
 import './globals.css'
 
@@ -10,6 +10,7 @@ export const metadata = {
 const RootLayout = ({ children }) => {
     return (
         <html lang="en" className='scroll-smooth'>
+            <link rel="icon" href="/favicon.ico" sizes="any" />
             <body className="h-screen bg-[url('/image/background.png')] bg-cover bg-fixed">
                 {children}
                 <ScrollToTop />

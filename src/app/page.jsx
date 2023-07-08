@@ -1,20 +1,18 @@
-import SocialIcons from '@/components/Home/socialicons'
+import SocialIcons from '@/components/server/socialicons'
 import Navbar from '@/components/base/navbar'
-import Hero from '@/components/Home/hero'
+import Hero from '@/components/server/hero'
 import React from 'react'
-import About from '@/components/Home/about'
-import Resume from '@/components/Home/resume'
-import Services from '@/components/Home/services'
-import Pricing from '@/components/Home/pricing'
-import Freelancing from '@/components/Home/freelancing'
-import Repositories from '@/components/Home/repositories'
-import Contact from '@/components/Home/contact'
+import About from '@/components/server/about'
+import Resume from '@/components/server/resume'
+import Services from '@/components/server/services'
+import Freelancing from '@/components/server/freelancing'
+import Repositories from '@/components/server/repositories'
+import Contact from '@/components/server/contact'
 import Footer from '@/components/base/footer'
-import Facts from '@/components/Home/facts'
-import Portfolio from '@/components/Home/portfolio'
-import Blogs from '@/components/Home/blogs'
+import Facts from '@/components/server/facts'
+import Portfolio from '@/components/server/portfolio'
 
-const Home = () => {
+const Page = () => {
     return (
         <main>
             <SocialIcons />
@@ -24,15 +22,13 @@ const Home = () => {
             <Resume />
             <Services />
             <Facts />
-            <Pricing />
             <Portfolio />
             <Freelancing />
             <Repositories />
-            <Blogs />
             <Contact />
             <Footer />
         </main>
     )
 }
 
-export default Home
+export default Page

@@ -1,5 +1,5 @@
 "use client"
-import { BiHome, BiUser, BiFile, BiServer, BiIdCard, BiBookOpen, BiGitBranch, BiEnvelope, BiMenu, BiRupee } from "react-icons/bi";
+import { BiHome, BiUser, BiFile, BiServer, BiIdCard, BiBookOpen, BiGitBranch, BiEnvelope, BiMenu } from "react-icons/bi";
 import React from 'react'
 import Link from "next/link";
 
@@ -7,15 +7,13 @@ const Navbar = () => {
     const [menu, setmenu] = React.useState(false)
 
     const links = [
-        ['#hero', <BiHome key={1} />, 'Home'],
-        ['#about', <BiUser key={1} />, 'About'],
-        ['#resume', <BiFile key={1} />, 'Resume'],
-        ['#services', <BiServer key={1} />, 'Services'],
-        ['#pricing', <BiRupee key={1} />, 'Pricing'],
-        ['#portfolio', <BiIdCard key={1} />, 'Portfolio'],
-        ['#repositiories', <BiGitBranch key={1} />, 'Repositories'],
-        // ['/blogs', <BiBookOpen key={1} />, 'Blogs'],
-        ['#contact', <BiEnvelope key={1} />, 'Contact'],
+        ['/#hero', <BiHome key={1} />, 'Home'],
+        ['/#about', <BiUser key={1} />, 'About'],
+        ['/#resume', <BiFile key={1} />, 'Resume'],
+        ['/#services', <BiServer key={1} />, 'Services'],
+        ['/#portfolio', <BiIdCard key={1} />, 'Portfolio'],
+        ['/#repositiories', <BiGitBranch key={1} />, 'Repositories'],
+        ['/#contact', <BiEnvelope key={1} />, 'Contact'],
     ]
 
     return (
@@ -36,16 +34,6 @@ const Navbar = () => {
                             </Link>
                         })
                     }
-                    <Link href='/blogs' prefetch={false}>
-                        <li className="nav-button flex gap-1 items-center justify-center">
-                            <span className="text-md">
-                                <BiBookOpen />
-                            </span>
-                            <span className="font-semibold text-[0.8rem]">
-                                Blogs
-                            </span>
-                        </li>
-                    </Link>
                 </ul>
             </nav>
 
@@ -58,7 +46,7 @@ const Navbar = () => {
                 <ul className="flex flex-col">
                     {
                         links.map((item, index) => {
-                            return <a href={item[0]} key={index} onClick={(e) => { setmenu(false) }} prefetch={false} scroll={false}>
+                            return <Link href={item[0]} key={index} onClick={(e) => { setmenu(false) }} prefetch={false} scroll={false}>
                                 <li className="nav-button flex gap-1 items-center">
                                     <span className="text-lg">
                                         {item[1]}
@@ -67,7 +55,7 @@ const Navbar = () => {
                                         {item[2]}
                                     </span>
                                 </li>
-                            </a>
+                            </Link>
                         })
                     }
                 </ul>

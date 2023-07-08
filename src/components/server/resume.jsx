@@ -1,34 +1,8 @@
 import { BiSolidChevronRight } from 'react-icons/bi'
+import data from '../../../data/data'
 import React from 'react'
 
 const Resume = () => {
-    const education = [
-        ['2015-2021', 'Secondary School', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, reprehenderit?'],
-        ['2021-2023', 'Higher Secondary School', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, reprehenderit?'],
-        ['2023-Present', 'BCA Degree', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, reprehenderit?'],
-    ]
-
-    const tech = [
-        ['HTML', '97%',],
-        ['CSS', '85%',],
-        ['JS', '90%',],
-        ['Python', '95%',],
-        ['Django', '90%',],
-        ['React JS', '93%',],
-        ['Next JS', '88%',],
-        ['OOP', '70%',],
-    ]
-
-    const skills = [
-        'Backend Developer',
-        'Frontend Developer',
-        'Database',
-        'Server Management',
-        'Project Manager',
-        'Full Stack Developer',
-        'Cloud Management',
-    ]
-
     return (
         <section className='bg-white p-5 sm:p-10 -mt-1 flex flex-col items-center gap-5 sm:gap-10' id='resume'>
             <h1 className='text-xl md:text-3xl font-semibold'>My Resume</h1>
@@ -39,7 +13,7 @@ const Resume = () => {
                     </span>
                     <div className='flex flex-col gap-5 divide-y pt-2'>
                         {
-                            education.map((item, index) => {
+                            data.resume.education.map((item, index) => {
                                 return <div className='first:pt-0 pt-4' key={index}>
                                     <div className='text-primary font-bold text-md md:text-lg lg:text-xl'>
                                         {item[0]}
@@ -61,7 +35,7 @@ const Resume = () => {
                     </span>
                     <ul className="divide-y divide-primary flex flex-col w-full">
                         {
-                            skills.map((item, index) => {
+                            data.resume.skills.map((item, index) => {
                                 return <li className="py-2 first:pt-0 last:pb-0 flex items-center" key={index}>
                                     <BiSolidChevronRight className='text-primary' />
                                     <p className="text-sm lg:text-md font-semibold">{item}</p>
@@ -76,7 +50,7 @@ const Resume = () => {
                     </span>
                     <div className='flex flex-wrap gap-5'>
                         {
-                            tech.map((item, index) => {
+                            data.resume.tech.map((item, index) => {
                                 return <div className='w-full' key={index}>
                                     <div className="flex justify-between mb-1">
                                         <span className="text-sm font-semibold">{item[0]}</span>
