@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { BiLogoReact, BiCloudUpload, BiData, BiLogoDjango, BiLogoNodejs, BiEdit, BiNews, BiSupport, BiTimeFive, BiMap, BiEnvelope, BiPhoneCall, BiLogoFacebook, BiLogoInstagramAlt, BiLogoLinkedin, BiLogoGithub, BiLogoTwitter, BiLogoDiscordAlt } from 'react-icons/bi'
 
 const data = {
@@ -90,43 +91,31 @@ const data = {
             <BiLogoReact />,
             'Landing Page',
             "As a skilled web developer, I'll craft stunning, responsive, SEO-friendly, and interactive landing pages that showcase your business with professionalism and creativity",
-            'text-sky-500',
-            'group-hover/item:bg-sky-500'
         ],
         [
             <BiLogoNodejs />,
             'Multipage Website',
             'I specialize in crafting multipage, responsive, SEO-friendly, beautiful, professional, creative, and interactive frontend websites for businesses.',
-            'text-pink-500',
-            'group-hover/item:bg-pink-500'
         ],
         [
             <BiLogoDjango />,
             'Full Stack Website',
             "I specialize in crafting custom full-stack websites tailored to your specific requirements, ensuring seamless database functionality, robust security measures, and the ability to customize it to your exact preferences for flawless performance.",
-            'text-green-500',
-            'group-hover/item:bg-green-500'
         ],
         [
             <BiData />,
             'API Development',
             'I provide secure, custom, and flexible APIs to enhance your frontend capabilities and streamline data communication for seamless integration and optimal performance.',
-            'text-fuchsia-500',
-            'group-hover/item:bg-fuchsia-500'
         ],
         [
             <BiEdit />,
             'Update and Maintenance',
             'I guarantee extended support for a year or more, maintaining and updating your site as per contract, ensuring it aligns with your evolving requirements and goals.',
-            'text-orange-500',
-            'group-hover/item:bg-orange-500'
         ],
         [
             <BiCloudUpload />,
             'Deployment',
             'I offer seamless deployment of websites, be it frontend or backend, on any server, ensuring flawless performance and maximum security for your site.',
-            'text-yellow-500',
-            'group-hover/item:bg-yellow-500'
         ],
     ],
     facts: [
@@ -185,12 +174,10 @@ const data = {
         [<BiPhoneCall />, 'Call', 'Lorem ipsum dolor sit amet.'],
     ],
     socialicons: [
-        [<BiLogoFacebook className='hover:text-blue-500 transition-colors ease-in-out duration-100' />, 'https://www.facebook.com/rahul2004das/'],
-        [<BiLogoInstagramAlt className='hover:text-pink-500 transition-colors ease-in-out duration-100' />, 'https://www.instagram.com/rahul_2004_das/'],
-        // [<BiLogoLinkedin className='hover:text-blue-500 transition-colors ease-in-out duration-100' />, ''],
-        [<BiLogoGithub className='hover:text-black transition-colors ease-in-out duration-100' />, 'https://github.com/rahulcodepython'],
-        [<BiLogoTwitter className='hover:text-sky-400 transition-colors ease-in-out duration-100' />, 'https://twitter.com/rd21102004'],
-        // [<BiLogoDiscordAlt className='hover:text-indigo-500 transition-colors ease-in-out duration-100' />, ''],
+        [<Image src={'/image/facebook.png'} width={27} height={27} />, 'https://www.facebook.com/rahul2004das/'],
+        [<Image src={'/image/instagram.png'} width={27} height={27} />, 'https://www.instagram.com/rahul_2004_das/'],
+        [<Image src={'/image/github.png'} width={27} height={27} />, 'https://github.com/rahulcodepython'],
+        [<Image src={'/image/twitter.png'} width={27} height={27} />, 'https://twitter.com/rd21102004'],
     ]
 }
 
