@@ -1,4 +1,4 @@
-import ScrollToTop from '@/components/client/scrollToTop'
+import ScrollToTop from '@/app/components/client/scrollToTop'
 import React from 'react'
 import './globals.css'
 
