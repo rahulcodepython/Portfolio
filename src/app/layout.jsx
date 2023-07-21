@@ -1,3 +1,4 @@
+import Notification from '@/app/components/server/notification'
 import ScrollToTop from '@/app/components/client/scrollToTop'
 import React from 'react'
 import './globals.css'
@@ -12,6 +13,7 @@ const RootLayout = ({ children }) => {
         <html lang="en" className='scroll-smooth'>
             <link rel="icon" href="/favicon.ico" sizes="any" />
             <body className="h-screen bg-[url('/image/background.png')] bg-cover bg-fixed">
+                <Notification />
                 {children}
                 <ScrollToTop />
             </body>

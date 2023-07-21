@@ -144,3 +144,8 @@ body {
         transform: translateY(-0.1em);
     }
 }
+
+/* Toastify Message */
+.toast-message {
+    z-index: 30;
+}
