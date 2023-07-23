@@ -145,9 +145,9 @@ const data = {
             check: [
                 "Only One Project",
                 "Personal Attendent",
-                "With hosting"
             ],
             uncheck: [
+                "With hosting",
                 "Source Code",
                 "Maintainence",
                 "Backend"
@@ -159,13 +159,13 @@ const data = {
             price: "50",
             pack: "/month",
             check: [
-                "Unlimited projects",
+                "Only One projects",
                 "Personal Attendent",
-                "With hosting"
+                "With hosting",
+                "Maintainence",
             ],
             uncheck: [
                 "Source Code",
-                "Maintainence",
                 "Backend"
             ]
         },
@@ -175,9 +175,11 @@ const data = {
             price: "70",
             pack: "/month",
             check: [
-                "Unlimited projects",
+                "Only One projects",
                 "Personal Attendent",
-                "With hosting"
+                "With hosting",
+                "Source Code",
+                "Backend"
             ],
         },
     ],
