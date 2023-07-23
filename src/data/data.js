@@ -98,31 +98,37 @@ const data = {
             <BiLogoReact key={1} />,
             'Landing Page',
             "As a skilled web developer, I'll craft stunning, responsive, SEO-friendly, and interactive landing pages that showcase your business with professionalism and creativity",
+            'sky'
         ],
         [
             <BiLogoNodejs key={1} />,
             'Multipage Website',
             'I specialize in crafting multipage, responsive, SEO-friendly, beautiful, professional, creative, and interactive frontend websites for businesses.',
+            'orange'
         ],
         [
             <BiLogoDjango key={1} />,
             'Full Stack Website',
             "I specialize in crafting custom full-stack websites tailored to your specific requirements, ensuring seamless database functionality, robust security measures, and the ability to customize it to your exact preferences for flawless performance.",
+            'pink'
         ],
         [
             <BiData key={1} />,
             'API Development',
             'I provide secure, custom, and flexible APIs to enhance your frontend capabilities and streamline data communication for seamless integration and optimal performance.',
+            'lime'
         ],
         [
             <BiEdit key={1} />,
             'Update and Maintenance',
             'I guarantee extended support for a year or more, maintaining and updating your site as per contract, ensuring it aligns with your evolving requirements and goals.',
+            'yellow'
         ],
         [
             <BiCloudUpload key={1} />,
             'Deployment',
             'I offer seamless deployment of websites, be it frontend or backend, on any server, ensuring flawless performance and maximum security for your site.',
+            'purple'
         ],
     ],
     facts: [
@@ -185,7 +191,146 @@ const data = {
         [<Image src={'/image/instagram.png'} width={27} height={27} alt='icon' key={1} />, 'https://www.instagram.com/rahul_2004_das/'],
         [<Image src={'/image/github.png'} width={27} height={27} alt='icon' key={1} />, 'https://github.com/rahulcodepython'],
         [<Image src={'/image/twitter.png'} width={27} height={27} alt='icon' key={1} />, 'https://twitter.com/rd21102004'],
-    ]
+    ],
+    repositories: [
+        [
+            'Backend',
+            'Jul 1, 2022',
+            'Edutech Django Website: Advanced Education Website in Django',
+            'Our advanced education website, built using the Django framework, offers a seamless learning experience with interactive courses, personalized progress tracking, and collaborative features. Empowering learners with a modern and intuitive platform to excel in their educational pursuits.',
+            'https://github.com/rahulcodepython/Educational-Website'
+        ],
+        [
+            'Frontend',
+            'May 9, 2022',
+            'ReactNewsApp: Dynamic News Website with ReactJS',
+            '"ReactNewsApp is a dynamic and user-friendly news website built with ReactJS. Stay updated with the latest headlines, breaking news, and personalized content. Enjoy a smooth and responsive interface, intuitive navigation, and customizable preferences to curate your newsfeed. Explore a world of information at your fingertips.',
+            'https://github.com/rahulcodepython/News-App'
+        ],
+        [
+            'Backend',
+            'Jun 17, 2023',
+            'Djoser-Powered Django Auth: Simple & Secure User Management',
+            'Django Authentication website using Djoser: Seamlessly implement user authentication and registration functionalities with Djoser package. Streamline user management, password reset, and token-based authentication for your Django web application.',
+            'https://github.com/rahulcodepython/Auth-Djoser-Google'
+        ],
+        [
+            'Backend',
+            'May 6, 2023',
+            'Django ASGI Chat: Real-time Communication Made Easy with Asynchronous Server Gateway Interface',
+            'A real-time chat application built with Django ASGI, offering seamless and efficient communication, supporting multiple users, and delivering instant messaging capabilities in a modern and scalable environment.',
+            'https://github.com/rahulcodepython/Chat-App'
+        ],
+        [
+            'Backend',
+            'Jun 19, 2023',
+            'Seamless Django Payment Gateway Integration: Empowering Transactions with Razorpay',
+            'The Payment Gateway project in Django with Razorpay integration enables seamless online payment processing, securely handling transactions for businesses.',
+            'https://github.com/rahulcodepython/Razor-Pay-Django'
+        ],
+        [
+            'Frontend',
+            'Jun 21, 2023',
+            'Payment Gateway Integration in Next.js with Razorpay',
+            'A Next.js Payment Gateway project integrating Razorpay for seamless online transactions. Enables secure and efficient payment processing within a Next.js web application.',
+            'https://github.com/rahulcodepython/Razor-Pay-Next-Js'
+        ],
+        [
+            'Frontend',
+            'May 7, 2022',
+            'React.js project for text manipulation and analysis.',
+            'Text Utils is a React.js application that lets you modify text in various ways. It includes features like converting text to uppercase or lowercase, removing extra spaces, and more.',
+            'https://github.com/rahulcodepython/TextUtils'
+        ],
+        [
+            'Backend',
+            'Apr 23, 2022',
+            "Django Diary: Empowering Your Blogging Journey.",
+            'A Django blog project designed to provide a user-friendly platform for creating, publishing, and managing blog posts. It includes features like user authentication, post commenting, and categorization to ensure an engaging and organized blogging experience.',
+            'https://github.com/rahulcodepython/Blog-Website'
+        ],
+        [
+            'Backend',
+            'Mar 9, 2022',
+            "DjangoExam: Seamless Testing Platform for Academic Success",
+            'The Exam Portal project in Django is a web application that facilitates online exams. It allows users to create and take exams, providing features for question management, real-time exam timer, and result tracking.',
+            'https://github.com/rahulcodepython/Exam-Portal'
+        ],
+        [
+            'Backend',
+            'Jul 23, 2023',
+            "Django & Django Rest Framework: Building a Powerful Backend for Your Blog Project",
+            'The blog project backend in Django and Django Rest Framework is a powerful and efficient web application that handles data storage, authentication, and provides RESTful API endpoints, enabling seamless communication between the front-end and back-end, creating a dynamic and interactive blogging experience.',
+            'https://github.com/rahulcodepython/FullStack-Blog-Backend'
+        ],
+        [
+            'Frontend',
+            'Jul 23, 2023',
+            "Building a Next.js Backend: Powering Your Blog Project with Efficiency and Flexibility",
+            'Next.js backend for a blog project, handling data storage, retrieval, and APIs. Utilizing server-side rendering and API routes, enabling efficient and dynamic content rendering while ensuring seamless user experience.',
+            'https://github.com/rahulcodepython/FullStack-Blog-Frontend'
+        ],
+    ],
+    projects: {
+        tabs: [
+            ['All Project', 'all'],
+            ['Frontend', 'frontend'],
+            ['Backend', 'backend'],
+            ['Full Stack', 'full stack'],
+        ],
+        projects: [
+            {
+                image: "/image/projects/Django-Blog.png",
+                category: "Backend",
+                title: "Blog Project",
+            },
+            {
+                image: "/image/projects/Full-Stack-Blog-Project.png",
+                category: "Full Stack",
+                title: "Full Stack Blog Project",
+            },
+            {
+                image: "/image/projects/Textutils.png",
+                category: "Frontend",
+                title: "Textutils",
+            },
+            // {
+            //     image: "/image/background.png",
+            //     category: "Full Stack",
+            //     title: "Grass Grosp",
+            // },
+            {
+                image: "/image/projects/Razor-Pay.png",
+                category: "Full Stack",
+                title: "Razor Pay Demo",
+            },
+            {
+                image: "/image/projects/Django-Authentication.png",
+                category: "Backend",
+                title: "Django Authentication",
+            },
+            {
+                image: "/image/projects/Educational-Website.png",
+                category: "Backend",
+                title: "Educational Website",
+            },
+            {
+                image: "/image/projects/Exam-Portal.png",
+                category: "Backend",
+                title: "Exam Portal",
+            },
+            {
+                image: "/image/projects/News-App.png",
+                category: "Frontend",
+                title: "News App",
+            },
+            {
+                image: "/image/projects/Chat-App.png",
+                category: "Backend",
+                title: "Chat App",
+            },
+        ]
+    }
 }
 
 export default data
