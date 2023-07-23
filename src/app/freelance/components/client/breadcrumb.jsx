@@ -36,7 +36,7 @@ const Breadcrumb = () => {
             {
                 link ? link.map((item, index) => {
                     return <li key={index}>
-                        <Link href={item[1]} className="flex items-center">
+                        <Link href={item[1]} className="flex items-center" replace>
                             <BiSolidChevronRight />
                             <span className={`text-xs sm:text-sm font-semibold ${item[1] === '#' ? 'cursor-default' : 'hover:text-primary'}`}>
                                 {item[0]}
