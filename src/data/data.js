@@ -201,53 +201,6 @@ const data = {
             ['Backend', 'backend'],
             ['Full Stack', 'full stack'],
         ],
-        projects: [
-            {
-                image: "/image/projects/Django-Blog.png",
-                category: "Backend",
-                title: "Blog Project",
-            },
-            {
-                image: "/image/projects/Full-Stack-Blog-Project.png",
-                category: "Full Stack",
-                title: "Full Stack Blog Project",
-            },
-            {
-                image: "/image/projects/Textutils.png",
-                category: "Frontend",
-                title: "Textutils",
-            },
-            {
-                image: "/image/projects/Razor-Pay.png",
-                category: "Full Stack",
-                title: "Razor Pay Demo",
-            },
-            {
-                image: "/image/projects/Django-Authentication.png",
-                category: "Backend",
-                title: "Django Authentication",
-            },
-            {
-                image: "/image/projects/Educational-Website.png",
-                category: "Backend",
-                title: "Educational Website",
-            },
-            {
-                image: "/image/projects/Exam-Portal.png",
-                category: "Backend",
-                title: "Exam Portal",
-            },
-            {
-                image: "/image/projects/News-App.png",
-                category: "Frontend",
-                title: "News App",
-            },
-            {
-                image: "/image/projects/Chat-App.png",
-                category: "Backend",
-                title: "Chat App",
-            },
-        ]
     },
 }
 

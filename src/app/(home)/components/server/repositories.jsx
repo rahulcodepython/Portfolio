@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 const Repositories = async () => {
-    const response = await fetch(`${process.env.DOMAIN_NAME}api/repositories/`, { method: 'GET', cache: 'no-store' })
+    const response = await fetch(`${process.env.DOMAIN_NAME}api/repositories/`, { method: 'GET', cache: 'no-cache' })
     const repositories = await response.json()
     return (
         <section className="bg-white p-5 sm:p-10 flex flex-col items-center gap-5 sm:gap-10 -my-1" id='repositiories'>

@@ -6,7 +6,7 @@ import data from "@/data/data";
 const Portfolio = async () => {
     const [showCategory, setshowCategory] = React.useState("all")
 
-    const response = await fetch(`${process.env.DOMAIN_NAME}api/projects/`, { method: 'GET' })
+    const response = await fetch(`${process.env.DOMAIN_NAME}api/projects/`, { method: 'GET', cache: 'no-cache' })
     const projects = await response.json()
 
     return (
