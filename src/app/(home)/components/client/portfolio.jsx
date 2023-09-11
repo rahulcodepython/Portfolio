@@ -3,8 +3,11 @@ import Image from "next/image";
 import React from "react";
 import data from "@/data/data";
 
-const Portfolio = () => {
+const Portfolio = async () => {
     const [showCategory, setshowCategory] = React.useState("all")
+
+    const response = await fetch(`${process.env.DOMAIN_NAME}api/projects/`, { method: 'GET' })
+    const projects = await response.json()
 
     return (
         <section className='bg-white p-5 sm:p-10 flex flex-col items-center gap-5 sm:gap-10' id='portfolio'>
@@ -21,10 +24,10 @@ const Portfolio = () => {
                 </ul>
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
                     {
-                        data.projects.projects.map((item, index) => {
+                        projects.map((item, index) => {
                             return <div className={`w-full ${showCategory === "all" || showCategory === item.category.toLowerCase() ? "block" : "hidden"}`} key={index}>
-                                <Image src={item.image} alt="portfolio" className="w-[408px] h-[200px] rounded-md" width={408} height={200} />
-                                <div className="flex items-center flex-col gap-2 relative z-10 -mt-20 bg-white rounded-md shadow-lg mx-10 py-9">
+                                <Image src={item.image} alt="portfolio" className="mx-auto w-[408px] h-[200px] object-cover rounded-md" width={408} height={200} />
+                                <div className="flex items-center justify-center flex-col gap-2 -mt-20 rounded-md shadow-lg py-9 w-3/5 bg-white relative mx-auto">
                                     <span className="font-semibold text-primary">
                                         {item.category}
                                     </span>
