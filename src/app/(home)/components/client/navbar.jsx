@@ -11,7 +11,7 @@ const Navbar = () => {
         ['/#about', <BiUser key={1} />, 'About'],
         ['/#resume', <BiFile key={1} />, 'Resume'],
         ['/#services', <BiServer key={1} />, 'Services'],
-        ['/#portfolio', <BiIdCard key={1} />, 'Portfolio'],
+        ['/projects/allproject', <BiIdCard key={1} />, 'Portfolio'],
         ['/#repositiories', <BiGitBranch key={1} />, 'Repositories'],
         ['/#contact', <BiEnvelope key={1} />, 'Contact'],
     ]

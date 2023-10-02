@@ -193,10 +193,10 @@ const data = {
     ],
     projects: {
         tabs: [
-            ['All Project', 'all'],
+            ['All Project', 'allproject'],
             ['Frontend', 'frontend'],
             ['Backend', 'backend'],
-            ['Full Stack', 'full stack'],
+            ['Full Stack', 'fullstack'],
         ],
     },
 }
