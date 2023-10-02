@@ -3,8 +3,12 @@ import { Formik, Field, Form } from 'formik'
 import { toast } from 'react-toastify';
 import React from 'react'
 import axios from 'axios'
+import { usePathname } from 'next/navigation';
 
 const FormComponent = ({ type }) => {
+    const pathname = usePathname()
+    const [pricing, setPricing] = React.useState("")
+
     const postHandeler = (url, values, resetForm) => {
         const HandleTostify = new Promise((resolve, rejected) => {
             axios.post(url, values)
@@ -32,8 +36,23 @@ const FormComponent = ({ type }) => {
     }
 
     const FreelanceForm = async (values, resetForm) => {
-        postHandeler(`${process.env.DOMAIN_NAME}api/freelance`, values, resetForm)
+        const pricingObj = { "pricing": pricing }
+        postHandeler(`${process.env.DOMAIN_NAME}api/freelance`, { ...values, ...pricingObj }, resetForm)
     }
+
+    React.useEffect(() => {
+        setPricing(() => {
+            if (pathname === '/freelance/project/basic') {
+                return 'basic'
+            }
+            else if (pathname === '/freelance/project/intermediate') {
+                return 'intermediate'
+            }
+            else if (pathname === '/freelance/project/advance') {
+                return 'advance'
+            }
+        })
+    }, [pathname])
 
     return (
         <Formik initialValues={{
