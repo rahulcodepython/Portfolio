@@ -2,8 +2,9 @@ import React from 'react'
 import Link from 'next/link'
 
 const Repositories = async () => {
-    const response = await fetch(`${process.env.DOMAIN_NAME}api/repositories/`, { method: 'GET', cache: 'no-cache' })
+    const response = await fetch(`${process.env.DOMAIN_NAME}api/repositories/`)
     const repositories = await response.json()
+
     return (
         <section className="bg-white p-5 sm:p-10 flex flex-col items-center gap-5 sm:gap-10 -my-1" id='repositiories'>
             <h1 className='text-xl md:text-3xl font-semibold'>Repositories</h1>
@@ -16,10 +17,10 @@ const Repositories = async () => {
                                 <span className="mt-1 text-xs">{item.date}</span>
                             </div>
                             <div className="flex flex-col justify-center w-3/4 gap-2 px-0 lg:px-4">
-                                <h2 className="font-semibold text-lg text-primary">
+                                <h2 className="font-semibold text-lg text-primary text-justify">
                                     {item.title}
                                 </h2>
-                                <p className="text-sm">
+                                <p className="text-sm text-justify">
                                     {item.description}
                                 </p>
                             </div>

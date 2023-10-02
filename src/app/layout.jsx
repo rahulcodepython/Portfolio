@@ -5,7 +5,7 @@ import './globals.css'
 
 export const metadata = {
     title: 'Rahul Das | Home',
-    description: 'This is a personal portfolio website to describe Rahul Das.',
+    description: 'This is a personal portfolio website to describe me and also my experties and specialities even my services delivered by me.',
 }
 
 const RootLayout = ({ children }) => {

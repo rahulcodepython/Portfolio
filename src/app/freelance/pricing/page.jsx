@@ -1,4 +1,3 @@
-"use client"
 import Pricing from '@/app/freelance/components/server/pricing'
 import React from 'react'
 import data from '@/data/data'

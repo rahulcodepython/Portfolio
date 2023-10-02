@@ -1,98 +1,38 @@
 "use client"
-import { usePathname } from 'next/navigation'
 import { Formik, Field, Form } from 'formik'
 import { toast } from 'react-toastify';
 import React from 'react'
 import axios from 'axios'
 
 const FormComponent = ({ type }) => {
-    const pathname = usePathname()
-    const [pricing, setPricing] = React.useState("")
-
-    React.useEffect(() => {
-        setPricing(() => {
-            if (pathname === '/freelance/project/basic') {
-                return 'basic'
-            }
-            else if (pathname === '/freelance/project/intermediate') {
-                return 'intermediate'
-            }
-            else if (pathname === '/freelance/project/advance') {
-                return 'advance'
-            }
-        })
-    }, [pathname])
-
-    const showToast = (message, status) => {
-        if (status === 200) {
-            toast.success(message, {
-                position: toast.POSITION.TOP_RIGHT,
-                className: 'toast-message'
-            });
-        }
-        else {
-            toast.error(message, {
-                position: toast.POSITION.TOP_RIGHT,
-                className: 'toast-message'
-            });
-        }
-    };
-
-    const ContactForm = async (values, resetForm) => {
-        const body = JSON.stringify({
-            "name": `${values.name}`,
-            "email": `${values.email}`,
-            "subject": `${values.subject}`,
-            "message": `${values.message}`
+    const postHandeler = (url, values, resetForm) => {
+        const HandleTostify = new Promise((resolve, rejected) => {
+            axios.post(url, values)
+                .then((response) => {
+                    resetForm();
+                    resolve();
+                })
+                .catch((error) => {
+                    rejected();
+                });
         });
 
-        const options = {
-            url: `${process.env.DOMAIN_NAME}api/contact`,
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            data: body,
-        }
+        toast.promise(
+            HandleTostify,
+            {
+                pending: 'Your request is on process.',
+                success: 'Your request is submitted.',
+                error: 'There is some issue, Try again.'
+            }
+        )
+    }
 
-        const response = await axios.request(options);
-
-        if (response.status === 200) {
-            showToast(response.data.msg, response.status)
-            resetForm({ values: '' })
-        }
-        else {
-            showToast(response.data.msg, response.status)
-        }
+    const ContactForm = async (values, resetForm) => {
+        postHandeler(`${process.env.DOMAIN_NAME}api/contact`, values, resetForm)
     }
 
     const FreelanceForm = async (values, resetForm) => {
-        const body = JSON.stringify({
-            "name": `${values.name}`,
-            "email": `${values.email}`,
-            "pricing": `${pricing}`,
-            "subject": `${values.subject}`,
-            "message": `${values.message}`
-        });
-
-        const options = {
-            url: `${process.env.DOMAIN_NAME}api/freelance`,
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            data: body,
-        }
-
-        const response = await axios.request(options);
-
-        if (response.status === 200) {
-            showToast(response.data.msg, response.status)
-            resetForm({ values: '' })
-        }
-        else {
-            showToast(response.data.msg, response.status)
-        }
+        postHandeler(`${process.env.DOMAIN_NAME}api/freelance`, values, resetForm)
     }
 
     return (
@@ -105,7 +45,7 @@ const FormComponent = ({ type }) => {
             async (values, { resetForm }) => {
                 type === 'contactus' ? await ContactForm(values, resetForm) : type === 'freelance' ? await FreelanceForm(values, resetForm) : null
             }}>
-            <Form className='flex flex-col gap-5 justify-center items-center px-0 lg:px-10 w-full'>
+            <Form className='flex flex-col gap-5 justify-center items-center px-4 lg:px-10 w-full'>
                 <div className='flex gap-4 items-center justify-center w-full'>
                     <Field type='text' name='name' placeholder='Your Name' required className='focus:outline-primary focus:ring-0 border border-slate-300 rounded-sm h-10 py-1 px-3 text-sm placeholder:text-primary placeholder:text-sm w-1/2' />
                     <Field type='email' name='email' placeholder='@gmail.com' required className='focus:outline-primary focus:ring-0 border border-slate-300 rounded-sm h-10 py-1 px-3 text-sm placeholder:text-primary placeholder:text-sm w-1/2' />
