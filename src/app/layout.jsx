@@ -12,6 +12,7 @@ const RootLayout = ({ children }) => {
     return (
         <html lang="en" className='scroll-smooth'>
             <link rel="icon" href="/favicon.ico" sizes="any" />
+            <meta name='google-site-verification' content='r8h5jzR7gIadUgo08yu2g1rBugd24XFzS7Wa6P5tomw' />
             <body className="h-screen bg-[url('/image/background.png')] bg-cover bg-fixed">
                 <Notification />
                 {children}
