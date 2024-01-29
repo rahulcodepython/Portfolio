@@ -2,7 +2,7 @@
 import { BiUpArrowAlt } from '@/data/icons'
 import React from 'react'
 
-const ScrollToTop = () => {
+const ScrollUp = () => {
     const [visible, setVisible] = React.useState(false)
 
     const moveToTop = () => {
@@ -27,4 +27,4 @@ const ScrollToTop = () => {
 
 }
 
-export default ScrollToTop
+export default ScrollUp
