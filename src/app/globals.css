@@ -1,49 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:opsz@6..12&family=Sacramento&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'ubuntu';
-    box-sizing: border-box;
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 221.2 83.2% 53.3%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 221.2 83.2% 53.3%;
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 217.2 91.2% 59.8%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 224.3 76.3% 48%;
+    }
 }
 
-/* Hero Section Text */
-.hero-text svg text {
-    animation: stroke 10s infinite alternate;
-    stroke: #FFFFFF;
-    font-size: 50px;
+@layer base {
+    * {
+        @apply border-border;
+        margin: 0;
+        padding: 0;
+        font-family: 'Nunito Sans';
+        box-sizing: border-box;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
 }
 
-@keyframes stroke {
-    0% {
-        fill: rgba(255, 255, 255, 0);
-        stroke: rgba(255, 255, 255, 1);
-        stroke-dashoffset: 25%;
-        stroke-dasharray: 0 50%;
-        stroke-width: 2;
-    }
-
-    70% {
-        fill: rgba(255, 255, 255, 0);
-        stroke: rgba(255, 255, 255, 1);
-    }
-
-    80% {
-        fill: rgba(255, 255, 255, 0);
-        stroke: rgba(255, 255, 255, 1);
-        stroke-width: 3;
-    }
-
-    100% {
-        fill: rgba(255, 255, 255, 1);
-        stroke: rgba(255, 255, 255, 0);
-        stroke-dashoffset: -25%;
-        stroke-dasharray: 50% 0;
-        stroke-width: 0;
-    }
+::-webkit-scrollbar {
+    width: 0px;
 }
 
 /* Navbar Button */
@@ -92,60 +114,4 @@ body {
     height: 100%;
     transition-delay: 0.4s;
     color: aliceblue;
-}
-
-/* Send Button */
-.send-button {
-    background: #0886fc;
-    color: white;
-    display: flex;
-    align-items: center;
-    border: none;
-    border-radius: 16px;
-    overflow: hidden;
-    transition: all 0.2s;
-}
-
-.send-button span {
-    display: block;
-    font-weight: 600;
-    margin-left: 0.3em;
-    transition: all 0.3s ease-in-out;
-}
-
-.send-button svg {
-    display: block;
-    transform-origin: center center;
-    transition: transform 0.3s ease-in-out;
-}
-
-.send-button:hover .svg-wrapper {
-    animation: fly-1 0.6s ease-in-out infinite alternate;
-}
-
-.send-button:hover svg {
-    transform: translateX(1.2em) rotate(45deg) scale(1.1);
-}
-
-.send-button:hover span {
-    transform: translateX(7em);
-}
-
-.send-button:active {
-    transform: scale(0.95);
-}
-
-@keyframes fly-1 {
-    from {
-        transform: translateY(0.1em);
-    }
-
-    to {
-        transform: translateY(-0.1em);
-    }
-}
-
-/* Toastify Message */
-.toast-message {
-    z-index: 30;
 }

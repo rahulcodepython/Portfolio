@@ -1,5 +1,5 @@
 "use client"
-import { BiUpArrowAlt } from 'react-icons/bi'
+import { BiUpArrowAlt } from '@/data/icons'
 import React from 'react'
 
 const ScrollToTop = () => {

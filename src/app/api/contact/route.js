@@ -9,6 +9,6 @@ export async function POST(request) {
         await Contact.create({ name, email, subject, message })
         return NextResponse.json({ "msg": "Your record is accepted." })
     } catch (error) {
-        return NextResponse.json(error)
+        return NextResponse.json(error, { status: 500 })
     }
 }

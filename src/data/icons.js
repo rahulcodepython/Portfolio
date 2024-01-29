@@ -1,0 +1,3 @@
+import { BiMenu, BiLogoReact, BiCloudUpload, BiData, BiLogoDjango, BiLogoNodejs, BiEdit, BiNews, BiTimeFive, BiMap, BiEnvelope, BiPhoneCall, BiSolidPlusCircle, BiSolidCloudDownload, BiCodeAlt, BiHome, BiUser, BiFile, BiServer, BiGitBranch, BiSolidChevronRight, BiUpArrowAlt, BiIdCard } from "react-icons/bi";
+
+export { BiMenu, BiLogoReact, BiCloudUpload, BiData, BiLogoDjango, BiLogoNodejs, BiEdit, BiNews, BiTimeFive, BiMap, BiEnvelope, BiPhoneCall, BiSolidPlusCircle, BiSolidCloudDownload, BiCodeAlt, BiHome, BiUser, BiFile, BiServer, BiGitBranch, BiSolidChevronRight, BiUpArrowAlt, BiIdCard }
