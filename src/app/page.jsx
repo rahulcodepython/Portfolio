@@ -11,7 +11,7 @@ import Repositories from './components/server/Repositories'
 import Contact from './components/server/Contact'
 import Footer from './components/server/Footer'
 import Projects from './components/server/Projects'
-// import ScrollToTop from './components/client/ScrollToTop'
+import ScrollToTop from './components/client/ScrollToTop'
 
 const Home = () => {
     return (
@@ -28,7 +28,7 @@ const Home = () => {
             <Repositories />
             <Contact />
             <Footer />
-            {/* <ScrollToTop /> */}
+            <ScrollToTop />
         </main>
     )
 }
