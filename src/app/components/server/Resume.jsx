@@ -21,7 +21,7 @@ const Resume = () => {
                                     <div className='text-lg tracking-wider font-boldfont mb-4'>
                                         {item[1]}
                                     </div>
-                                    <div className='text-sm'>
+                                    <div className='text-sm text-justify'>
                                         {item[2]}
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@ const Resume = () => {
                                 return <div className='w-full' key={index}>
                                     <div className="flex justify-between mb-1">
                                         <span className="text-xs md:text-sm font-semibold">{item[0]}</span>
-                                        <span className="text-xs md:text-sm font-medium">{item[1]}</span>
+                                        {/* <span className="text-xs md:text-sm font-medium">{item[1]}</span> */}
                                     </div>
                                     <div className="w-full rounded-full h-2.5">
                                         <div className="bg-primary h-1 rounded-full" style={{ "width": item[1] }}></div>

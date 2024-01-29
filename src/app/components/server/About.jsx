@@ -10,7 +10,7 @@ const About = () => {
                 <div className='text-lg md:text-xl lg:text-2xl font-boldfont mb-10 first-letter:underline first-letter:underline-offset-[20px] first-letter:decoration-primary'>
                     Who am I ?
                 </div>
-                <div className='indent-4 text-sm font-medium'>
+                <div className='indent-4 text-sm font-medium text-justify'>
                     {Data.about.aboutMe}
                 </div>
             </div>

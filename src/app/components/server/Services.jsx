@@ -39,7 +39,7 @@ const Services = () => {
                             <div className={`text-lg tracking-wide md:text-xl font-boldfont mb-2 group-hover/item:text-${item[3]}-500`}>
                                 {item[1]}
                             </div>
-                            <div className='text-sm text-center'>
+                            <div className='text-sm px-4 text-justify'>
                                 {item[2]}
                             </div>
                         </div>
