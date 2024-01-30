@@ -179,6 +179,113 @@ const Data = {
             category: 'Backend',
             title: 'Chat App'
         }
+    ],
+    repositories: [
+        {
+            category: 'Backend',
+            date: 'Jul 1, 2022',
+            title: 'Educational Django Website: Advanced Education Website in Django',
+            description: 'Our advanced education website, built using the Django framework, offers a seamless learning experience with interactive courses, personalized progress tracking, and collaborative features. Empowering learners with a modern and intuitive platform to excel in their educational pursuits.',
+            link: 'https://github.com/rahulcodepython/Educational-Website'
+        },
+        {
+            category: 'Frontend',
+            date: 'May 9, 2022',
+            title: 'React News App: Dynamic News Website with ReactJS',
+            description: 'ReactNewsApp is a dynamic and user-friendly news website built with ReactJS. Stay updated with the latest headlines, breaking news, and personalized content. Enjoy a smooth and responsive interface, intuitive navigation, and customizable preferences to curate your newsfeed. Explore a world of information at your fingertips.',
+            link: 'https://github.com/rahulcodepython/News-App'
+        },
+        {
+            category: 'Backend',
+            date: 'Jun 17, 2023',
+            title: 'Djoser-Powered Django Auth: Simple & Secure User Management',
+            description: 'Django Authentication website using Djoser: Seamlessly implement user authentication and registration functionalities with Djoser package. Streamline user management, password reset, and token-based authentication for your Django web application.',
+            link: 'https://github.com/rahulcodepython/Auth-Djoser-Google'
+        },
+        {
+            category: 'Backend',
+            date: 'Apr 23, 2022',
+            title: 'Django Blogs: Empowering Your Blogging Journey.',
+            description: 'A Django blog project designed to provide a user-friendly platform for creating, publishing, and managing blog posts. It includes features like user authentication, post commenting, and categorization to ensure an engaging and organized blogging experience.',
+            link: 'https://github.com/rahulcodepython/Blog-Website'
+        },
+        {
+            category: 'Backend',
+            date: 'Mar 9, 2022',
+            title: 'DjangoExam: Seamless Testing Platform for Academic Success',
+            description: 'The Exam Portal project in Django is a web application that facilitates online exams. It allows users to create and take exams, providing features for question management, real-time exam timer, and result tracking.',
+            link: 'https://github.com/rahulcodepython/Exam-Portal'
+        },
+        {
+            category: 'Backend',
+            date: 'Jul 23, 2023',
+            title: 'Django & Django Rest Framework: Building a Powerful Backend for Your Blog Project',
+            description: 'The blog project backend in Django and Django Rest Framework is a powerful and efficient web application that handles data storage, authentication, and provides RESTful API endpoints, enabling seamless communication between the front-end and back-end, creating a dynamic and interactive blogging experience.',
+            link: 'https://github.com/rahulcodepython/FullStack-Blog-Backend'
+        },
+        {
+            category: 'Frontend',
+            date: 'Jul 23, 2023',
+            title: 'Building a Next.js Backend: Powering Your Blog Project with Efficiency and Flexibility',
+            description: 'Next.js backend for a blog project, handling data storage, retrieval, and APIs. Utilizing server-side rendering and API routes, enabling efficient and dynamic content rendering while ensuring seamless user experience.',
+            link: 'https://github.com/rahulcodepython/FullStack-Blog-Frontend'
+        },
+        {
+            category: 'Backend',
+            date: 'Jun 19, 2023',
+            title: 'Seamless Django Payment Gateway Integration: Empowering Transactions with Razorpay',
+            description: 'The Payment Gateway project in Django with Razorpay integration enables seamless online payment processing, securely handling transactions for businesses.',
+            link: 'https://github.com/rahulcodepython/Razor-Pay-Django'
+        },
+        {
+            category: 'Frontend',
+            date: 'Jun 21, 2023',
+            title: 'Payment Gateway Integration in Next.js with Razorpay',
+            description: 'A Next.js Payment Gateway project integrating Razorpay for seamless online transactions. Enables secure and efficient payment processing within a Next.js web application.',
+            link: 'https://github.com/rahulcodepython/Razor-Pay-Next-Js'
+        },
+        {
+            category: 'Backend',
+            date: 'May 6, 2023',
+            title: 'Django ASGI Chat: Real-time Communication Made Easy with Asynchronous Server Gateway Interface',
+            description: 'A real-time chat application built with Django ASGI, offering seamless and efficient communication, supporting multiple users, and delivering instant messaging capabilities in a modern and scalable environment.',
+            link: 'https://github.com/rahulcodepython/Chat-App'
+        },
+        {
+            category: 'Backend',
+            date: 'Sep 25, 2023',
+            title: 'Z-Tube Social Platform: Crafting an Dynamic Social Media Experience',
+            description: 'Dive into the world of Z-Tube, where Django and Django Rest Framework converge to construct a robust backend, empowering your social media journey with seamless interactions and engaging content.',
+            link: 'https://github.com/rahulcodepython/Z-Tube-Backend.git'
+        },
+        {
+            category: 'Frontend',
+            date: 'Sep 19, 2023',
+            title: 'Z-Tube Social Platform: Elevating User Experience with Next.js Frontend Magic',
+            description: 'Experience the future of social media on Z-Tube, where the Next.js frontend seamlessly combines innovation and performance. Engage with dynamic features, stunning visuals, and an intuitive interface for a captivating user experience.',
+            link: 'https://github.com/rahulcodepython/Z-Tube-Frontend.git'
+        },
+        {
+            category: 'Frontend',
+            date: 'May 7, 2022',
+            title: 'React.js project for text manipulation and analysis.',
+            description: 'Text Utils is a React.js application that lets you modify text in various ways. It includes features like converting text to uppercase or lowercase, removing extra spaces, and more.',
+            link: 'https://github.com/rahulcodepython/TextUtils'
+        },
+        {
+            category: 'Backend',
+            date: 'Oct 9 2023',
+            title: 'AuthXperience: Crafting a Custom Authentication System with Django and Django Rest Framework',
+            description: 'Explore the next level of authentication with AuthXperience. Leveraging Django and Django Rest Framework, build a tailored, secure, and feature-rich authentication system akin to Djoser for your dynamic projects.',
+            link: 'https://github.com/rahulcodepython/Custom-Djoser.git'
+        },
+        {
+            category: 'Frontend',
+            date: 'Jul 25 2023',
+            title: 'Adminify: Unveiling the Power of Next.js in Admin Panel Development',
+            description: 'Dive into Adminify, a demo showcasing the prowess of Next.js in crafting efficient and dynamic admin panels. Experience seamless navigation, real-time updates, and a responsive interface for optimal management and control.',
+            link: 'https://github.com/rahulcodepython/Admin-Panel.git'
+        }
     ]
 }
 

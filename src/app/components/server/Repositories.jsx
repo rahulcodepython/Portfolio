@@ -1,16 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
+import Data from '@/data/data'
 
 const Repositories = async () => {
-    const response = await fetch(`${process.env.DOMAIN_NAME}api/repositories/`)
-    const repositories = await response.json()
-
     return (
         <section className="bg-white dark:bg-black p-5 sm:p-10 flex flex-col items-center gap-5 sm:gap-10" id='repositiories'>
             <h1 className='text-2xl md:text-4xl font-boldfont'>Repositories</h1>
             <div className="w-full flex flex-col gap-5">
                 {
-                    repositories.map((item, index) => {
+                    Data.repositories.map((item, index) => {
                         return <Link href={item.link} className="flex flex-col lg:flex-row gap-5 lg:gap-0 items-center justify-around rounded-lg shadow-lg hover:shadow-2xl w-full py-8" key={index}>
                             <div className="flex flex-col items-center justify-center w-1/4">
                                 <span className="font-boldfont text-lg md:text-xl tracking-wider text-primary">{item.category}</span>
