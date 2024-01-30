@@ -9,7 +9,7 @@ const ProjectItem = ({ item }) => {
                 <span className="font-semibold text-primary font-italicfont text-2xl">
                     {item.category}
                 </span>
-                <h3 className="text-2xl font-boldfont">{item.title}</h3>
+                <span className="text-2xl font-boldfont">{item.title}</span>
             </div>
         </div>
     )

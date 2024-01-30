@@ -8,8 +8,8 @@ const Footer = () => {
                 <Link href={'#'} className="text-lg md:text-xl lg:text-3xl font-semibold font-italicfont">
                     Rahul Das
                 </Link>
-                <p className="text-xs text-gray-500 sm:ml-6 sm:mt-0 mt-4">© 2023 Rahul Das —
-                    <Link href="#" rel="noopener noreferrer" className="text-gray-600 ml-1" target="_blank">
+                <p className="text-xs sm:ml-6 sm:mt-0 mt-4 text-primary">© 2023 Rahul Das —
+                    <Link href="#" rel="noopener noreferrer" className="ml-1 text-primary" target="_blank">
                         @rahulcodepython
                     </Link>
                 </p>
