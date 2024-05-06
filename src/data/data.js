@@ -132,8 +132,8 @@ const Data = {
         [<BiPhoneCall key={1} />, 'Call', '+919775150082'],
     ],
     socialicons: [
-        [<Image src={'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2Ffacebook.png?alt=media&token=8435cdad-351f-4d94-9c09-d5aef91aa408'} width={45} height={45} alt='icon' key={1} />, 'https://www.facebook.com/rahul2004das/'],
-        [<Image src={'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2Finstagram.png?alt=media&token=8d09970c-326c-41e0-b129-2658ff2163be'} width={45} height={45} alt='icon' key={1} />, 'https://www.instagram.com/rahul_2004_das/'],
+        [<Image src={'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2Ffacebook.png?alt=media&token=8435cdad-351f-4d94-9c09-d5aef91aa408'} width={45} height={45} alt='icon' key={1} />, 'https://www.facebook.com/rahulcodepython/'],
+        [<Image src={'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2Finstagram.png?alt=media&token=8d09970c-326c-41e0-b129-2658ff2163be'} width={45} height={45} alt='icon' key={1} />, 'https://www.instagram.com/rahulcodepython/'],
         [<Image src={'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2Fgithub.png?alt=media&token=2d575e06-572d-4f8c-a07c-41c1afb14796'} width={45} height={45} alt='icon' key={1} />, 'https://github.com/rahulcodepython'],
         [<Image src={'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2Ftwitter.png?alt=media&token=86b0142f-3c31-4fd8-9875-2baff1d8b3e9'} width={45} height={45} alt='icon' key={1} />, 'https://twitter.com/rd21102004'],
         [<Image src={'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2Flinkedin.png?alt=media&token=ccdf2a8f-98e9-4b9f-a9ab-11da25a8ae24'} width={35} height={35} alt='icon' key={1} />, 'https://www.linkedin.com/in/rahulcodepython/'],
