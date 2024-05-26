@@ -7,11 +7,11 @@ import Resume from './components/server/Resume'
 import Services from './components/server/Services'
 import Facts from './components/server/Facts'
 import Freelancing from './components/server/Freelancing'
-import Repositories from './components/server/Repositories'
 import Contact from './components/server/Contact'
 import Footer from './components/server/Footer'
 import Projects from './components/server/Projects'
 import ScrollUp from './components/client/ScrollUp'
+import Skills from './components/client/Skills'
 
 const Home = () => {
     return (
@@ -21,11 +21,11 @@ const Home = () => {
             <Navbar />
             <About />
             <Resume />
+            <Skills />
             <Services />
             <Facts />
             <Freelancing />
             <Projects />
-            <Repositories />
             <Contact />
             <Footer />
             <ScrollUp />

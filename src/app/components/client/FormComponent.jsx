@@ -5,8 +5,8 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from '@/components/ui/button'
 import { ReloadIcon } from '@radix-ui/react-icons'
-import axios from 'axios'
 import { toast } from "sonner"
+import emailjs from '@emailjs/browser';
 
 const FormComponent = () => {
     const [loading, setLoading] = React.useState(false)
@@ -17,32 +17,26 @@ const FormComponent = () => {
             email: '',
             subject: '',
             message: ''
-        }} onSubmit={async (values) => {
-            setLoading(pre => true)
+        }} onSubmit={async (values, actions) => {
+            setLoading(true)
 
-            const options = {
-                url: `${process.env.DOMAIN_NAME}api/contact/`,
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json;charset=UTF-8'
-                },
-                data: values
+            const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+            const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+            const options = { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY };
+
+            try {
+                const res = await emailjs.send(serviceID, templateID, values, options);
+
+                if (res.status === 200) {
+                    toast.success('Message sent successfully!');
+                    actions.resetForm();
+                };
+            } catch (error) {
+                toast.error(error?.text || error);
+                actions.resetForm();
+            } finally {
+                setLoading(false)
             }
-            await axios.request(options)
-                .then((response) => {
-                    toast(`${response.data.msg}`)
-                })
-                .catch((error) => {
-                    toast("Something went wrong!")
-                })
-                .finally(() => {
-                    values.name = '';
-                    values.email = '';
-                    values.subject = '';
-                    values.message = '';
-                    setLoading(pre => false);
-                });
         }}>
             {
                 ({ values, handleChange, handleSubmit }) => {

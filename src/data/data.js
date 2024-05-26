@@ -5,7 +5,7 @@ const Data = {
     hero: {
         button: [
             ['/#contact', 'Contact Me', <BiSolidPlusCircle key={1} />, ''],
-            ['https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2FRahul%20das.pdf?alt=media&token=71e7f8f0-9779-4602-938a-228f8df98096', 'Download CV', <BiSolidCloudDownload key={1} />, '_blank'],
+            ['https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2FRahul%20das.pdf?alt=media&token=5521819b-2b01-4d90-abba-965ea37b00d6', 'Download CV', <BiSolidCloudDownload key={1} />, '_blank'],
         ]
     },
     navlinks: [
@@ -14,7 +14,7 @@ const Data = {
         ['/#resume', <BiFile key={1} />, 'Resume'],
         ['/#services', <BiServer key={1} />, 'Services'],
         ['/#projects', <BiIdCard key={1} />, 'Portfolio'],
-        ['/#repositiories', <BiGitBranch key={1} />, 'Repositories'],
+        ['https://github.com/rahulcodepython?tab=repositories', <BiGitBranch key={1} />, 'Repositories'],
         ['/#contact', <BiEnvelope key={1} />, 'Contact'],
     ],
     about: {
@@ -68,19 +68,17 @@ const Data = {
             'Full Stack Developer',
             'Dockerization',
         ],
-        tech: [
-            ['HTML, CSS, Javascript', '97%',],
-            ['Tailwind CSS', '93%',],
-            ['Python', '95%',],
-            ['Django Rest Framework', '90%',],
-            ['React JS & Next JS', '93%',],
-            ['C', '50%',],
-            ['C++', '50%',],
-            ['Mongodb', '65%',],
-            ['Postgress', '83%',],
-            ['Git', '90%',],
-            ['Chat GPT', '70%',],
-            ['Docker', '70%',],
+        experience: [
+            [
+                '2023-2024',
+                'Grasp Gross',
+                'I worked as a Junior Full Stack Web Developer at Grasp Gross from May 1, 2023, to January 1, 2024. I developed and maintained web applications, handled coding and debugging, and collaborated with the team to implement new features and improve functionality.'
+            ],
+            [
+                '2024-Present',
+                'Open to Work',
+                'From January 1, 2024, to the present, I have been actively seekingnew opportunities while dedicating my time to studying emergingtechnologies and enhancing my skills to prepare for future roles.'
+            ],
         ],
     },
     services: [
@@ -132,161 +130,112 @@ const Data = {
         [<BiPhoneCall key={1} />, 'Call', '+919775150082'],
     ],
     socialicons: [
-        [<Image src={'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2Ffacebook.png?alt=media&token=8435cdad-351f-4d94-9c09-d5aef91aa408'} width={45} height={45} alt='icon' key={1} />, 'https://www.facebook.com/rahulcodepython/'],
-        [<Image src={'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2Finstagram.png?alt=media&token=8d09970c-326c-41e0-b129-2658ff2163be'} width={45} height={45} alt='icon' key={1} />, 'https://www.instagram.com/rahulcodepython/'],
-        [<Image src={'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2Fgithub.png?alt=media&token=2d575e06-572d-4f8c-a07c-41c1afb14796'} width={45} height={45} alt='icon' key={1} />, 'https://github.com/rahulcodepython'],
-        [<Image src={'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2Ftwitter.png?alt=media&token=86b0142f-3c31-4fd8-9875-2baff1d8b3e9'} width={45} height={45} alt='icon' key={1} />, 'https://twitter.com/rd21102004'],
-        [<Image src={'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2Flinkedin.png?alt=media&token=ccdf2a8f-98e9-4b9f-a9ab-11da25a8ae24'} width={35} height={35} alt='icon' key={1} />, 'https://www.linkedin.com/in/rahulcodepython/'],
+        [<Image src={'/facebook.svg'} width={40} height={40} alt='icon' key={1} />, 'https://www.facebook.com/rahulcodepython/'],
+        [<Image src={'/instagram.svg'} width={40} height={40} alt='icon' key={1} />, 'https://www.instagram.com/rahulcodepython/'],
+        [<Image src={'/github.svg'} width={40} height={40} alt='icon' key={1} />, 'https://github.com/rahulcodepython'],
+        [<Image src={'/twitter.svg'} width={40} height={40} alt='icon' key={1} />, 'https://twitter.com/rahulcodepython'],
+        [<Image src={'/linkedin.svg'} width={40} height={40} alt='icon' key={1} />, 'https://www.linkedin.com/in/rahulcodepython/'],
+        [<Image src={'/leetcode.svg'} width={40} height={40} alt='icon' key={1} />, 'https://leetcode.com/u/rahulcodepython/'],
     ],
     projects: [
         {
-            image: 'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2FProjects%2FExam-Portal.png?alt=media&token=74217d7b-c498-4427-92d1-1bc28fbc3c0d',
+            image: '/projects/Exam-Portal.png',
             category: 'Backend',
             title: 'Exam Portal'
         },
         {
-            image: 'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2FProjects%2FDjango-Blog.png?alt=media&token=a0c3cb93-f43b-4efa-88f7-cb6ea434744d',
+            image: '/projects/Django-Blog.png',
             category: 'Backend',
             title: 'Blog Project',
         },
         {
-            image: 'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2FProjects%2FDjango-Authentication.png?alt=media&token=5c921c27-2939-4b12-b02b-3c88d70e0f84',
+            image: '/projects/Django-Authentication.png',
             category: 'Backend',
             title: 'Django Authentication',
         },
         {
-            image: 'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2FProjects%2FRazor-Pay.png?alt=media&token=a7b60b53-c129-4629-a5b8-b963f3f2d11e',
+            image: '/projects/Razor-Pay.png',
             category: 'Full Stack',
             title: 'Razor Pay Demo'
         },
         {
-            image: 'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2FProjects%2FEducational-Website.png?alt=media&token=0fecbabf-592c-497a-9d7b-fd1f6559a25f',
+            image: '/projects/Educational-Website.png',
             category: 'Backend',
             title: 'Educational Website'
         },
         {
-            image: 'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2FProjects%2FNews-App.png?alt=media&token=515b53ba-ca7e-4845-9b0e-d364ca9b7a54',
+            image: '/projects/News-App.png',
             category: 'Frontend',
             title: 'News App'
         },
         {
-            image: 'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2FProjects%2FFull-Stack-Blog-Project.png?alt=media&token=47d25cc8-57fc-45c4-b145-9e061edbae81',
+            image: '/projects/Full-Stack-Blog-Project.png',
             category: 'Full Stack',
             title: 'Full Stack Blog Project'
         },
         {
-            image: 'https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2FProjects%2FChat-App.png?alt=media&token=f7cefb59-fab2-4d56-9f50-3bfde9e8f89a',
+            image: '/projects/ChatApp.png',
             category: 'Backend',
             title: 'Chat App'
-        }
+        },
+        {
+            image: '/projects/Textutils.png',
+            category: 'Frontend',
+            title: 'Textutils App'
+        },
+        {
+            image: '/projects/SocialMedia.png',
+            category: 'Full Stack',
+            title: 'Z-Tube App'
+        },
+        {
+            image: '/projects/MultiplayerChessGame.png',
+            category: 'Full Stack',
+            title: 'Chess App'
+        },
+        {
+            image: '/projects/Cloud IDE.png',
+            category: 'Full Stack',
+            title: 'Cloude IDE App'
+        },
+        {
+            image: '/projects/Djoser Package.png',
+            category: 'Backend',
+            title: 'Djoser Auth App'
+        },
+        {
+            image: '/projects/ChatApp.png',
+            category: 'Frontend',
+            title: 'Secret Message Sending App'
+        },
     ],
-    repositories: [
-        {
-            category: 'Backend',
-            date: 'Jul 1, 2022',
-            title: 'Educational Django Website: Advanced Education Website in Django',
-            description: 'Our advanced education website, built using the Django framework, offers a seamless learning experience with interactive courses, personalized progress tracking, and collaborative features. Empowering learners with a modern and intuitive platform to excel in their educational pursuits.',
-            link: 'https://github.com/rahulcodepython/Educational-Website'
-        },
-        {
-            category: 'Frontend',
-            date: 'May 9, 2022',
-            title: 'React News App: Dynamic News Website with ReactJS',
-            description: 'ReactNewsApp is a dynamic and user-friendly news website built with ReactJS. Stay updated with the latest headlines, breaking news, and personalized content. Enjoy a smooth and responsive interface, intuitive navigation, and customizable preferences to curate your newsfeed. Explore a world of information at your fingertips.',
-            link: 'https://github.com/rahulcodepython/News-App'
-        },
-        {
-            category: 'Backend',
-            date: 'Jun 17, 2023',
-            title: 'Djoser-Powered Django Auth: Simple & Secure User Management',
-            description: 'Django Authentication website using Djoser: Seamlessly implement user authentication and registration functionalities with Djoser package. Streamline user management, password reset, and token-based authentication for your Django web application.',
-            link: 'https://github.com/rahulcodepython/Auth-Djoser-Google'
-        },
-        {
-            category: 'Backend',
-            date: 'Apr 23, 2022',
-            title: 'Django Blogs: Empowering Your Blogging Journey.',
-            description: 'A Django blog project designed to provide a user-friendly platform for creating, publishing, and managing blog posts. It includes features like user authentication, post commenting, and categorization to ensure an engaging and organized blogging experience.',
-            link: 'https://github.com/rahulcodepython/Blog-Website'
-        },
-        {
-            category: 'Backend',
-            date: 'Mar 9, 2022',
-            title: 'DjangoExam: Seamless Testing Platform for Academic Success',
-            description: 'The Exam Portal project in Django is a web application that facilitates online exams. It allows users to create and take exams, providing features for question management, real-time exam timer, and result tracking.',
-            link: 'https://github.com/rahulcodepython/Exam-Portal'
-        },
-        {
-            category: 'Backend',
-            date: 'Jul 23, 2023',
-            title: 'Django & Django Rest Framework: Building a Powerful Backend for Your Blog Project',
-            description: 'The blog project backend in Django and Django Rest Framework is a powerful and efficient web application that handles data storage, authentication, and provides RESTful API endpoints, enabling seamless communication between the front-end and back-end, creating a dynamic and interactive blogging experience.',
-            link: 'https://github.com/rahulcodepython/FullStack-Blog-Backend'
-        },
-        {
-            category: 'Frontend',
-            date: 'Jul 23, 2023',
-            title: 'Building a Next.js Backend: Powering Your Blog Project with Efficiency and Flexibility',
-            description: 'Next.js backend for a blog project, handling data storage, retrieval, and APIs. Utilizing server-side rendering and API routes, enabling efficient and dynamic content rendering while ensuring seamless user experience.',
-            link: 'https://github.com/rahulcodepython/FullStack-Blog-Frontend'
-        },
-        {
-            category: 'Backend',
-            date: 'Jun 19, 2023',
-            title: 'Seamless Django Payment Gateway Integration: Empowering Transactions with Razorpay',
-            description: 'The Payment Gateway project in Django with Razorpay integration enables seamless online payment processing, securely handling transactions for businesses.',
-            link: 'https://github.com/rahulcodepython/Razor-Pay-Django'
-        },
-        {
-            category: 'Frontend',
-            date: 'Jun 21, 2023',
-            title: 'Payment Gateway Integration in Next.js with Razorpay',
-            description: 'A Next.js Payment Gateway project integrating Razorpay for seamless online transactions. Enables secure and efficient payment processing within a Next.js web application.',
-            link: 'https://github.com/rahulcodepython/Razor-Pay-Next-Js'
-        },
-        {
-            category: 'Backend',
-            date: 'May 6, 2023',
-            title: 'Django ASGI Chat: Real-time Communication Made Easy with Asynchronous Server Gateway Interface',
-            description: 'A real-time chat application built with Django ASGI, offering seamless and efficient communication, supporting multiple users, and delivering instant messaging capabilities in a modern and scalable environment.',
-            link: 'https://github.com/rahulcodepython/Chat-App'
-        },
-        {
-            category: 'Backend',
-            date: 'Sep 25, 2023',
-            title: 'Z-Tube Social Platform: Crafting an Dynamic Social Media Experience',
-            description: 'Dive into the world of Z-Tube, where Django and Django Rest Framework converge to construct a robust backend, empowering your social media journey with seamless interactions and engaging content.',
-            link: 'https://github.com/rahulcodepython/Z-Tube-Backend.git'
-        },
-        {
-            category: 'Frontend',
-            date: 'Sep 19, 2023',
-            title: 'Z-Tube Social Platform: Elevating User Experience with Next.js Frontend Magic',
-            description: 'Experience the future of social media on Z-Tube, where the Next.js frontend seamlessly combines innovation and performance. Engage with dynamic features, stunning visuals, and an intuitive interface for a captivating user experience.',
-            link: 'https://github.com/rahulcodepython/Z-Tube-Frontend.git'
-        },
-        {
-            category: 'Frontend',
-            date: 'May 7, 2022',
-            title: 'React.js project for text manipulation and analysis.',
-            description: 'Text Utils is a React.js application that lets you modify text in various ways. It includes features like converting text to uppercase or lowercase, removing extra spaces, and more.',
-            link: 'https://github.com/rahulcodepython/TextUtils'
-        },
-        {
-            category: 'Backend',
-            date: 'Oct 9 2023',
-            title: 'AuthXperience: Crafting a Custom Authentication System with Django and Django Rest Framework',
-            description: 'Explore the next level of authentication with AuthXperience. Leveraging Django and Django Rest Framework, build a tailored, secure, and feature-rich authentication system akin to Djoser for your dynamic projects.',
-            link: 'https://github.com/rahulcodepython/Custom-Djoser.git'
-        },
-        {
-            category: 'Frontend',
-            date: 'Jul 25 2023',
-            title: 'Adminify: Unveiling the Power of Next.js in Admin Panel Development',
-            description: 'Dive into Adminify, a demo showcasing the prowess of Next.js in crafting efficient and dynamic admin panels. Experience seamless navigation, real-time updates, and a responsive interface for optimal management and control.',
-            link: 'https://github.com/rahulcodepython/Admin-Panel.git'
-        }
-    ]
+    skillsData: [
+        'HTML',
+        'CSS',
+        'Javascript',
+        'Typescript',
+        'React',
+        'Next JS',
+        'Node JS',
+        'Tailwind',
+        'MongoDB',
+        'MySQL',
+        'PostgreSQL',
+        'Git',
+        'Bootstrap',
+        'Docker',
+        'Figma',
+        'Firebase',
+        'C',
+        'C++',
+        'Python',
+        'Canva',
+        'Ubuntu',
+        'ViteJS',
+        'Django',
+        'Express JS',
+        'Socket IO',
+    ],
 }
 
 export default Data

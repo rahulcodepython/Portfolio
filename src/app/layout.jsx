@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
         <html lang="en" className="scroll-smooth">
             <link rel="icon" href="/favicon.ico" sizes="any" />
             <meta name='google-site-verification' content='r8h5jzR7gIadUgo08yu2g1rBugd24XFzS7Wa6P5tomw' />
-            <body className="bg-[url('https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2Fbackground.png?alt=media&token=5bad261c-07d1-4b9b-af1c-058d3dad9d50')] bg-cover bg-fixed">
+            <body className="bg-[url('/background.png')] bg-cover bg-fixed">
                 {children}
                 <Toaster />
             </body>

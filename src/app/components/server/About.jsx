@@ -16,7 +16,7 @@ const About = () => {
             </div>
             <div className="shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out rounded-lg px-10 w-full lg:w-1/3 flex flex-col items-center justify-center">
                 <div className="photo-wrapper p-2">
-                    <Image className="rounded-full mx-auto" width={128} height={128} src="https://firebasestorage.googleapis.com/v0/b/z-tube-53cf1.appspot.com/o/Portfolio%2Fme.png?alt=media&token=aa8ed29d-8ce1-47f4-898c-2706b9885374" alt="Rahul Das" />
+                    <Image className="rounded-full mx-auto" width={128} height={128} src="/me.png" alt="Rahul Das" />
                 </div>
                 <div className="p-2">
                     <h3 className="text-center text-2xl text-primary font-semibold leading-8">Rahul Das</h3>
