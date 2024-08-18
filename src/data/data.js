@@ -18,7 +18,7 @@ const Data = {
         ['/#contact', <BiEnvelope key={1} />, 'Contact'],
     ],
     about: {
-        aboutMe: "Hello, I'm Rahul Das, a Full Stack Web Developer with a passion for technology and innovation. I bring adaptability, a commitment to continuous learning, adept problem-solving skills, and a keen awareness of leading market technologies. With excellent communication and a suite of essential soft skills, I am poised for success in corporate environments.",
+        aboutMe: "Hello, my name is Rahul Das. I am a Full Stack Web Developer with a passion for technology and innovation. I bring adaptability, a commitment to continuous learning, adept problem-solving skills, and a keen awareness of leading market technologies. With excellent communication and a suite of essential soft skills, I am poised for success in corporate environments.",
         experties: [
             'Full Stack Developer',
             'Backend Developer',
