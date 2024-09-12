@@ -5,8 +5,6 @@ import Navbar from './components/client/Navbar'
 import About from './components/server/About'
 import Resume from './components/server/Resume'
 import Services from './components/server/Services'
-import Facts from './components/server/Facts'
-import Freelancing from './components/server/Freelancing'
 import Contact from './components/server/Contact'
 import Footer from './components/server/Footer'
 import Projects from './components/server/Projects'
@@ -23,8 +21,6 @@ const Home = () => {
             <Resume />
             <Skills />
             <Services />
-            <Facts />
-            <Freelancing />
             <Projects />
             <Contact />
             <Footer />
