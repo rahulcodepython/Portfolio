@@ -10,53 +10,25 @@ const Projects = async () => {
             <div className="container flex flex-col gap-5 sm:gap-10">
                 <Tabs defaultValue="all" className="w-full">
                     <TabsList className="w-full gap-10 mb-10">
-                        <TabsTrigger value="all" className="font-semibold font-xl">All</TabsTrigger>
-                        <TabsTrigger value="backend" className="font-semibold font-xl">Backend</TabsTrigger>
-                        <TabsTrigger value="frontend" className="font-semibold font-xl">Frontend</TabsTrigger>
-                        <TabsTrigger value="fullstack" className="font-semibold font-xl">Full Stack</TabsTrigger>
+                        {
+                            Data.projectsTabs.map((item, index) => {
+                                return <TabsTrigger value={item.value} className="font-semibold font-xl" key={index}>{item.name}</TabsTrigger>
+                            })
+                        }
                     </TabsList>
-                    <TabsContent value="all">
-                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
-                            {
-                                Data.projects.map((item, index) => {
-                                    return <ProjectItem item={item} key={index} />
-                                })
-                            }
-                        </div>
-                    </TabsContent>
-                    <TabsContent value="backend">
-                        {
-                            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
-                                {
-                                    Data.projects.map((item, index) => {
-                                        return item.category.toLowerCase() === 'backend' && <ProjectItem item={item} key={index} />
-                                    })
-                                }
-                            </div>
-                        }
-                    </TabsContent>
-                    <TabsContent value="frontend">
-                        {
-                            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
-                                {
-                                    Data.projects.map((item, index) => {
-                                        return item.category.toLowerCase() === 'frontend' && <ProjectItem item={item} key={index} />
-                                    })
-                                }
-                            </div>
-                        }
-                    </TabsContent>
-                    <TabsContent value="fullstack">
-                        {
-                            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
-                                {
-                                    Data.projects.map((item, index) => {
-                                        return item.category.split(" ").join("").toLowerCase() === 'fullstack' && <ProjectItem item={item} key={index} />
-                                    })
-                                }
-                            </div>
-                        }
-                    </TabsContent>
+                    {
+                        Data.projectsTabs.map((tab, index) => {
+                            return <TabsContent value={tab.value} key={index}>
+                                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
+                                    {
+                                        Data.projects.map((item, index) => {
+                                            return (tab.value === 'all' || item.category === tab.name) && <ProjectItem item={item} key={index} />
+                                        })
+                                    }
+                                </div>
+                            </TabsContent>
+                        })
+                    }
                 </Tabs>
             </div>
         </section>

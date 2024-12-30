@@ -15,6 +15,7 @@ const Data = {
         ['/#services', <BiServer key={1} />, 'Services'],
         ['/#projects', <BiIdCard key={1} />, 'Portfolio'],
         ['https://github.com/rahulcodepython?tab=repositories', <BiGitBranch key={1} />, 'Repositories'],
+        ['https://blogs.rahulcodepython.in/', <BiFile key={1} />, 'Blog'],
         ['/#contact', <BiEnvelope key={1} />, 'Contact'],
     ],
     about: {
@@ -137,6 +138,28 @@ const Data = {
         [<Image src={'/linkedin.svg'} width={40} height={40} alt='icon' key={1} />, 'https://www.linkedin.com/in/rahulcodepython/'],
         [<Image src={'/leetcode.svg'} width={40} height={40} alt='icon' key={1} />, 'https://leetcode.com/u/rahulcodepython/'],
     ],
+    projectsTabs: [
+        {
+            name: 'All',
+            value: 'all'
+        },
+        {
+            name: 'Python',
+            value: 'python'
+        },
+        {
+            name: 'Backend',
+            value: 'backend'
+        },
+        {
+            name: 'Frontend',
+            value: 'frontend'
+        },
+        {
+            name: 'Full Stack',
+            value: 'fullstack'
+        }
+    ],
     projects: [
         {
             image: '/projects/Exam-Portal.png',
@@ -147,16 +170,6 @@ const Data = {
             image: '/projects/Django-Blog.png',
             category: 'Backend',
             title: 'Blog Project',
-        },
-        {
-            image: '/projects/Django-Authentication.png',
-            category: 'Backend',
-            title: 'Django Authentication',
-        },
-        {
-            image: '/projects/Razor-Pay.png',
-            category: 'Full Stack',
-            title: 'Razor Pay Demo'
         },
         {
             image: '/projects/Educational-Website.png',
@@ -174,19 +187,9 @@ const Data = {
             title: 'Full Stack Blog Project'
         },
         {
-            image: '/projects/ChatApp.png',
-            category: 'Backend',
-            title: 'Chat App'
-        },
-        {
             image: '/projects/Textutils.png',
             category: 'Frontend',
             title: 'Textutils App'
-        },
-        {
-            image: '/projects/SocialMedia.png',
-            category: 'Full Stack',
-            title: 'Z-Tube App'
         },
         {
             image: '/projects/MultiplayerChessGame.png',
@@ -199,14 +202,14 @@ const Data = {
             title: 'Cloude IDE App'
         },
         {
-            image: '/projects/Djoser Package.png',
-            category: 'Backend',
-            title: 'Djoser Auth App'
+            image: '/projects/PPM.png',
+            category: 'Python',
+            title: 'PPM - Python Project Manager'
         },
         {
-            image: '/projects/ChatApp.png',
-            category: 'Frontend',
-            title: 'Secret Message Sending App'
+            image: '/projects/Coursehunt.png',
+            category: 'Full Stack',
+            title: 'CourseHunt App  '
         },
     ],
     skillsData: [
