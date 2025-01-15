@@ -211,6 +211,11 @@ const Data = {
             category: 'Full Stack',
             title: 'CourseHunt App  '
         },
+        {
+            image: '/projects/Libom.png',
+            category: 'Full Stack',
+            title: 'Libom App  '
+        },
     ],
     skillsData: [
         'HTML',
