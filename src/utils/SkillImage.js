@@ -32,79 +32,82 @@ import vitejs from '/public/svg/vitejs.svg';
 import wordpress from '/public/svg/wordpress.svg';
 import express from '/public/svg/express.svg';
 import socket from '/public/svg/socket.svg';
+import expo from '/public/svg/expo.svg';
 
 export const SkillsImage = (skill) => {
-    const skillID = skill.toLowerCase();
-    switch (skillID) {
-        case 'html':
-            return html;
-        case 'docker':
-            return docker;
-        case 'css':
-            return css;
-        case 'javascript':
-            return javascript;
-        case 'next js':
-            return nextJS;
-        case 'react':
-            return react;
-        case 'typescript':
-            return typescript;
-        case 'bootstrap':
-            return bootstrap;
-        case 'mongodb':
-            return mongoDB;
-        case 'mysql':
-            return mysql;
-        case 'postgresql':
-            return postgresql;
-        case 'tailwind':
-            return tailwind;
-        case 'vitejs':
-            return vitejs;
-        case 'c':
-            return c;
-        case 'c++':
-            return cplusplus;
-        case 'java':
-            return java;
-        case 'php':
-            return php;
-        case 'python':
-            return python;
-        case 'django':
-            return django;
-        case 'firebase':
-            return firebase;
-        case 'git':
-            return git;
-        case 'nginx':
-            return nginx;
-        case 'numpy':
-            return numpy;
-        case 'selenium':
-            return selenium;
-        case 'tensorflow':
-            return tensorflow;
-        case 'wordpress':
-            return wordpress;
-        case 'figma':
-            return figma;
-        case 'microsoft office':
-            return microsoftoffice;
-        case 'canva':
-            return canva;
-        case 'ubuntu':
-            return ubuntu;
-        case 'node js':
-            return nodejs;
-        case 'flutter':
-            return flutter;
-        case 'express js':
-            return express;
-        case 'socket io':
-            return socket;
-        default:
-            break;
-    }
+	const skillID = skill.toLowerCase();
+	switch (skillID) {
+		case 'html':
+			return html;
+		case 'docker':
+			return docker;
+		case 'css':
+			return css;
+		case 'javascript':
+			return javascript;
+		case 'next js':
+			return nextJS;
+		case 'react js':
+			return react;
+		case 'typescript':
+			return typescript;
+		case 'bootstrap':
+			return bootstrap;
+		case 'mongodb':
+			return mongoDB;
+		case 'mysql':
+			return mysql;
+		case 'postgresql':
+			return postgresql;
+		case 'tailwind':
+			return tailwind;
+		case 'vite js':
+			return vitejs;
+		case 'c':
+			return c;
+		case 'c++':
+			return cplusplus;
+		case 'java':
+			return java;
+		case 'php':
+			return php;
+		case 'python':
+			return python;
+		case 'django':
+			return django;
+		case 'firebase':
+			return firebase;
+		case 'git':
+			return git;
+		case 'nginx':
+			return nginx;
+		case 'numpy':
+			return numpy;
+		case 'selenium':
+			return selenium;
+		case 'tensorflow':
+			return tensorflow;
+		case 'wordpress':
+			return wordpress;
+		case 'figma':
+			return figma;
+		case 'microsoft office':
+			return microsoftoffice;
+		case 'canva':
+			return canva;
+		case 'ubuntu':
+			return ubuntu;
+		case 'node js':
+			return nodejs;
+		case 'flutter':
+			return flutter;
+		case 'express js':
+			return express;
+		case 'socket io':
+			return socket;
+		case 'react native':
+			return expo;
+		default:
+			break;
+	}
 }

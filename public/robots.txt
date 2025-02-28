@@ -1,1 +1,9 @@
-google-site-verification=A4wgUhYVkJYCGHkuZc90KArmD5IsR4u0TFGTvjwBiYc
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://rahulcodepython.in
+
+# Sitemaps
+Sitemap: https://rahulcodepython.in/sitemap.xml

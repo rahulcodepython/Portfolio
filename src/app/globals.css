@@ -1,117 +1,118 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:opsz@6..12&family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-    :root {
-        --background: 0 0% 100%;
-        --foreground: 222.2 84% 4.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 222.2 84% 4.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 222.2 84% 4.9%;
-        --primary: 221.2 83.2% 53.3%;
-        --primary-foreground: 210 40% 98%;
-        --secondary: 210 40% 96.1%;
-        --secondary-foreground: 222.2 47.4% 11.2%;
-        --muted: 210 40% 96.1%;
-        --muted-foreground: 215.4 16.3% 46.9%;
-        --accent: 210 40% 96.1%;
-        --accent-foreground: 222.2 47.4% 11.2%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 210 40% 98%;
-        --border: 214.3 31.8% 91.4%;
-        --input: 214.3 31.8% 91.4%;
-        --ring: 221.2 83.2% 53.3%;
-        --radius: 0.5rem;
-    }
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 222.2 84% 4.9%;
+		--card: 0 0% 100%;
+		--card-foreground: 222.2 84% 4.9%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 222.2 84% 4.9%;
+		--primary: 221.2 83.2% 53.3%;
+		--primary-foreground: 210 40% 98%;
+		--secondary: 210 40% 96.1%;
+		--secondary-foreground: 222.2 47.4% 11.2%;
+		--muted: 210 40% 96.1%;
+		--muted-foreground: 215.4 16.3% 46.9%;
+		--accent: 210 40% 96.1%;
+		--accent-foreground: 222.2 47.4% 11.2%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 210 40% 98%;
+		--border: 214.3 31.8% 91.4%;
+		--input: 214.3 31.8% 91.4%;
+		--ring: 221.2 83.2% 53.3%;
+		--radius: 0.5rem;
+	}
 
-    .dark {
-        --background: 222.2 84% 4.9%;
-        --foreground: 210 40% 98%;
-        --card: 222.2 84% 4.9%;
-        --card-foreground: 210 40% 98%;
-        --popover: 222.2 84% 4.9%;
-        --popover-foreground: 210 40% 98%;
-        --primary: 217.2 91.2% 59.8%;
-        --primary-foreground: 222.2 47.4% 11.2%;
-        --secondary: 217.2 32.6% 17.5%;
-        --secondary-foreground: 210 40% 98%;
-        --muted: 217.2 32.6% 17.5%;
-        --muted-foreground: 215 20.2% 65.1%;
-        --accent: 217.2 32.6% 17.5%;
-        --accent-foreground: 210 40% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 210 40% 98%;
-        --border: 217.2 32.6% 17.5%;
-        --input: 217.2 32.6% 17.5%;
-        --ring: 224.3 76.3% 48%;
-    }
+	.dark {
+		--background: 222.2 84% 4.9%;
+		--foreground: 210 40% 98%;
+		--card: 222.2 84% 4.9%;
+		--card-foreground: 210 40% 98%;
+		--popover: 222.2 84% 4.9%;
+		--popover-foreground: 210 40% 98%;
+		--primary: 217.2 91.2% 59.8%;
+		--primary-foreground: 222.2 47.4% 11.2%;
+		--secondary: 217.2 32.6% 17.5%;
+		--secondary-foreground: 210 40% 98%;
+		--muted: 217.2 32.6% 17.5%;
+		--muted-foreground: 215 20.2% 65.1%;
+		--accent: 217.2 32.6% 17.5%;
+		--accent-foreground: 210 40% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 210 40% 98%;
+		--border: 217.2 32.6% 17.5%;
+		--input: 217.2 32.6% 17.5%;
+		--ring: 224.3 76.3% 48%;
+	}
 }
 
 @layer base {
-    * {
-        @apply border-border;
-        margin: 0;
-        padding: 0;
-        font-family: 'Nunito Sans';
-        box-sizing: border-box;
-    }
+	* {
+		@apply border-border;
+		margin: 0;
+		padding: 0;
+		font-family: 'Ubuntu';
+		box-sizing: border-box;
+	}
 
-    body {
-        @apply bg-background text-foreground;
-    }
+	body {
+		@apply bg-background text-foreground;
+	}
 }
 
 ::-webkit-scrollbar {
-    width: 0px;
+	width: 0px;
 }
 
 /* Navbar Button */
 .nav-button {
-    background: transparent;
-    border: none;
-    padding: 1em 1.5em;
-    text-transform: uppercase;
-    position: relative;
-    transition: .5s ease;
+	background: transparent;
+	border: none;
+	padding: 1em 1.5em;
+	text-transform: uppercase;
+	position: relative;
+	transition: .5s ease;
 }
 
 .nav-button:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 0;
-    background-color: #0886fc;
-    transition: .5s ease;
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 2px;
+	width: 0;
+	background-color: #0886fc;
+	transition: .5s ease;
 }
 
 .nav-button:hover {
-    color: white;
-    transition-delay: .5s;
+	color: white;
+	transition-delay: .5s;
 }
 
 .nav-button:hover::before {
-    width: 100%;
+	width: 100%;
 }
 
 .nav-button::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 0;
-    width: 100%;
-    background-color: #0886fc;
-    transition: .4s ease;
-    z-index: -1;
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 0;
+	width: 100%;
+	background-color: #0886fc;
+	transition: .4s ease;
+	z-index: -1;
 }
 
 .nav-button:hover::after {
-    height: 100%;
-    transition-delay: 0.4s;
-    color: aliceblue;
+	height: 100%;
+	transition-delay: 0.4s;
+	color: aliceblue;
 }
