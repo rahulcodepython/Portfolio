@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+    nextjs-app:
+        build: .
+        container_name: personal-portfolio
+
+        ports:
+            - "3000:3000"
+
+        restart: unless-stopped
