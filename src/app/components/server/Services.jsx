@@ -27,12 +27,12 @@ const Services = () => {
 	]
 
 	return (
-		<section className='bg-white dark:bg-black py-10 -mt-1 px-10 md:px-32 lg:px-40 flex flex-col items-center gap-5 sm:gap-10' id='services'>
+		<section className='container mx-auto flex flex-col items-center gap-5 sm:gap-10' id='services'>
 			<h1 className='text-2xl md:text-4xl font-boldfont'>My Services</h1>
 			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full'>
 				{
 					Data.services.map((item, index) => {
-						return <div className='group/item shadow-lg cursor-default hover:shadow-2xl transition-all ease-in-out duration-300 p-5 flex flex-col items-center justify-center gap-3' key={index}>
+						return <div className='group/item shadow-sm hover:shadow-2xl border rounded-md cursor-default transition-all ease-in-out duration-300 p-5 flex flex-col items-center justify-center gap-3' key={index}>
 							<div className={`text-${item[3]}-500 bg-slate-100 rounded-full p-4 text-center group-hover/item:text-white group-hover/item:bg-${item[3]}-500 text-xl md:text-3xl`}>
 								{item[0]}
 							</div>

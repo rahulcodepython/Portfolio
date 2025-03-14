@@ -1,22 +1,26 @@
-import { Button } from '@/components/ui/button'
+"use client";
+import { Dock, DockIcon } from "@/components/magicui/dock";
+import React from "react";
 import Data from '@/data/data'
-import Link from 'next/link'
-import React from 'react'
 
 const SocialIcons = () => {
-    return (
-        <div className='flex flex-col items-start justify-center gap-4 left-2 cursor-pointer absolute h-screen bg-transparent'>
-            {
-                Data.socialicons.map((item, index) => {
-                    return <Link href={item[1]} key={index}>
-                        <Button variant='outline' className="rounded-full bg-transparent border hover:bg-transparent p-0 border-none">
-                            {item[0]}
-                        </Button>
-                    </Link>
-                })
-            }
-        </div>
-    )
+	return (
+		<div className="fixed bottom-0 w-full z-40">
+			<Dock direction="middle">
+				{
+					Data.socialicons.map((item, index) => {
+						return <DockIcon key={index}>
+							<a href={
+								item[1]
+							} target="_blank" rel="noreferrer">
+								{item[0]}
+							</a>
+						</DockIcon>
+					})
+				}
+			</Dock>
+		</div>
+	);
 }
 
-export default SocialIcons
+export default SocialIcons;
