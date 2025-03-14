@@ -17,7 +17,7 @@ const About = () => {
 			<div className="shadow-sm hover:shadow-2xl transition-all duration-500 ease-in-out rounded-md p-5 xl:p-10 w-full flex flex-col items-center justify-center border">
 				<div className='relative w-[200px] h-[200px] rounded-full bg-none overflow-hidden'>
 					<Image
-						src="/01.png"
+						src="/01.webp"
 						alt="My Image"
 						layout="fill"
 						objectFit="contain" // Optional:  Use 'cover', 'contain', or 'fill'
