@@ -2,6 +2,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner"
 import { FlickeringGrid } from '@/components/magicui/flickering-grid';
 import { ThemeProvider } from "@/components/theme-provider"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = {
 	title: 'Rahul Das | Full Stack Developer',
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
 						flickerChance={0.1}
 					/>
 					{children}
+					<SpeedInsights />
 					<Toaster />
 				</ThemeProvider>
 			</body>
