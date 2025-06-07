@@ -1,7 +1,7 @@
+import { Button } from "@/components/ui/button"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { ProjectItemType } from "@/types"
 import ProjectForm from "./project-form"
-import { Button } from "./ui/button"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog"
 
 export const ProjectCreateFormDialogue = ({
     createProject,

@@ -1,11 +1,11 @@
 "use client"
 
+import Heading from "@/components/heading"
 import { MessageItemType } from "@/types"
 import { Mail, MailOpen } from "lucide-react"
 import React from "react"
 import { toast } from "sonner"
 import DashboardShowMessage from "./dashboard-show-message"
-import Heading from "./heading"
 
 const DashboardMessage = ({ data }: { data: MessageItemType[] }) => {
     const [messages, setMessages] = React.useState<MessageItemType[]>(data);

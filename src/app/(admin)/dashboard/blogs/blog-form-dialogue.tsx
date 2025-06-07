@@ -1,3 +1,5 @@
+import BlogForm from "@/app/(admin)/dashboard/blogs/blog-form"
+import { Button } from "@/components/ui/button"
 import {
     Dialog,
     DialogContent,
@@ -7,8 +9,6 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { BlogItemType } from "@/types"
-import BlogForm from './blog-form'
-import { Button } from "./ui/button"
 
 export const BlogCreateFormDialogue = ({
     createBlog,
