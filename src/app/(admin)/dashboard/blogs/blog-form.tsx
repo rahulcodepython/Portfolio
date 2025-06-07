@@ -1,11 +1,11 @@
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { BlogItemType } from "@/types";
 import matter from "gray-matter";
 import { Loader2 } from "lucide-react";
 import React from "react";
 import { toast } from "sonner";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
 
 const BlogForm = ({
     onSubmit,

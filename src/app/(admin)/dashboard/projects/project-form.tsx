@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
     Select,
     SelectContent,
@@ -5,14 +7,12 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 import { projectsTabs } from "@/constant";
 import { ProjectItemType, ProjectName } from "@/types";
 import { Loader2, X } from "lucide-react";
 import React from "react";
 import { toast } from "sonner";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
 
 const ProjectForm = ({
     onSubmit,

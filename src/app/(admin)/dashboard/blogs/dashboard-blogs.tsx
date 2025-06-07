@@ -1,12 +1,12 @@
 "use client"
+import BlogCard from "@/components/blog-card"
+import Heading from "@/components/heading"
+import { Button } from "@/components/ui/button"
 import { BlogItemType } from "@/types"
 import { Loader2 } from "lucide-react"
 import React from "react"
 import { toast } from "sonner"
-import BlogCard from "./blog-card"
 import { BlogCreateFormDialogue, BlogEditFormDialogue } from "./blog-form-dialogue"
-import Heading from "./heading"
-import { Button } from "./ui/button"
 
 const DashboardBlogs = ({ data }: { data: BlogItemType[] }) => {
     const [blogs, setBlogs] = React.useState<BlogItemType[]>(data);
@@ -92,7 +92,7 @@ const DashboardBlogs = ({ data }: { data: BlogItemType[] }) => {
                             <BlogCard key={blog._id} blog={blog}>
                                 <div className="grid grid-cols-2 gap-4">
                                     <BlogEditFormDialogue editBlog={editBlog} blog={blog} />
-                                    <Button className="bg-red-500 hover:bg-red-600 cursor-pointer hover:scale-105 dark:text-white" onClick={() => blog._id && deleteBlog(blog._id)}>
+                                    <Button className="bg-red-500 hover:bg-red-600 cursor-pointer hover:scale-105 dark:text-white" onClick={() => blog._id && deleteBlog(blog._id)} disabled={isDeleting}>
                                         {isDeleting && <Loader2 className="animate-spin mr-2 h-4 w-4" />}
                                         {isDeleting ? "Deleting..." : "Delete Blog"}
                                     </Button>

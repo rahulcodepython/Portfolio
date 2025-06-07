@@ -1,5 +1,5 @@
-import DashboardBlogs from '@/components/dashboard-blogs';
 import { getBaseUrl } from '@/utils/GetBaseUrl';
+import DashboardBlogs from './dashboard-blogs';
 
 const DashboardBlogsLayout = async () => {
     const baseurl = await getBaseUrl();
@@ -13,9 +13,7 @@ const DashboardBlogsLayout = async () => {
     });
     const data = await response.json();
     return (
-        <div>
-            <DashboardBlogs data={data} />
-        </div>
+        <DashboardBlogs data={data} />
     )
 }
 

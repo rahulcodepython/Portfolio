@@ -1,5 +1,5 @@
+import LogoutButton from "@/app/(admin)/dashboard/logout-button";
 import Heading from "@/components/heading";
-import LogoutButton from "@/components/logout-button";
 import { Button } from "@/components/ui/button";
 import { getBaseUrl } from "@/utils/GetBaseUrl";
 import { CheckLineIcon, FileText, Mail } from "lucide-react";

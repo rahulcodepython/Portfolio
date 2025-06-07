@@ -1,4 +1,4 @@
-import DashboardMessage from '@/components/dashboard-message';
+import DashboardMessage from '@/app/(admin)/dashboard/messages/dashboard-message';
 import { getBaseUrl } from '@/utils/GetBaseUrl';
 
 const DashboardMessageLayout = async () => {

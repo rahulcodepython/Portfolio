@@ -1,13 +1,13 @@
 "use client"
 
+import Heading from "@/components/heading"
+import ProjectItem from "@/components/project-item"
+import { Button } from "@/components/ui/button"
 import { ProjectItemType } from "@/types"
 import { Loader2 } from "lucide-react"
 import React from "react"
 import { toast } from "sonner"
-import Heading from "./heading"
 import { ProjectCreateFormDialogue, ProjectEditFormDialogue } from "./project-form-dialogue"
-import ProjectItem from "./project-item"
-import { Button } from "./ui/button"
 
 const DashboardProjects = ({ data }: { data: ProjectItemType[] }) => {
     const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -105,7 +105,7 @@ const DashboardProjects = ({ data }: { data: ProjectItemType[] }) => {
                         <ProjectItem key={project._id} item={project}>
                             <div className="grid grid-cols-2 gap-4">
                                 <ProjectEditFormDialogue updateProject={updateProject} project={project} />
-                                <Button className="bg-red-500 hover:bg-red-600 cursor-pointer hover:scale-105 text-white" onClick={() => project._id && deleteProject(project._id)}>
+                                <Button className="bg-red-500 hover:bg-red-600 cursor-pointer hover:scale-105 text-white" onClick={() => project._id && deleteProject(project._id)} disabled={isDeleting}>
                                     {isDeleting && <Loader2 className="animate-spin mr-2 h-4 w-4" />}
                                     {isDeleting ? "Deleting..." : "Delete Project"}
                                 </Button>

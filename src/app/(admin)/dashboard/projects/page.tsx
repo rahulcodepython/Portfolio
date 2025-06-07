@@ -1,4 +1,4 @@
-import DashboardProjects from '@/components/dashboard-projects';
+import DashboardProjects from '@/app/(admin)/dashboard/projects/dashboard-projects';
 import { ProjectItemType } from '@/types';
 import { getBaseUrl } from '@/utils/GetBaseUrl';
 
