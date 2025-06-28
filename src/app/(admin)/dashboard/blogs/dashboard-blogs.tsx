@@ -77,31 +77,31 @@ const DashboardBlogs = ({ data }: { data: BlogItemType[] }) => {
 
     return (
         <div className="flex flex-col gap-8 w-full">
-            <div className="flex items-center justify-between w-full mb-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between w-full mb-8">
                 <div></div>
-                <div className="text-center flex flex-col gap-4 w-fit">
+                <div className="flex flex-col gap-4 w-fit mb-8 sm:mb-0">
                     <Heading title="All Blogs" />
                 </div>
-                <BlogCreateFormDialogue createBlog={createBlog} isOpen={isOpen} setIsOpen={setIsOpen} />
+                <div className="w-full sm:w-auto text-right">
+                    <BlogCreateFormDialogue createBlog={createBlog} isOpen={isOpen} setIsOpen={setIsOpen} />
+                </div>
             </div>
             {blogs.length === 0 && <div className="text-center">No blogs available. Please add new blogs.</div>}
-            {
-                blogs.length !== 0 && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {
-                        blogs.map((blog) => (
-                            <BlogCard key={blog._id} blog={blog}>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <BlogEditFormDialogue editBlog={editBlog} blog={blog} />
-                                    <Button className="bg-red-500 hover:bg-red-600 cursor-pointer hover:scale-105 dark:text-white" onClick={() => blog._id && deleteBlog(blog._id)} disabled={isDeleting}>
-                                        {isDeleting && <Loader2 className="animate-spin mr-2 h-4 w-4" />}
-                                        {isDeleting ? "Deleting..." : "Delete Blog"}
-                                    </Button>
-                                </div>
-                            </BlogCard>
-                        ))
-                    }
-                </div>
-            }
+            <div className="flex flex-wrap gap-6 justify-center">
+                {
+                    blogs.map((blog) => (
+                        <BlogCard key={blog._id} blog={blog}>
+                            <div className="grid grid-cols-2 gap-4">
+                                <BlogEditFormDialogue editBlog={editBlog} blog={blog} />
+                                <Button className="bg-red-500 hover:bg-red-600 cursor-pointer hover:scale-105 dark:text-white" onClick={() => blog._id && deleteBlog(blog._id)} disabled={isDeleting}>
+                                    {isDeleting && <Loader2 className="animate-spin mr-2 h-4 w-4" />}
+                                    {isDeleting ? "Deleting..." : "Delete Blog"}
+                                </Button>
+                            </div>
+                        </BlogCard>
+                    ))
+                }
+            </div>
         </div>
     )
 }

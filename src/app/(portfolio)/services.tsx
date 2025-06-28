@@ -110,11 +110,11 @@ const Services = () => {
 	return (
 		<Section id='services' className='max-w-8xl'>
 			<Heading title='Services' />
-			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full'>
+			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full place-items-center'>
 				{
 					services.map((item, index) => {
 						const Icon = item.icon;
-						return <AnimatedCard className='group bg-white dark:bg-bg-dark border rounded-md cursor-default p-5 flex flex-col items-center justify-center gap-3' key={index}>
+						return <AnimatedCard className='group bg-white dark:bg-bg-dark border rounded-md cursor-default p-5 pb-6 flex flex-col items-center justify-center gap-3 max-w-sm lg:max-w-full w-full h-full' key={index}>
 							<div className={`${item.color} bg-slate-100 rounded-full p-4 text-center group-hover:text-white text-xl md:text-3xl`}>
 								<Icon />
 							</div>

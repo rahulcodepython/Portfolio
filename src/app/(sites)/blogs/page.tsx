@@ -24,7 +24,7 @@ const Blogs = async () => {
     const blogs: BlogItemType[] = await response.json();
 
     return (
-        <Section className="mt-8 flex flex-col justify-start">
+        <section className="mt-8 flex flex-col justify-start gap-8 items-center p-4 mx-8">
             <Heading title="Blogs" />
             {
                 blogs.length === 0 && <div className="text-center p-4">
@@ -33,7 +33,7 @@ const Blogs = async () => {
             }
 
             {
-                <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div className="flex flex-wrap gap-6 justify-center">
                     {
                         blogs.map((blog) => (
                             <BlogCard key={blog._id} blog={blog} />
@@ -41,7 +41,7 @@ const Blogs = async () => {
                     }
                 </div>
             }
-        </Section>
+        </section>
     )
 }
 

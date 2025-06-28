@@ -7,7 +7,7 @@ import { Button } from './ui/button'
 
 const ProjectItem = ({ children, item }: { children?: React.ReactNode; item: ProjectItemType }) => {
 	return (
-		<AnimatedCard className="bg-white dark:bg-bg-dark rounded-xl overflow-hidden relative flex flex-col">
+		<AnimatedCard className="bg-white dark:bg-bg-dark rounded-xl overflow-hidden relative flex flex-col min-w-sm max-w-sm w-full">
 			<div className="absolute top-4 right-4 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full z-10">
 				{item.category}
 			</div>

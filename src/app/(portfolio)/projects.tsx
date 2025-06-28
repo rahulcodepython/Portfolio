@@ -42,10 +42,10 @@ const Projects = ({ projects }: { projects: ProjectItemType[] }) => {
 							</TabsList>
 						</div>
 						<TabsContent value={tab}>
-							<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
+							<div className="flex flex-wrap gap-6 justify-center">
 								{
 									(!filteredProjects || filteredProjects.length === 0) && (
-										<p className="md:col-span-2 xl:col-span-3 w-full text-center">No projects found</p>
+										<p className="w-full text-center">No projects found</p>
 									)
 								}
 								{
