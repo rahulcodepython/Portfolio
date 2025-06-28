@@ -15,7 +15,7 @@ export async function POST(req: Request) {
         const github = formData.get("github");
         const live = formData.get("live");
 
-        if (!image || typeof image.name !== 'string' || typeof image.arrayBuffer !== 'function' || !title || !description || !technologies || !github || !live) {
+        if (!image || typeof image.name !== 'string' || typeof image.arrayBuffer !== 'function' || !title || !description || !github) {
             return new Response(JSON.stringify({ error: 'All fields are required' }), { status: 400, headers: { 'Content-Type': 'application/json' } });
         }
 
@@ -50,7 +50,8 @@ export async function POST(req: Request) {
         }
 
         return new Response(JSON.stringify({ msg: 'Project created successfully', data: newProject }), { status: 201, headers: { 'Content-Type': 'application/json' } });
-    } catch {
+    } catch (error) {
+        console.error('Error creating project:', error);
         return new Response(JSON.stringify({ error: 'Failed to create project' }), { status: 500, headers: { 'Content-Type': 'application/json' } });
     }
 }

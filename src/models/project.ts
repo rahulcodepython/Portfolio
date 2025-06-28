@@ -7,7 +7,7 @@ const userSchema = new Schema(
         image: { type: String, required: true },
         technologies: { type: [String], required: true },
         github: { type: String, required: true },
-        live: { type: String, required: true },
+        live: { type: String, required: false },
         category: { type: String, required: true },
     }
 );
