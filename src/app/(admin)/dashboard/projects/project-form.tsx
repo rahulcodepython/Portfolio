@@ -55,7 +55,7 @@ const ProjectForm = ({
     }
 
     const handleSubmit = async () => {
-        if (title.trim().length <= 0 || description.trim().length <= 0 || tags.length === 0 || github.trim().length <= 0 || live.trim().length <= 0) {
+        if (title.trim().length <= 0 || description.trim().length <= 0 || github.trim().length <= 0) {
             toast.error("All fields are required.");
             return;
         }
