@@ -1,13 +1,13 @@
 import About from "@/app/(portfolio)/about"
-import Blogs from "@/app/(portfolio)/blogs"
 import Contact from "@/app/(portfolio)/contact"
 import Hero from "@/app/(portfolio)/hero"
-import Projects from "@/app/(portfolio)/projects"
 import Services from "@/app/(portfolio)/services"
 import Skills from "@/app/(portfolio)/skill"
 import SocialIcons from "@/app/(portfolio)/social-icons"
 import Navbar from "@/components/navbar"
 import { getBaseUrl } from "@/utils/GetBaseUrl"
+import Blogs from "./blogs"
+import Projects from "./projects"
 
 const Home = async () => {
     const baseurl = await getBaseUrl();

@@ -6,9 +6,9 @@ import AnimatedCard from "./animated-card"
 
 const BlogCard = ({ children, blog }: { children?: React.ReactNode; blog: BlogItemType }) => {
     return (
-        <AnimatedCard className="bg-white dark:bg-bg-dark rounded-lg overflow-hidden">
+        <AnimatedCard className="bg-white dark:bg-bg-dark rounded-lg flex flex-col min-w-sm max-w-sm w-full">
             <Image src={blog.image} alt={blog.title} className="w-full h-48 object-cover" width={500} height={300} />
-            <div className="p-6 flex flex-col gap-4">
+            <div className="p-6 flex flex-col gap-4 flex-1 justify-between">
                 <h3 className="text-xl font-bold">{blog.title}</h3>
                 <p className="text-gray-600 dark:text-white">{blog.description}</p>
                 <div className="flex justify-between items-center">

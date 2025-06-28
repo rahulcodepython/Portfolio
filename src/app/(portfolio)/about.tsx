@@ -8,20 +8,20 @@ const About = () => {
 			<Heading title="About Me" />
 
 			<div className="relative w-full bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg">
-				<div className="absolute -top-6 -left-6 text-primary text-8xl font-serif select-none">"</div>
+				<div className="absolute -top-6 left-2 text-primary text-8xl font-serif select-none">"</div>
 				<div className="relative z-10">
 					<p className="text-lg text-gray-700 dark:text-white italic mb-4">
 						Hello, my name is Rahul Das. I am a Full Stack Web Developer with a passion for technology and innovation. I bring adaptability, a commitment to continuous learning, adept problem-solving skills, and a keen awareness of leading market technologies. With excellent communication and a suite of essential soft skills, I am poised for success in corporate environments.
 					</p>
 				</div>
-				<div className="absolute -bottom-6 -right-6 text-primary text-8xl font-serif select-none rotate-180">"</div>
+				<div className="absolute -bottom-6 right-2 text-primary text-8xl font-serif select-none rotate-180">"</div>
 			</div>
 
 
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
 				<div className="flex flex-col gap-4">
 					<h3 className="text-2xl font-semibold text-primary">Education</h3>
-					<div className="flex flex-col gap-6">
+					<div className="flex flex-col gap-6 justify-between h-full">
 						<div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
 							<div className="flex items-center gap-4 mb-2">
 								<div className="p-3 bg-primary/10 rounded-full">

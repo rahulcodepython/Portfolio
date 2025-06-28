@@ -84,13 +84,15 @@ const DashboardProjects = ({ data }: { data: ProjectItemType[] }) => {
     }
 
     return (
-        <div className="flex flex-col gap-8 w-full">
-            <div className="flex items-center justify-between w-full mb-8">
+        <div className="flex flex-col gap-8 w-full px-4">
+            <div className="flex flex-col sm:flex-row items-center justify-between w-full mb-8">
                 <div></div>
-                <div className="flex flex-col gap-4 w-fit">
+                <div className="flex flex-col gap-4 w-fit mb-8 sm:mb-0">
                     <Heading title="All Projects" />
                 </div>
-                <ProjectCreateFormDialogue createProject={createProject} isOpen={isOpen} setIsOpen={setIsOpen} />
+                <div className="w-full sm:w-auto text-right">
+                    <ProjectCreateFormDialogue createProject={createProject} isOpen={isOpen} setIsOpen={setIsOpen} />
+                </div>
             </div>
 
             {projects.length === 0 && (
@@ -99,7 +101,7 @@ const DashboardProjects = ({ data }: { data: ProjectItemType[] }) => {
                 </div>
             )}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="flex flex-wrap gap-6 justify-center">
                 {
                     projects && projects.map((project, index) => (
                         <ProjectItem key={project._id} item={project}>

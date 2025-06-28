@@ -139,11 +139,11 @@ const ProjectForm = ({
             <div className="flex flex-col gap-1">
                 <label className="block text-gray-700 dark:text-white" htmlFor="tag">Tag</label>
                 <div className="relative flex flex-col gap-1 p-2 border border-gray-300 rounded">
-                    <div className="flex gap-2">
+                    <div className="flex flex-wrap gap-2 max-w-md overflow-x-scroll">
                         {
                             tags.map((tag, index) => (
                                 <span key={index} className="inline-flex gap-0.5 items-center justify-center px-2 py-1 text-sm font-medium text-gray-700 dark:text-white bg-gray-200 dark:bg-bg-dark rounded-full relative">
-                                    <span>
+                                    <span className="truncate">
                                         {tag}
                                     </span>
                                     <span onClick={() => removeTag(index)} className="cursor-pointer -mt-0.5 text-gray-500 hover:text-gray-700 dark:text-white">
