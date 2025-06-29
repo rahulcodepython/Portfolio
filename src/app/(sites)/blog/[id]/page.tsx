@@ -15,7 +15,7 @@ const Blog = async ({ params }: { params: Promise<{ id: string }> }) => {
 
     const baseurl = await getBaseUrl();
 
-    const response = await fetch(`${baseurl}/api/blog-single?_id=${id}`, {
+    const response = await fetch(`${baseurl}/api/blog/${id}`, {
         cache: 'force-cache',
         next: { revalidate: 120 },
     });

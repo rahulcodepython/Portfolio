@@ -5,7 +5,7 @@ const DashboardMessageLayout = async () => {
 
     const baseurl = await getBaseUrl();
 
-    const response = await fetch(`${baseurl}/api/messages`, {
+    const response = await fetch(`${baseurl}/api/message`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

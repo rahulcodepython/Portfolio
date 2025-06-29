@@ -9,6 +9,7 @@ const userSchema = new Schema(
         github: { type: String, required: true },
         live: { type: String, required: false },
         category: { type: String, required: true },
+        pin: { type: Boolean, default: false },
     }
 );
 

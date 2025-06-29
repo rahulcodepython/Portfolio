@@ -4,6 +4,17 @@ import { Stats } from "@/models/stats";
 import { deleteFileFromGithub } from "@/utils/DeleteFile";
 import { uploadFileToGitHub } from "@/utils/UploadeFile";
 
+export async function GET(req: Request) {
+    await connectDB();
+
+    const projects = await Project.find();
+
+    return new Response(JSON.stringify(projects), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+    });
+}
+
 export async function POST(req: Request) {
     try {
         const formData = await req.formData();
@@ -14,6 +25,7 @@ export async function POST(req: Request) {
         const technologies = JSON.parse(formData.get("technologies") as string);
         const github = formData.get("github");
         const live = formData.get("live");
+        const pin = formData.get("pin");
 
         if (!image || typeof image.name !== 'string' || typeof image.arrayBuffer !== 'function' || !title || !description || !github) {
             return new Response(JSON.stringify({ error: 'All fields are required' }), { status: 400, headers: { 'Content-Type': 'application/json' } });
@@ -26,7 +38,7 @@ export async function POST(req: Request) {
 
         await connectDB();
 
-        const project = new Project({ title, description, image: fileUploadResponse.downloadUrl, technologies, category, github, live });
+        const project = new Project({ title, description, image: fileUploadResponse.downloadUrl, technologies, category, github, live, pin });
 
         const newProject = await project.save();
 
@@ -72,8 +84,9 @@ export async function PATCH(req: Request) {
         const technologies = formData.get("technologies") ? JSON.parse(formData.get("technologies") as string) : undefined;
         const github = formData.get("github");
         const live = formData.get("live");
+        const pin = formData.get("pin");
 
-        Object.assign(updates, { title, description, category, technologies, github, live });
+        Object.assign(updates, { title, description, category, technologies, github, live, pin });
 
         if (image && typeof image.name === 'string' && typeof image.arrayBuffer === 'function') {
             const oldProject = await Project.findById(projectId);

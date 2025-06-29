@@ -7,6 +7,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { projectsTabs } from "@/constant";
 import { ProjectItemType, ProjectName } from "@/types";
@@ -31,6 +32,7 @@ const ProjectForm = ({
     const [tags, setTags] = React.useState<string[]>(project?.technologies || []);
     const [github, setGithub] = React.useState<string>(project?.github || "");
     const [live, setLive] = React.useState<string>(project?.live || "");
+    const [pin, setPin] = React.useState<boolean>(project?.pin || false);
     const [category, setCategory] = React.useState<ProjectName>(project?.category as ProjectName || "Frontend");
 
     const [loading, setLoading] = React.useState(false);
@@ -85,6 +87,7 @@ const ProjectForm = ({
         formData.append("technologies", JSON.stringify(tags));
         formData.append("github", github);
         formData.append("live", live);
+        formData.append("pin", pin ? "true" : "false");
 
         setLoading(true);
 
@@ -102,6 +105,7 @@ const ProjectForm = ({
             setTags([]);
             setGithub("");
             setLive("");
+            setPin(false);
         })
     }
 
@@ -110,6 +114,11 @@ const ProjectForm = ({
             <div className="flex flex-col">
                 <label className="gap-1 block text-gray-700 dark:text-white" htmlFor="image">Image File</label>
                 <Input type="file" accept=".jpg,.jpeg,.png" className="block w-full p-2 border border-gray-300 rounded" id="image" placeholder="Enter image" onChange={imageUploadHandler} ref={fileRef} />
+                {
+                    project?.image && <p className="text-sm text-gray-500 dark:text-gray-300">
+                        {project.image.length > 50 ? project.image.slice(0, 50) + "..." : project.image}
+                    </p>
+                }
             </div>
             <div className="flex flex-col gap-1">
                 <label className="block text-gray-700 dark:text-white" htmlFor="title">Title</label>
@@ -163,6 +172,10 @@ const ProjectForm = ({
             <div className="flex flex-col gap-1">
                 <label className="block text-gray-700 dark:text-white" htmlFor="live">Live Link</label>
                 <Input className="block w-full p-2 border border-gray-300 rounded" value={live} onChange={(e) => setLive(e.target.value)} type="text" id="live" placeholder="Enter live link" />
+            </div>
+            <div className="flex flex-col gap-1">
+                <label className="block text-gray-700 dark:text-white" htmlFor="pin">Pin Project</label>
+                <Switch checked={pin} onCheckedChange={setPin} id="pin" />
             </div>
             <Button className="cursor-pointer w-full bg-sky-500 text-white py-2 rounded hover:bg-sky-600 transition-colors duration-300" onClick={handleSubmit} disabled={loading}>
                 {loading && <Loader2 className="animate-spin w-4 h-4" />}

@@ -4,6 +4,17 @@ import { Stats } from "@/models/stats";
 import { deleteFileFromGithub } from "@/utils/DeleteFile";
 import { uploadFileToGitHub } from "@/utils/UploadeFile";
 
+export async function GET(req: Request) {
+    await connectDB();
+
+    const blogs = await Blog.find();
+
+    return new Response(JSON.stringify(blogs), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+    });
+}
+
 export async function POST(req: Request) {
     try {
         const formData = await req.formData();
