@@ -12,7 +12,13 @@ const DashboardMessage = ({ data }: { data: MessageItemType[] }) => {
 
     const readMessage = async (id: string) => {
         try {
-            const response = await fetch(`/api/message?_id=${id}`);
+            const response = await fetch(`/api/message`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id }),
+            });
             if (!response.ok) {
                 toast.error("Failed to read message");
                 return;

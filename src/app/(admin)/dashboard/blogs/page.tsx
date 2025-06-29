@@ -3,7 +3,7 @@ import DashboardBlogs from './dashboard-blogs';
 
 const DashboardBlogsLayout = async () => {
     const baseurl = await getBaseUrl();
-    const response = await fetch(`${baseurl}/api/blogs`, {
+    const response = await fetch(`${baseurl}/api/blog`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

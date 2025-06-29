@@ -114,10 +114,20 @@ const BlogForm = ({
             <div className="flex flex-col gap-1">
                 <label className="block text-gray-700 dark:text-white" htmlFor="file">Readme File</label>
                 <Input type="file" accept=".md" className="block w-full p-2 border border-gray-300 rounded" id="file" placeholder="Enter file" onChange={fileUploadHandler} ref={fileRef} />
+                {
+                    blog?.content && <p className="text-sm text-gray-500 dark:text-gray-300">
+                        {blog.content.length > 50 ? blog.content.slice(0, 50) + "..." : blog.content}
+                    </p>
+                }
             </div>
             <div className="flex flex-col gap-1">
                 <label className="block text-gray-700 dark:text-white" htmlFor="image">Image File</label>
                 <Input type="file" accept=".jpg,.jpeg,.png" className="block w-full p-2 border border-gray-300 rounded" id="image" placeholder="Enter image" onChange={imageUploadHandler} ref={imageRef} />
+                {
+                    blog?.image && <p>
+                        {blog.image.length > 50 ? blog.image.slice(0, 50) + "..." : blog.image}
+                    </p>
+                }
             </div>
             <div className="flex flex-col gap-1">
                 <label className="block text-gray-700 dark:text-white" htmlFor="title">Title</label>

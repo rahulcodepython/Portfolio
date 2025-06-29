@@ -5,7 +5,7 @@ import { getBaseUrl } from '@/utils/GetBaseUrl';
 const DashboardProjectLayout = async () => {
     const baseurl = await getBaseUrl();
 
-    const response = await fetch(`${baseurl}/api/projects`, {
+    const response = await fetch(`${baseurl}/api/project`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

@@ -1,11 +1,10 @@
 import { connectDB } from "@/lib/mongodb";
 import { Blog } from "@/models/blog";
 
-export async function GET(req: Request) {
+export async function GET(req: Request, { params }: { params: Promise<{ _id: string }> }) {
     await connectDB();
 
-    const url = new URL(req.url);
-    const blogId = url.searchParams.get('_id');
+    const blogId = (await params)._id;
 
     if (!blogId) {
         return new Response(JSON.stringify({ error: 'Blog ID is required' }), {

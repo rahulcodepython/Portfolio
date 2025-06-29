@@ -2,6 +2,17 @@ import { connectDB } from '@/lib/mongodb';
 import { Message } from '@/models/message';
 import { Stats } from '@/models/stats';
 
+export async function GET(req: Request) {
+    await connectDB();
+
+    const messages = await Message.find();
+
+    return new Response(JSON.stringify(messages), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+    });
+}
+
 export async function POST(request: Request) {
     try {
         const formData = await request.formData();
@@ -52,10 +63,9 @@ export async function POST(request: Request) {
     }
 }
 
-export async function GET(request: Request) {
+export async function PATCH(request: Request) {
     try {
-        const { searchParams } = new URL(request.url);
-        const id = searchParams.get('_id');
+        const { id } = await request.json();
 
         if (!id) {
             return new Response(JSON.stringify({ error: 'Message ID is required' }), { status: 400 });

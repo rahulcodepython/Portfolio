@@ -3,9 +3,11 @@
 import Heading from "@/components/heading"
 import ProjectItem from "@/components/project-item"
 import Section from "@/components/section"
+import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { projectsTabs } from "@/constant"
 import { Project, ProjectItemType } from "@/types"
+import Link from "next/link"
 import React from "react"
 
 const Projects = ({ projects }: { projects: ProjectItemType[] }) => {
@@ -57,6 +59,11 @@ const Projects = ({ projects }: { projects: ProjectItemType[] }) => {
 						</TabsContent>
 					</Tabs>
 				}
+				<div className="w-full flex justify-center">
+					<Link href="/projects">
+						<Button variant="outline" className="">Show All</Button>
+					</Link>
+				</div>
 			</div>
 		</Section>
 	)

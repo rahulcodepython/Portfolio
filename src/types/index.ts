@@ -14,6 +14,7 @@ export type ProjectItemType = {
     github?: string;
     description: string;
     technologies: string[];
+    pin?: boolean;
 };
 
 export type BlogItemType = {

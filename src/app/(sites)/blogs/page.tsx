@@ -7,7 +7,7 @@ import { getBaseUrl } from "@/utils/GetBaseUrl"
 const Blogs = async () => {
     const baseUrl = await getBaseUrl();
 
-    const response = await fetch(`${baseUrl}/api/blogs`, {
+    const response = await fetch(`${baseUrl}/api/blog`, {
         cache: 'force-cache',
         next: { revalidate: 120 },
     });
