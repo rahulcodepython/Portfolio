@@ -25,7 +25,7 @@ const Navbar = () => {
 	];
 
 	return (
-		<header className="sticky top-0 bg-white/30 backdrop-blur-sm dark:bg-bg-dark/30 dark:backdrop-blur-sm z-50 shadow-2xl">
+		<header className="sticky top-0 bg-white/30 backdrop-blur-sm dark:bg-bg-dark/30 dark:backdrop-blur-sm z-40 shadow-2xl">
 			<nav className="hidden lg:block py-2">
 				<div className="flex justify-around items-center container mx-auto">
 					{

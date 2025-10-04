@@ -9,6 +9,7 @@ const Skills = () => {
 		{ name: 'C', value: 'c' },
 		{ name: 'C++', value: 'cplusplus' },
 		{ name: 'Python', value: 'python' },
+		{ name: 'Golang', value: 'golang' },
 		{ name: 'HTML', value: 'html' },
 		{ name: 'CSS', value: 'css' },
 		{ name: 'Javascript', value: 'javascript' },
@@ -41,7 +42,7 @@ const Skills = () => {
 			<Marquee gradient={false} speed={80} pauseOnHover={true} pauseOnClick={true} delay={0} play={true} direction="left">
 				{
 					skillsData.map((skill, id) => (
-						<div className="w-36 min-w-fit h-fit flex flex-col items-center justify-center transition-all duration-500 m-3 sm:m-5 rounded-lg group relative hover:scale-[1.15] cursor-pointer border"
+						<div className="w-36 min-w-fit h-fit dark:bg-bg-dark flex flex-col items-center justify-center transition-all duration-500 m-3 sm:m-5 rounded-lg group relative hover:scale-[1.15] cursor-pointer border"
 							key={id}>
 							<div className="h-full w-full rounded-lg shadow-none transition-all duration-500">
 								<div className="flex -translate-y-[1px] justify-center">

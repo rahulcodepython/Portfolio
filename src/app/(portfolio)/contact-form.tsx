@@ -101,6 +101,7 @@ const ContactForm = () => {
 					<Input
 						type="text"
 						placeholder="Your Name"
+						className='dark:bg-bg-dark'
 						{...register('name')}
 					/>
 					{errors.name && <p className="text-red-500 text-xs">{errors.name.message}</p>}
@@ -109,6 +110,7 @@ const ContactForm = () => {
 					<Input
 						type="text"
 						placeholder="@gmail.com"
+						className='dark:bg-bg-dark'
 						{...register('email')}
 					/>
 					{errors.email && <p className="text-red-500 text-xs">{errors.email.message}</p>}
@@ -118,6 +120,7 @@ const ContactForm = () => {
 				<Input
 					type="text"
 					placeholder="Subject"
+					className='dark:bg-bg-dark'
 					{...register('subject')}
 				/>
 				{errors.subject && <p className="text-red-500 text-xs">{errors.subject.message}</p>}
@@ -125,6 +128,7 @@ const ContactForm = () => {
 			<div className="flex flex-col w-full">
 				<Textarea
 					placeholder="Enter your message"
+					className='dark:bg-bg-dark'
 					rows={6}
 					{...register('message')}
 				/>

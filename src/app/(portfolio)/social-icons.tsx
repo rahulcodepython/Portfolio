@@ -15,7 +15,7 @@ const SocialIcons = () => {
     }, []);
 
     return (
-        <section className="fixed bottom-0 w-full z-40">
+        <section className="fixed bottom-0 w-full z-50">
             <Dock direction="middle">
                 <DockIcon>
                     <Link href={Icons.gitHubLink()} target="_blank" rel="noreferrer">

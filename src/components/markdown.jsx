@@ -31,7 +31,7 @@ const MarkdownRender = ({ children, className = "" }) => {
                     pre: ({ children }) => {
                         const codeText = children.props.children;
 
-                        return <pre className="relative p-4 m-0 rounded-md bg-gray-200 dark:bg-gray-900 text-black dark:text-white">
+                        return <pre className="relative p-4 m-0 rounded-md bg-gray-200 dark:bg-black text-black dark:text-white">
                             {children}
                             <div className='absolute right-4 top-4'>
                                 <Copy className='w-4 h-4 cursor-pointer' onClick={() => handleCopy(codeText)} />
