@@ -7,7 +7,7 @@ const About = () => {
 		<Section id="about">
 			<Heading title="About Me" />
 
-			<div className="relative w-full bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg">
+			<div className="relative w-full bg-white dark:bg-bg-dark p-8 rounded-xl shadow-lg">
 				<div className="absolute -top-6 left-2 text-primary text-8xl font-serif select-none">"</div>
 				<div className="relative z-10">
 					<p className="text-lg text-gray-700 dark:text-white italic mb-4">
@@ -22,7 +22,7 @@ const About = () => {
 				<div className="flex flex-col gap-4">
 					<h3 className="text-2xl font-semibold text-primary">Education</h3>
 					<div className="flex flex-col gap-6 justify-between h-full">
-						<div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+						<div className="bg-white dark:bg-bg-dark p-6 rounded-lg shadow-md">
 							<div className="flex items-center gap-4 mb-2">
 								<div className="p-3 bg-primary/10 rounded-full">
 									<GraduationCap className="w-6 h-6" />
@@ -33,7 +33,7 @@ const About = () => {
 							<p className="mt-2">Graduated with specialization in Web Development and Algorithms.</p>
 						</div>
 
-						<div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+						<div className="bg-white dark:bg-bg-dark p-6 rounded-lg shadow-md">
 							<div className="flex items-center gap-4 mb-2">
 								<div className="p-3 bg-primary/10 rounded-full">
 									<School2Icon className="w-6 h-6" />
@@ -49,7 +49,7 @@ const About = () => {
 				<div className="flex flex-col gap-4 flex-1">
 					<h3 className="text-2xl font-semibold text-primary">Experience</h3>
 					<div className="flex flex-col items-center justify-center flex-1">
-						<div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md flex flex-col justify-between">
+						<div className="bg-white dark:bg-bg-dark p-6 rounded-lg shadow-md flex flex-col justify-between">
 							<div className="flex items-center gap-4 mb-2">
 								<div className="p-3 bg-primary/10 rounded-full">
 									<BriefcaseIcon className="w-6 h-6" />

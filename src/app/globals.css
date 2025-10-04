@@ -45,7 +45,7 @@
 
     --color-primary: var(--color-blue-500);
     --color-primary-hover: var(--color-blue-600);
-    --color-bg-dark: var(--color-gray-700);
+    --color-bg-dark: var(--color-gray-900);
 }
 
 :root {
