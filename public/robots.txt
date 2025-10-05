@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://rahulcodepython.in
+Host: https://rahulcodepython.space
 
 # Sitemaps
-Sitemap: https://rahulcodepython.in/sitemap.xml
+Sitemap: https://rahulcodepython.space/sitemap.xml

@@ -22,6 +22,7 @@ const Skills = () => {
 		{ name: 'Next JS', value: 'nextjs' },
 		{ name: 'React Native', value: 'expo' },
 		{ name: 'Django', value: 'django' },
+		{ name: 'Flask', value: 'flask' },
 		{ name: 'Tailwind', value: 'tailwind' },
 		{ name: 'Bootstrap', value: 'bootstrap' },
 		{ name: 'MongoDB', value: 'mongodb' },
