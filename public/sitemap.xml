@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<sitemap><loc>https://rahulcodepython.space/sitemap-0.xml</loc></sitemap>
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://rahulcodepython.space/</loc>
+    <lastmod>2025-10-05</lastmod> <changefreq>monthly</changefreq>
+  </url>
+  </urlset>
