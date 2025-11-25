@@ -23,26 +23,27 @@ export default function Contact() {
 		setIsSubmitting(true);
 
 		try {
-			const response = await fetch('/api/contact', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(formData),
-			});
+			// const response = await fetch('/api/contact', {
+			// 	method: 'POST',
+			// 	headers: {
+			// 		'Content-Type': 'application/json',
+			// 	},
+			// 	body: JSON.stringify(formData),
+			// });
 
-			const data = await response.json();
+			// const data = await response.json();
 
-			if (response.ok) {
-				toast.success("Message sent successfully! I'll get back to you soon.", {
-					description: "Thank you for reaching out!",
-				});
-				setFormData({ name: "", email: "", message: "" });
-			} else {
-				toast.error("Failed to send message", {
-					description: data.message || "Please try again later.",
-				});
-			}
+			// if (response.ok) {
+			// 	toast.success("Message sent successfully! I'll get back to you soon.", {
+			// 		description: "Thank you for reaching out!",
+			// 	});
+			// 	setFormData({ name: "", email: "", message: "" });
+			// } else {
+			// 	toast.error("Failed to send message", {
+			// 		description: data.message || "Please try again later.",
+			// 	});
+			// }
+			toast.warning("Contact us is currently under development. Please email me. Sorry for inconvinence.")
 		} catch (error) {
 			console.error('Contact form error:', error);
 			toast.error("Something went wrong", {
@@ -67,7 +68,7 @@ export default function Contact() {
 			icon: Mail,
 			title: "Email",
 			value: "rahulcodepython@gmail.com",
-			href: "mailto:contact@rahulcodepython.space",
+			href: null,
 		},
 		{
 			icon: MapPin,

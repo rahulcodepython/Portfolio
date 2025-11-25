@@ -352,6 +352,28 @@ export const getProjects: Project[] = [
         created_at: '2025-11-25 11:01:15'
     },
     {
+        id: 3,
+        title: 'PPM - Python Package Manager',
+        description: 'A command-line Python Package Manager that create, manage packages, initialize git and many more.',
+        technologies: 'Python Package Manager, Python Package, CLI Tool',
+        image_url: 'https://raw.githubusercontent.com/rahulcodepython/file-storage/main/portfolio/projectImage/Copilot_20250628_171935.png',
+        live_url: 'pypi.org/project/ppm3/',
+        github_url: 'https://github.com/rahulcodepython/Python-Project-Manager.git',
+        featured: 0,
+        created_at: '2025-11-25 11:01:15'
+    },
+    {
+        id: 4,
+        title: 'Quiz Generator',
+        description: 'A quiz generator powered by AI that creates dynamic questions, evaluates performance, and offers instant feedback for an interactive learning experience.',
+        technologies: 'AI, API, Next.js, AI Generation',
+        image_url: 'https://raw.githubusercontent.com/rahulcodepython/file-storage/main/portfolio/projectImage/Copilot_20250628_171812.png',
+        live_url: 'https://quiz.rahulcodepython.space/',
+        github_url: 'https://github.com/rahulcodepython/AI-Quiz-App.git',
+        featured: 0,
+        created_at: '2025-11-25 11:01:15'
+    },
+    {
         id: 5,
         title: 'Multiplayer Chess',
         description: 'A real-time chess application enabling live multiplayer matches, move validation, and in-game chat using websockets and persistent backend logic.',
@@ -360,6 +382,39 @@ export const getProjects: Project[] = [
         live_url: '',
         github_url: 'https://github.com/rahulcodepython/Multiplayer-Chess-Frontend.git',
         featured: 1,
+        created_at: '2025-11-25 11:01:15'
+    },
+    {
+        id: 6,
+        title: 'Inventory Management System',
+        description: 'A desktop application developed with Python, Tkinter, and SQLite3 to manage product stock, pricing, and availability. It features a simple GUI for adding, updating, and tracking inventory, ideal for small businesses or personal use.',
+        technologies: 'Python, Tkinter, DesktopApp',
+        image_url: 'https://raw.githubusercontent.com/rahulcodepython/file-storage/main/portfolio/projectImage/A%20desktop%20applicatio.png',
+        live_url: '',
+        github_url: 'https://github.com/rahulcodepython/Inventory-Management',
+        featured: 0,
+        created_at: '2025-11-25 11:01:15'
+    },
+    {
+        id: 7,
+        title: 'Twitter Clone',
+        description: 'A mobile-first social media app built using React Native, Express, and MongoDB. Users can post tweets, view timelines, and interact in real time. The backend handles user authentication and tweet storage, while the frontend delivers a smooth, native experience.',
+        technologies: 'ReactNative, Express',
+        image_url: 'https://raw.githubusercontent.com/rahulcodepython/file-storage/main/portfolio/projectImage/A%20mobile%20app%20interfa.png',
+        live_url: '',
+        github_url: 'https://github.com/rahulcodepython/Twitter',
+        featured: 0,
+        created_at: '2025-11-25 11:01:15'
+    },
+    {
+        id: 8,
+        title: 'Finance Tracker',
+        description: 'A comprehensive full-stack financial management application built with Next.js, Golang, and PostgreSQL for managing accounts, budgets, recurring transactions, and categories. Features interactive charts for income/expense visualization and provides real-time financial insights with robust transaction tracking.',
+        technologies: 'Next.js, Golang, PostgreSQL, TypeScript, Tailwind CSS, Chart.js',
+        image_url: 'https://raw.githubusercontent.com/rahulcodepython/file-storage/main/portfolio/projectImage/An%20application%20inter.png',
+        live_url: '',
+        github_url: 'https://github.com/rahulcodepython/Finance-Tracker',
+        featured: 0,
         created_at: '2025-11-25 11:01:15'
     }
 ]
