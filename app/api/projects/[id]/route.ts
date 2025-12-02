@@ -4,6 +4,7 @@ import {
 } from "@/lib/database/queries/projects.queries";
 import { errorResponse, successResponse } from "@/lib/response";
 import { projectSchema } from "@/lib/validations";
+import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function PUT(
@@ -15,13 +16,15 @@ export async function PUT(
 		const body = await request.json();
 		const data = projectSchema.parse(body);
 
-		const project = updateProject(Number.parseInt(id), data);
+		const project = await updateProject(Number.parseInt(id), data);
 
 		if (!project) {
 			return NextResponse.json(errorResponse("Project not found"), {
 				status: 404,
 			});
 		}
+
+		revalidateTag('home-data', 'max')
 
 		return NextResponse.json(
 			successResponse(project, "Project updated successfully"),
@@ -40,7 +43,9 @@ export async function DELETE(
 ) {
 	try {
 		const { id } = await params;
-		deleteProject(Number.parseInt(id));
+		await deleteProject(Number.parseInt(id));
+
+		revalidateTag('home-data', 'max')
 
 		return NextResponse.json(
 			successResponse(null, "Project deleted successfully"),

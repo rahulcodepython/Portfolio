@@ -4,11 +4,12 @@ import {
 } from "@/lib/database/queries/projects.queries";
 import { errorResponse, successResponse } from "@/lib/response";
 import { projectSchema } from "@/lib/validations";
+import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function GET() {
     try {
-        const projects = getAllProjects();
+        const projects = await getAllProjects();
         return NextResponse.json(
             successResponse(projects, "Projects fetched successfully"),
         );
@@ -22,7 +23,9 @@ export async function POST(request: Request) {
         const body = await request.json();
         const data = projectSchema.parse(body);
 
-        const project = createProject(data);
+        const project = await createProject(data);
+
+        revalidateTag('home-data', 'max')
 
         return NextResponse.json(
             successResponse(project, "Project created successfully"),

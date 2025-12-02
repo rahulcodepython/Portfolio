@@ -8,7 +8,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     const body = await request.json()
     const { read } = body
 
-    const contact = markContactAsRead(Number.parseInt(id), read)
+    const contact = await markContactAsRead(Number.parseInt(id), read)
 
     return NextResponse.json(successResponse(contact, "Contact updated successfully"))
   } catch (error) {

@@ -1,38 +1,55 @@
-import db from "@/lib/database/db";
+import pool from "@/lib/database/db";
 import { Skill, SkillCreate, SkillUpdate } from "../schema";
 
 // Skills queries
-export function getAllSkills(): Skill[] {
-    const database = db
-    return database.prepare("SELECT * FROM skills ORDER BY created_at DESC").all() as Skill[]
+export async function getAllSkills(): Promise<Skill[]> {
+    try {
+        const result = await pool.query("SELECT * FROM skills ORDER BY created_at DESC");
+        return result.rows as Skill[];
+    } catch (error) {
+        console.error("Error fetching all skills:", error);
+        throw error;
+    }
 }
 
-export function createSkill(data: SkillCreate): Skill {
-    const database = db
-    const result = database
-        .prepare(`
-    INSERT INTO skills (name, category, proficiency_level)
-    VALUES (?, ?, ?)
-    RETURNING *
-  `)
-        .get(data.name, data.category, data.proficiency_level)
+export async function createSkill(data: SkillCreate): Promise<Skill> {
+    try {
+        const result = await pool.query(
+            `INSERT INTO skills (name, category, proficiency_level)
+       VALUES ($1, $2, $3)
+       RETURNING *`,
+            [data.name, data.category, data.proficiency_level]
+        );
 
-    return result as Skill
+        return result.rows[0] as Skill;
+    } catch (error) {
+        console.error("Error creating skill:", error);
+        throw error;
+    }
 }
 
-export function updateSkill(id: number, data: SkillUpdate): Skill {
-    const database = db
-    const fields = Object.keys(data)
-        .map((key) => `${key} = ?`)
-        .join(", ")
-    const values = Object.values(data)
+export async function updateSkill(id: number, data: SkillUpdate): Promise<Skill> {
+    try {
+        const fields = Object.keys(data);
+        const values = Object.values(data);
 
-    const result = database.prepare(`UPDATE skills SET ${fields} WHERE id = ? RETURNING *`).get(...values, id)
+        // Create parameterized query with $1, $2, etc.
+        const setClause = fields.map((key, index) => `${key} = $${index + 1}`).join(", ");
+        const query = `UPDATE skills SET ${setClause} WHERE id = $${fields.length + 1} RETURNING *`;
 
-    return result as Skill
+        const result = await pool.query(query, [...values, id]);
+        return result.rows[0] as Skill;
+    } catch (error) {
+        console.error("Error updating skill:", error);
+        throw error;
+    }
 }
 
-export function deleteSkill(id: number): void {
-    const database = db
-    database.prepare("DELETE FROM skills WHERE id = ?").run(id)
+export async function deleteSkill(id: number): Promise<void> {
+    try {
+        await pool.query("DELETE FROM skills WHERE id = $1", [id]);
+    } catch (error) {
+        console.error("Error deleting skill:", error);
+        throw error;
+    }
 }

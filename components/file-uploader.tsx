@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { FileIcon, Loader2, X } from "lucide-react"
-import Image from "next/image"
 import { useState } from "react"
 
 export interface FileUploadConfig {
@@ -124,7 +123,7 @@ export function FileUploader({
                 <div className="space-y-2">
                     {isImage ? (
                         <div className="relative w-full max-w-xs">
-                            <Image
+                            <img
                                 height={48}
                                 width={48}
                                 src={preview}

@@ -20,7 +20,7 @@ export async function POST(request: Request) {
         const { name, email, message } = validation.data
 
         // Store contact in database
-        createContact({ name, email, message })
+        await createContact({ name, email, message })
 
         // Send email via EmailJS
         const serviceID = process.env.EMAILJS_SERVICE_ID

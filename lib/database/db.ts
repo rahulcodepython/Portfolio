@@ -1,24 +1,49 @@
-import Database from "better-sqlite3";
-import fs from "fs";
-import { join } from "path";
-import { createsettingsIfNotExists } from "./queries/settings.queries";
+import fs from 'fs';
+import { join } from 'path';
+import { Pool } from 'pg';
 
-function initializeTable(database: Database.Database) {
-  const schemaPath = join(process.cwd(), "scripts", process.env.DB_INITIALIZE_SCRIPT!)
-  const schema = fs.readFileSync(schemaPath, "utf-8")
-  database.exec(schema)
+// Create a PostgreSQL connection pool
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false,
+    },
+});
+
+// Initialize database tables
+async function initializeDatabase() {
+    try {
+        const schemaPath = join(process.cwd(), 'scripts', 'init-db.sql');
+        const schema = fs.readFileSync(schemaPath, 'utf-8');
+
+        await pool.query(schema);
+        console.log('Database initialized successfully');
+    } catch (error) {
+        console.error('Error initializing database:', error);
+        throw error;
+    }
 }
 
-const DB_PATH = join(process.cwd(), process.env.DB_FILE_NAME!);
+// Test connection and initialize if needed
+pool.on('connect', () => {
+    console.log('Connected to PostgreSQL database');
+});
 
-const isNewDb = !fs.existsSync(DB_PATH);
+pool.on('error', (err) => {
+    console.error('Unexpected error on idle client', err);
+    process.exit(-1);
+});
 
-const db = new Database(DB_PATH);
-
-if (isNewDb) {
-  db.pragma("journal_mode = WAL");
-  initializeTable(db);
-  createsettingsIfNotExists(db)
+// Initialize database on first import
+let initialized = false;
+if (!initialized) {
+    initializeDatabase()
+        .then(() => {
+            initialized = true;
+        })
+        .catch((err) => {
+            console.error('Failed to initialize database:', err);
+        });
 }
 
-export default db
+export default pool;

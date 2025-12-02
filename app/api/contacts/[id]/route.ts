@@ -5,7 +5,7 @@ import { NextResponse } from "next/server"
 export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     const { id } = await params
-    deleteContact(Number.parseInt(id))
+    await deleteContact(Number.parseInt(id))
 
     return NextResponse.json(successResponse({}, "Contact deleted successfully"))
   } catch (error) {

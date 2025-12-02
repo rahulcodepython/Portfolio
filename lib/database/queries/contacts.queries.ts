@@ -1,28 +1,48 @@
-import db from "@/lib/database/db";
+import pool from "@/lib/database/db";
 import { Contact, ContactCreate } from "../schema";
 
 // Contacts queries
-export function getAllContacts(): Contact[] {
-    const database = db
-    return database.prepare("SELECT * FROM contacts ORDER BY created_at DESC").all() as Contact[]
+export async function getAllContacts(): Promise<Contact[]> {
+    try {
+        const result = await pool.query("SELECT * FROM contacts ORDER BY created_at DESC");
+        return result.rows as Contact[];
+    } catch (error) {
+        console.error("Error fetching all contacts:", error);
+        throw error;
+    }
 }
 
-export function createContact(data: ContactCreate) {
-    const database = db
-    database
-        .prepare(`
-    INSERT INTO contacts (name, email, message)
-    VALUES (?, ?, ?)
-  `)
-        .run(data.name, data.email, data.message)
+export async function createContact(data: ContactCreate): Promise<void> {
+    try {
+        await pool.query(
+            `INSERT INTO contacts (name, email, message)
+       VALUES ($1, $2, $3)`,
+            [data.name, data.email, data.message]
+        );
+    } catch (error) {
+        console.error("Error creating contact:", error);
+        throw error;
+    }
 }
 
-export function markContactAsRead(id: number, read: boolean) {
-    const database = db
-    return database.prepare("UPDATE contacts SET read = ? WHERE id = ? RETURNING *").get(read ? 0 : 1, id)
+export async function markContactAsRead(id: number, read: boolean): Promise<Contact> {
+    try {
+        const result = await pool.query(
+            "UPDATE contacts SET read = $1 WHERE id = $2 RETURNING *",
+            [read, id]
+        );
+        return result.rows[0] as Contact;
+    } catch (error) {
+        console.error("Error marking contact as read:", error);
+        throw error;
+    }
 }
 
-export function deleteContact(id: number) {
-    const database = db
-    database.prepare("DELETE FROM contacts WHERE id = ?").run(id)
+export async function deleteContact(id: number): Promise<void> {
+    try {
+        await pool.query("DELETE FROM contacts WHERE id = $1", [id]);
+    } catch (error) {
+        console.error("Error deleting contact:", error);
+        throw error;
+    }
 }

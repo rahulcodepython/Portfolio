@@ -60,7 +60,7 @@ export default function ProjectsPage() {
             name: "featured",
             label: "Featured Project",
             type: "switch",
-            defaultValue: 0,
+            defaultValue: false,
         },
     ]
 

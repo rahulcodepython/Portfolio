@@ -98,6 +98,7 @@ export function ProjectsTable({ projects: initialProjects }: ProjectsTableProps)
             name: "featured",
             label: "Featured Project",
             type: "switch",
+            defaultValue: false,
         },
     ]
 
@@ -176,8 +177,8 @@ export function ProjectsTable({ projects: initialProjects }: ProjectsTableProps)
                             image_url: project.image_url || "",
                             live_url: project.live_url || "",
                             github_url: project.github_url || "",
-                            featured: project.featured,
-                        }}
+                            featured: project.featured === 1,
+                        } as any}
                         onSubmit={handleEdit}
                         submitButtonText="Save Changes"
                         open={editModalOpen && editingProject?.id === project.id}

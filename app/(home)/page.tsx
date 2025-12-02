@@ -2,6 +2,7 @@ import { getFeaturedProjects } from "@/lib/database/queries/projects.queries";
 import { getSettings } from "@/lib/database/queries/settings.queries";
 import { getAllSkills } from "@/lib/database/queries/skills.queries";
 import { Project, Settings, Skill } from "@/lib/database/schema";
+import { unstable_cache } from "next/cache";
 import About from "./about";
 import Contact from "./contact";
 import Education from "./education";
@@ -14,7 +15,6 @@ import Services from "./services";
 import Skills from "./skills";
 
 // Enable static generation with ISR (Incremental Static Regeneration)
-export const revalidate = 200; // Revalidate every 200 seconds
 
 interface HomeData {
     settings: Settings | null;
@@ -22,28 +22,35 @@ interface HomeData {
     projects: Project[];
 }
 
-async function getHomeData(): Promise<HomeData> {
-    try {
-        // Directly access database instead of HTTP fetch
-        // This works during build time since we're using SQLite
-        const settings = getSettings();
-        const skills = getAllSkills();
-        const projects = getFeaturedProjects();
+const getHomeData = unstable_cache(
+    async () => {
+        console.log('🔥 HIT NEON DB - CACHE MISS');
 
-        return {
-            settings: settings || null,
-            skills,
-            projects,
-        };
-    } catch (error) {
-        console.error('Error fetching home data:', error);
-        return {
-            settings: null,
-            skills: [],
-            projects: [],
-        };
+        try {
+            const settings = await getSettings();
+            const skills = await getAllSkills();
+            const projects = await getFeaturedProjects();
+
+            return {
+                settings: settings || null,
+                skills,
+                projects,
+            };
+        } catch (error) {
+            console.error('Error fetching home data:', error);
+            return {
+                settings: null,
+                skills: [],
+                projects: [],
+            };
+        }
+    },
+    ['home-data'],
+    {
+        tags: ['home-data'],
+        revalidate: false, // Only revalidate when tag is explicitly revalidated
     }
-}
+);
 
 export default async function Home() {
     const { settings, skills, projects } = await getHomeData();

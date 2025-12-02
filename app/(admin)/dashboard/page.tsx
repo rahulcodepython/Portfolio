@@ -5,7 +5,7 @@ import { FolderKanban, Lightbulb, Mail } from "lucide-react"
 import Link from "next/link"
 
 export default async function DashboardPage() {
-    const { stats, recentProjects, recentUnreadContacts } = getStats()
+    const { stats, recentProjects, recentUnreadContacts } = await getStats()
 
     const statCards = [
         {
@@ -71,7 +71,7 @@ export default async function DashboardPage() {
                                             <p className="text-sm text-muted-foreground line-clamp-1">{project.description.slice(0, 30) + "..."}</p>
                                             <p className="mt-1 text-xs text-muted-foreground">{project.technologies}</p>
                                         </div>
-                                        {project.featured === 1 && (
+                                        {project.featured && (
                                             <span className="rounded-full bg-accent px-2 py-1 text-xs font-medium text-accent-foreground">
                                                 Featured
                                             </span>
@@ -105,7 +105,7 @@ export default async function DashboardPage() {
                                                 <div className="flex-1">
                                                     <div className="flex items-center gap-2">
                                                         <h4 className="font-medium text-foreground">{contact.name}</h4>
-                                                        {contact.read === 0 && <span className="h-2 w-2 rounded-full bg-accent" />}
+                                                        {!contact.read && <span className="h-2 w-2 rounded-full bg-accent" />}
                                                     </div>
                                                     <p className="text-sm text-muted-foreground">{contact.email}</p>
                                                     <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{contact.message.slice(0, 30) + "..."}</p>
