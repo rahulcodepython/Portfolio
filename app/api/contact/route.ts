@@ -1,6 +1,7 @@
 import { createContact } from "@/lib/database/queries/contacts.queries"
 import { errorResponse, successResponse } from "@/lib/response"
 import { contactSchema } from "@/lib/validations"
+import emailjs from '@emailjs/browser'
 import { NextResponse } from "next/server"
 
 export async function POST(request: Request) {
@@ -39,7 +40,7 @@ export async function POST(request: Request) {
                     message: message,
                 }
 
-                // await emailjs.send(serviceID, templateID, emailData, options)
+                await emailjs.send(serviceID, templateID, emailData, options)
                 console.log('Email sent successfully via EmailJS')
             } catch (emailError) {
                 console.error('EmailJS error:', emailError)
