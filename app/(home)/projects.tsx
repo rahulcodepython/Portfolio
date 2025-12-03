@@ -6,7 +6,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Project } from "@/lib/database/schema";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Star } from "lucide-react";
-import Image from "next/image";
 
 export default function Projects({ projects }: { projects: Project[] }) {
 	return (
@@ -45,7 +44,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
 								<Card className="border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 overflow-hidden h-full flex flex-col bg-card pt-0">
 									{/* Project Image */}
 									<div className="relative h-48 overflow-hidden bg-muted">
-										<Image
+										<img
 											src={project.image_url ?? "/01.jpg"}
 											alt={project.title}
 											fill

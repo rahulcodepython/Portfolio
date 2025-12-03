@@ -132,7 +132,7 @@ export function ProjectsTable({ projects: initialProjects }: ProjectsTableProps)
             )
         } else if (col.header === "Status") {
             column.cell = (project) =>
-                project.featured === 1 ? (
+                project.featured ? (
                     <Badge variant="default">Featured</Badge>
                 ) : (
                     <Badge variant="secondary">Standard</Badge>
@@ -177,7 +177,7 @@ export function ProjectsTable({ projects: initialProjects }: ProjectsTableProps)
                             image_url: project.image_url || "",
                             live_url: project.live_url || "",
                             github_url: project.github_url || "",
-                            featured: project.featured === 1,
+                            featured: project.featured,
                         } as any}
                         onSubmit={handleEdit}
                         submitButtonText="Save Changes"

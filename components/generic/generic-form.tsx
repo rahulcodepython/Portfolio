@@ -73,6 +73,8 @@ export function GenericForm<T extends z.ZodType<any, any>>({
         defaultValues: defaultValues as any,
     })
 
+    console.log(defaultValues)
+
     const renderField = (field: FieldConfig) => (
         <FormField
             key={field.name}

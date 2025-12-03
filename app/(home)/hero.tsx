@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Settings } from "@/lib/database/schema";
 import { motion } from "framer-motion";
 import { Code2, Download, Facebook, Github, Instagram, Linkedin, Mail, Twitter } from "lucide-react";
-import Image from "next/image";
 
 export default function Hero({ settings }: { settings: Settings | null }) {
     return (
@@ -58,12 +57,10 @@ export default function Hero({ settings }: { settings: Settings | null }) {
                                 style={{ padding: "4px" }}
                             />
                             <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-background">
-                                <Image
+                                <img
                                     src={settings?.image_url ?? "/01.jpg"}
                                     alt="Rahul Das - Full Stack Developer"
-                                    fill
                                     className="object-cover"
-                                    priority
                                 />
                             </div>
                         </div>

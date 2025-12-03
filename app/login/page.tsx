@@ -27,7 +27,7 @@ export default function LoginPage() {
             })
 
             if (response.ok) {
-                toast.success("Login functionality not implemented yet");
+                toast.success("Login Successful");
                 router.push("/dashboard")
                 router.refresh()
             } else {
