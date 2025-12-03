@@ -1,7 +1,6 @@
 import { createContact } from "@/lib/database/queries/contacts.queries"
 import { errorResponse, successResponse } from "@/lib/response"
 import { contactSchema } from "@/lib/validations"
-import emailjs from '@emailjs/browser'
 import { NextResponse } from "next/server"
 
 export async function POST(request: Request) {
@@ -12,9 +11,13 @@ export async function POST(request: Request) {
         if (!validation.success) {
             const errors: Record<string, string> = {}
             validation.error.issues.forEach((issue) => {
-                errors[issue.path[0]] = issue.message
+                const field = issue.path[0]?.toString() || 'unknown'
+                errors[field] = issue.message
             })
-            return NextResponse.json(errorResponse("Invalid request"), { status: 400 })
+            return NextResponse.json(
+                { success: false, message: "Validation failed", errors },
+                { status: 400 }
+            )
         }
 
         const { name, email, message } = validation.data
@@ -36,7 +39,7 @@ export async function POST(request: Request) {
                     message: message,
                 }
 
-                await emailjs.send(serviceID, templateID, emailData, options)
+                // await emailjs.send(serviceID, templateID, emailData, options)
                 console.log('Email sent successfully via EmailJS')
             } catch (emailError) {
                 console.error('EmailJS error:', emailError)

@@ -4,7 +4,7 @@ import type { Contact } from "@/lib/database/schema"
  * Action handlers for the contacts table
  */
 export interface ContactsTableActions {
-    onToggleRead: (id: number, currentReadStatus: number) => void | Promise<void>
+    onToggleRead: (id: number, currentReadStatus: boolean) => void | Promise<void>
     onDelete: (id: number) => void | Promise<void>
     onView: (contact: Contact) => void
     deletingId?: number | null

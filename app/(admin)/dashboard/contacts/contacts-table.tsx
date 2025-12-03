@@ -27,16 +27,16 @@ export function ContactsTable({ contacts: initialContacts }: ContactsTableProps)
         await deleteContact(id.toString())
     }
 
-    const handleToggleRead = async (id: number, currentReadStatus: number) => {
-        await updateContactRead(id.toString(), { read: currentReadStatus !== 0 })
+    const handleToggleRead = async (id: number, currentReadStatus: boolean) => {
+        await updateContactRead(id.toString(), { read: !currentReadStatus })
     }
 
     const handleViewContact = async (contact: Contact) => {
         setSelectedContact(contact)
         setIsOpen(true)
 
-        if (contact.read === 0) {
-            await handleToggleRead(contact.id, 0)
+        if (!contact.read) {
+            await handleToggleRead(contact.id, false)
         }
     }
 
@@ -72,7 +72,7 @@ export function ContactsTable({ contacts: initialContacts }: ContactsTableProps)
             column.cell = (contact) => (
                 <div className="flex items-center gap-2">
                     <p className="font-medium text-foreground">{contact.name}</p>
-                    {contact.read === 0 && <span className="h-2 w-2 rounded-full bg-accent" />}
+                    {!contact.read && <span className="h-2 w-2 rounded-full bg-accent" />}
                 </div>
             )
         } else if (col.accessorKey === "email") {
@@ -91,7 +91,7 @@ export function ContactsTable({ contacts: initialContacts }: ContactsTableProps)
             )
         } else if (col.header === "Status") {
             column.cell = (contact) =>
-                contact.read === 0 ? (
+                !contact.read ? (
                     <Badge variant="default">Unread</Badge>
                 ) : (
                     <Badge variant="secondary">Read</Badge>
@@ -111,10 +111,10 @@ export function ContactsTable({ contacts: initialContacts }: ContactsTableProps)
                             e.stopPropagation()
                             actions.onToggleRead(contact.id, contact.read)
                         }}
-                        title={contact.read === 0 ? "Mark as read" : "Mark as unread"}
-                        disabled={isUpdatingRead}
+                        title={!contact.read ? "Mark as read" : "Mark as unread"}
+                        disabled={isUpdatingRead || contact.read}
                     >
-                        {contact.read === 0 ? <MailOpen className="h-4 w-4" /> : <Mail className="h-4 w-4" />}
+                        {!contact.read ? <MailOpen className="h-4 w-4" /> : <Mail className="h-4 w-4" />}
                     </Button>
                     <DeleteModal
                         isDeleting={isDeleting}

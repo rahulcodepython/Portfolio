@@ -13,7 +13,7 @@ export const projectFullSchema = z.object({
   image_url: z.string().url("Must be a valid URL").nullable(),
   live_url: z.string().url("Must be a valid URL").nullable(),
   github_url: z.string().url("Must be a valid URL").nullable(),
-  featured: z.number().int().min(0).max(1).default(0),
+  featured: z.boolean().default(false),
   created_at: z.string().datetime(),
 })
 
@@ -25,18 +25,7 @@ export const projectCreateSchema = z.object({
   image_url: z.string().url("Must be a valid URL").optional().nullable().or(z.literal("")).transform(val => !val || val === "" ? null : val),
   live_url: z.string().url("Must be a valid URL").optional().nullable().or(z.literal("")).transform(val => !val || val === "" ? null : val),
   github_url: z.string().url("Must be a valid URL").optional().nullable().or(z.literal("")).transform(val => !val || val === "" ? null : val),
-  featured: z.preprocess(
-    (val) => {
-      // Convert boolean to number (0 or 1) for database compatibility
-      if (typeof val === "boolean") return val ? 1 : 0
-      // If it's already a number, validate it
-      if (typeof val === "number") return val
-      // Default to 0 if undefined
-      if (val === undefined || val === null) return 0
-      return val
-    },
-    z.number().int().min(0).max(1).default(0)
-  ),
+  featured: z.boolean().default(false).optional(),
 })
 
 // Schema for updating a project (all fields optional)
@@ -85,7 +74,7 @@ export const contactFullSchema = z.object({
   name: z.string().min(1, "Name is required").max(100, "Name too long"),
   email: z.string().email("Invalid email address"),
   message: z.string().min(10, "Message must be at least 10 characters").max(1000, "Message too long"),
-  read: z.number().int().min(0).max(1).default(0),
+  read: z.boolean().default(false),
   created_at: z.string().datetime(),
 })
 
@@ -98,7 +87,7 @@ export const contactCreateSchema = z.object({
 
 // Schema for updating contact read status
 export const contactUpdateSchema = z.object({
-  read: z.number().int().min(0).max(1),
+  read: z.boolean(),
 })
 
 // Legacy export for backward compatibility
