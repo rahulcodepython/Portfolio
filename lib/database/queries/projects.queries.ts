@@ -56,7 +56,7 @@ export async function deleteProject(id: number): Promise<void> {
 
 export async function getFeaturedProjects(): Promise<Project[]> {
     try {
-        const result = await pool.query("SELECT * FROM projects WHERE featured = TRUE ORDER BY created_at DESC");
+        const result = await pool.query("SELECT * FROM projects WHERE featured = TRUE");
         return result.rows as Project[];
     } catch (error) {
         console.error("Error fetching featured projects:", error);

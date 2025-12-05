@@ -1,9 +1,10 @@
 "use client";
 
 import { Settings } from "@/lib/database/schema";
+import { motion } from "framer-motion";
 import { Code2, Facebook, Github, Heart, Instagram, Linkedin, Twitter } from "lucide-react";
 
-export default function Footer({ settings }: { settings: Settings | null }) {
+export default function Footer({ settings }: { settings: Settings }) {
     const currentYear = new Date().getFullYear();
 
     const navigation = [
@@ -18,11 +19,11 @@ export default function Footer({ settings }: { settings: Settings | null }) {
     ];
 
     const socialLinks = [
-        { icon: Github, href: settings?.github_url ?? "", label: "GitHub" },
-        { icon: Linkedin, href: settings?.linkedin_url ?? "", label: "LinkedIn" },
-        { icon: Twitter, href: settings?.twitter_url ?? "", label: "Twitter" },
-        { icon: Facebook, href: settings?.facebook_url ?? "", label: "Facebook" },
-        { icon: Instagram, href: settings?.instagram_url ?? "", label: "Instagram" },
+        { icon: Github, href: settings.github_url, label: "GitHub" },
+        { icon: Linkedin, href: settings.linkedin_url, label: "LinkedIn" },
+        { icon: Twitter, href: settings.twitter_url, label: "Twitter" },
+        { icon: Facebook, href: settings.facebook_url, label: "Facebook" },
+        { icon: Instagram, href: settings.instagram_url, label: "Instagram" },
     ];
 
     return (
@@ -39,8 +40,8 @@ export default function Footer({ settings }: { settings: Settings | null }) {
                             Full Stack Developer specializing in building exceptional digital experiences.
                         </p>
                         <div className="flex gap-3">
-                            {socialLinks.map((social) => (
-                                <a
+                            {/* {socialLinks.map((social) => (
+                                <Link
                                     key={social.label}
                                     href={social.href}
                                     target="_blank"
@@ -49,8 +50,31 @@ export default function Footer({ settings }: { settings: Settings | null }) {
                                     aria-label={social.label}
                                 >
                                     <social.icon className="w-5 h-5" />
-                                </a>
-                            ))}
+                                </Link>
+                            ))} */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5, delay: 0.7 }}
+                                className="flex gap-4 justify-center"
+                            >
+                                {socialLinks.map((social, index) => (
+                                    <motion.a
+                                        key={social.label}
+                                        href={social.href ?? ""}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="p-3 rounded-full bg-card border border-border hover:border-primary hover:bg-primary/10 transition-all duration-300"
+                                        whileHover={{ scale: 1.1, rotate: 5 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
+                                    >
+                                        <social.icon className="w-5 h-5" />
+                                    </motion.a>
+                                ))}
+                            </motion.div>
                         </div>
                     </div>
 

@@ -7,11 +7,18 @@ import { DeleteModal } from "@/components/generic/delete-modal"
 import type { FieldConfig } from "@/components/generic/generic-form"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
 import { SkillsTableConfig } from "@/config/skills.config"
 import { useSkills } from "@/hooks/use-skills"
 import type { Skill } from "@/lib/database/schema"
 import { skillCreateSchema } from "@/lib/validations"
-import { Pencil, Trash2 } from "lucide-react"
+import { Filter, Pencil, Trash2, X } from "lucide-react"
 import { useMemo, useState } from "react"
 
 interface SkillsTableProps {
@@ -32,6 +39,34 @@ export function SkillsTable({ skills: initialSkills }: SkillsTableProps) {
     // State for edit modal
     const [editingSkill, setEditingSkill] = useState<Skill | null>(null)
     const [editModalOpen, setEditModalOpen] = useState(false)
+
+    // State for filters
+    const [categoryFilter, setCategoryFilter] = useState<string>("")
+    const [proficiencyFilter, setProficiencyFilter] = useState<string>("")
+
+    // Apply filters to skills
+    const filteredSkills = useMemo(() => {
+        let filtered = initialSkills
+
+        if (categoryFilter) {
+            filtered = filtered.filter(skill => skill.category === categoryFilter)
+        }
+
+        if (proficiencyFilter) {
+            filtered = filtered.filter(skill => skill.proficiency_level === proficiencyFilter)
+        }
+
+        return filtered
+    }, [initialSkills, categoryFilter, proficiencyFilter])
+
+    // Check if any filters are active
+    const hasActiveFilters = categoryFilter !== "" || proficiencyFilter !== ""
+
+    // Clear all filters
+    const clearFilters = () => {
+        setCategoryFilter("")
+        setProficiencyFilter("")
+    }
 
     const handleEdit = async (data: any) => {
         if (editingSkill) {
@@ -189,10 +224,71 @@ export function SkillsTable({ skills: initialSkills }: SkillsTableProps) {
     }
 
     return (
-        <DataTable<Skill>
-            data={initialSkills}
-            columns={columns}
-            emptyMessage={emptyConfig.title}
-        />
+        <div className="space-y-4">
+            {/* Filter Section */}
+            <div className="flex flex-wrap gap-3 items-center">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Filter className="h-4 w-4" />
+                    <span className="font-medium">Filters:</span>
+                </div>
+
+                {/* Category Filter */}
+                <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                    <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="All Categories" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value=" ">All Categories</SelectItem>
+                        <SelectItem value="frontend">Frontend</SelectItem>
+                        <SelectItem value="backend">Backend</SelectItem>
+                        <SelectItem value="database">Database</SelectItem>
+                        <SelectItem value="devops">DevOps</SelectItem>
+                        <SelectItem value="deployment">Deployment</SelectItem>
+                        <SelectItem value="others">Others</SelectItem>
+                    </SelectContent>
+                </Select>
+
+                {/* Proficiency Filter */}
+                <Select value={proficiencyFilter} onValueChange={setProficiencyFilter}>
+                    <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="All Proficiency" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value=" ">All Proficiency</SelectItem>
+                        <SelectItem value="Beginner">Beginner</SelectItem>
+                        <SelectItem value="Intermediate">Intermediate</SelectItem>
+                        <SelectItem value="Advanced">Advanced</SelectItem>
+                        <SelectItem value="Expert">Expert</SelectItem>
+                    </SelectContent>
+                </Select>
+
+                {/* Clear Filters Button */}
+                {hasActiveFilters && (
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={clearFilters}
+                        className="h-9 px-2 lg:px-3"
+                    >
+                        <X className="mr-2 h-4 w-4" />
+                        Clear Filters
+                    </Button>
+                )}
+
+                {/* Show count of filtered results */}
+                {hasActiveFilters && (
+                    <span className="text-sm text-muted-foreground">
+                        Showing {filteredSkills.length} of {initialSkills.length} skills
+                    </span>
+                )}
+            </div>
+
+            {/* Data Table */}
+            <DataTable<Skill>
+                data={filteredSkills}
+                columns={columns}
+                emptyMessage={emptyConfig.title}
+            />
+        </div>
     )
 }

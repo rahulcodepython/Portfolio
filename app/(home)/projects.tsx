@@ -47,7 +47,6 @@ export default function Projects({ projects }: { projects: Project[] }) {
 										<img
 											src={project.image_url ?? "/01.jpg"}
 											alt={project.title}
-											fill
 											className="object-cover transition-transform duration-300 hover:scale-110"
 										/>
 										{project.featured && (

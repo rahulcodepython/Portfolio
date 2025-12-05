@@ -73,7 +73,7 @@ export default function About() {
 									<div className="pl-4">
 										<span className="text-purple-500">def</span>{" "}
 										<span className="text-yellow-500">__init__</span>
-										<span>(self, name, role, location, passion):</span>
+										<span>(self):</span>
 									</div>
 									<div className="pl-8">
 										<span className="text-blue-400">self.name</span> = <span className="text-green-500">

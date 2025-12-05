@@ -6,67 +6,62 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { contactCreateSchema } from "@/lib/validations";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import type { z } from "zod";
+
+type ContactFormData = z.infer<typeof contactCreateSchema>;
 
 export default function Contact() {
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		message: "",
+	const {
+		register,
+		handleSubmit,
+		formState: { errors, isSubmitting },
+		reset,
+		setError,
+	} = useForm<ContactFormData>({
+		resolver: zodResolver(contactCreateSchema),
+		defaultValues: {
+			name: "",
+			email: "",
+			message: "",
+		},
 	});
-	const [errors, setErrors] = useState<Record<string, string>>({});
-	const [isSubmitting, setIsSubmitting] = useState(false);
 
-	const handleSubmit = async (e: React.FormEvent) => {
-		e.preventDefault();
-		setIsSubmitting(true);
-		setErrors({}); // Clear previous errors
-
-		// Validate with Zod before submitting
-		const validation = contactCreateSchema.safeParse(formData);
-
-		if (!validation.success) {
-			// Extract errors from Zod validation
-			const zodErrors: Record<string, string> = {};
-			validation.error.issues.forEach((issue: { path: (string | number)[]; message: string }) => {
-				const field = issue.path[0]?.toString();
-				if (field) {
-					zodErrors[field] = issue.message;
-				}
-			});
-			setErrors(zodErrors);
-			setIsSubmitting(false);
-			toast.error("Please fix the errors in the form");
-			return;
-		}
-
+	const onSubmit = async (data: ContactFormData) => {
 		try {
 			const response = await fetch('/api/contact', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify(formData),
+				body: JSON.stringify(data),
 			});
 
-			const data = await response.json();
+			const responseData = await response.json();
 
 			if (response.ok) {
 				toast.success("Message sent successfully! I'll get back to you soon.", {
 					description: "Thank you for reaching out!",
 				});
-				setFormData({ name: "", email: "", message: "" });
+				reset();
 			} else {
 				// Handle validation errors from server (backup)
-				if (data.errors) {
-					setErrors(data.errors);
+				if (responseData.errors) {
+					// Set field-level errors from server
+					Object.entries(responseData.errors).forEach(([field, message]) => {
+						setError(field as keyof ContactFormData, {
+							type: "server",
+							message: message as string,
+						});
+					});
 					toast.error("Please fix the errors in the form");
 				} else {
 					toast.error("Failed to send message", {
-						description: data.message || "Please try again later.",
+						description: responseData.message || "Please try again later.",
 					});
 				}
 			}
@@ -74,26 +69,6 @@ export default function Contact() {
 			console.error('Contact form error:', error);
 			toast.error("Something went wrong", {
 				description: "Please try again later.",
-			});
-		} finally {
-			setIsSubmitting(false);
-		}
-	};
-
-	const handleChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-	) => {
-		const { name, value } = e.target;
-		setFormData((prev) => ({
-			...prev,
-			[name]: value,
-		}));
-		// Clear error for this field when user starts typing
-		if (errors[name]) {
-			setErrors((prev) => {
-				const newErrors = { ...prev };
-				delete newErrors[name];
-				return newErrors;
 			});
 		}
 	};
@@ -216,20 +191,18 @@ export default function Contact() {
 					>
 						<Card className="border-primary/20 bg-card h-full">
 							<CardContent className="h-full">
-								<form onSubmit={handleSubmit} className="flex flex-col justify-between space-y-6 h-full">
+								<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-between space-y-6 h-full">
 									<div className="space-y-2">
 										<Label htmlFor="name" className="font-mono">
 											Name
 										</Label>
 										<Input
 											id="name"
-											name="name"
 											placeholder="John Doe"
-											value={formData.name}
-											onChange={handleChange}
+											{...register("name")}
 											className={`font-mono ${errors.name ? 'border-destructive' : ''}`}
 										/>
-										{errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
+										{errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
 									</div>
 
 									<div className="space-y-2">
@@ -238,14 +211,12 @@ export default function Contact() {
 										</Label>
 										<Input
 											id="email"
-											name="email"
 											type="email"
 											placeholder="john@example.com"
-											value={formData.email}
-											onChange={handleChange}
+											{...register("email")}
 											className={`font-mono ${errors.email ? 'border-destructive' : ''}`}
 										/>
-										{errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
+										{errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
 									</div>
 
 									<div className="space-y-2 flex-1 flex flex-col">
@@ -254,13 +225,11 @@ export default function Contact() {
 										</Label>
 										<Textarea
 											id="message"
-											name="message"
 											placeholder="Tell me about your project..."
-											value={formData.message}
-											onChange={handleChange}
+											{...register("message")}
 											className={`flex-1 font-mono resize-none ${errors.message ? 'border-destructive' : ''}`}
 										/>
-										{errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
+										{errors.message && <p className="text-sm text-destructive">{errors.message.message}</p>}
 									</div>
 
 									<Button

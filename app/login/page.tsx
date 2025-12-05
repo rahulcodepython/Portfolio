@@ -1,43 +1,51 @@
 "use client";
 
+import { loginSchema } from "@/lib/validations";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff, Lock, Terminal, User } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import type { z } from "zod";
+
+type LoginFormData = z.infer<typeof loginSchema>;
 
 export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
-    const [formData, setFormData] = useState({
-        username: "",
-        password: "",
+    const router = useRouter();
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+    } = useForm<LoginFormData>({
+        resolver: zodResolver(loginSchema),
+        defaultValues: {
+            username: "",
+            password: "",
+        },
     });
-    const [isLoading, setIsLoading] = useState(false);
-    const router = useRouter()
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsLoading(true);
-
+    const onSubmit = async (data: LoginFormData) => {
         try {
             const response = await fetch("/api/auth/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username: formData.username, password: formData.password }),
-            })
+                body: JSON.stringify(data),
+            });
 
             if (response.ok) {
                 toast.success("Login Successful");
-                router.push("/dashboard")
-                router.refresh()
+                router.push("/dashboard");
+                router.refresh();
             } else {
-                const data = await response.json()
-                toast.error(data.error || "Invalid credentials")
+                const responseData = await response.json();
+                toast.error(responseData.error || "Invalid credentials");
             }
         } catch (err) {
-            toast.error("An error occurred. Please try again.")
-        } finally {
-            setIsLoading(false)
+            toast.error("An error occurred. Please try again.");
         }
     };
 
@@ -88,7 +96,7 @@ export default function LoginPage() {
                             </p>
                         </div>
 
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                             {/* Username Field */}
                             <div className="space-y-2">
                                 <label htmlFor="username" className="text-sm font-medium flex items-center gap-2">
@@ -100,13 +108,12 @@ export default function LoginPage() {
                                     <input
                                         id="username"
                                         type="text"
-                                        value={formData.username}
-                                        onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-                                        className="w-full pl-10 pr-4 py-3 bg-secondary border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-mono text-sm"
+                                        {...register("username")}
+                                        className={`w-full pl-10 pr-4 py-3 bg-secondary border ${errors.username ? 'border-destructive' : 'border-border'} rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-mono text-sm`}
                                         placeholder="Enter username"
-                                        required
                                     />
                                 </div>
+                                {errors.username && <p className="text-sm text-destructive">{errors.username.message}</p>}
                             </div>
 
                             {/* Password Field */}
@@ -120,12 +127,10 @@ export default function LoginPage() {
                                     <input
                                         id="password"
                                         type={showPassword ? "text" : "password"}
-                                        value={formData.password}
-                                        onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                                        className="w-full pl-10 pr-12 py-3 bg-secondary border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-mono text-sm"
+                                        {...register("password")}
+                                        className={`w-full pl-10 pr-12 py-3 bg-secondary border ${errors.password ? 'border-destructive' : 'border-border'} rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-mono text-sm`}
                                         placeholder="Enter password"
                                         autoComplete="off"
-                                        required
                                     />
                                     <button
                                         type="button"
@@ -140,15 +145,16 @@ export default function LoginPage() {
                                         )}
                                     </button>
                                 </div>
+                                {errors.password && <p className="text-sm text-destructive">{errors.password.message}</p>}
                             </div>
 
                             {/* Submit Button */}
                             <button
                                 type="submit"
-                                disabled={isLoading}
+                                disabled={isSubmitting}
                                 className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                             >
-                                {isLoading ? (
+                                {isSubmitting ? (
                                     <span className="flex items-center justify-center gap-2">
                                         <span className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin"></span>
                                         Authenticating...

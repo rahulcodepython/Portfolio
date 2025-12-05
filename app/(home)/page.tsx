@@ -14,6 +14,9 @@ import ScrollToTop from "./scroll-to-top";
 import Services from "./services";
 import Skills from "./skills";
 
+// At the top of your page.tsx
+export const dynamic = 'force-static'; // or 'error' to throw if dynamic
+
 // Enable static generation with ISR (Incremental Static Regeneration)
 
 interface HomeData {
@@ -24,7 +27,7 @@ interface HomeData {
 
 const getHomeData = unstable_cache(
     async () => {
-        console.log('🔥 HIT NEON DB - CACHE MISS');
+        console.log('🔥 HIT NEON DB - CACHE MISS IN ', process.env.NODE_ENV);
 
         try {
             const settings = await getSettings();
@@ -57,7 +60,7 @@ export default async function Home() {
 
     return (
         <div className="min-h-screen bg-background">
-            <Hero settings={settings} />
+            {settings && <Hero settings={settings} />}
             <About />
             <Education />
             <Experience />
@@ -65,7 +68,7 @@ export default async function Home() {
             <Services />
             <Projects projects={projects} />
             <Contact />
-            <Footer settings={settings} />
+            {settings && <Footer settings={settings} />}
             <ScrollToTop />
         </div>
     );

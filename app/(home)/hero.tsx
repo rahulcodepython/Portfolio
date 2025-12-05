@@ -5,7 +5,15 @@ import { Settings } from "@/lib/database/schema";
 import { motion } from "framer-motion";
 import { Code2, Download, Facebook, Github, Instagram, Linkedin, Mail, Twitter } from "lucide-react";
 
-export default function Hero({ settings }: { settings: Settings | null }) {
+export default function Hero({ settings }: { settings: Settings }) {
+    const socialLinks = [
+        { icon: Github, href: settings.github_url, label: "GitHub" },
+        { icon: Linkedin, href: settings.linkedin_url, label: "LinkedIn" },
+        { icon: Twitter, href: settings.twitter_url, label: "Twitter" },
+        { icon: Facebook, href: settings.facebook_url, label: "Facebook" },
+        { icon: Instagram, href: settings.instagram_url, label: "Instagram" },
+    ]
+
     return (
         <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4">
             {/* Animated Background Grid */}
@@ -124,7 +132,7 @@ export default function Hero({ settings }: { settings: Settings | null }) {
                             className="rounded-full font-mono"
                             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
                         >
-                            <Code2 className="mr-2 h-4 w-4" />
+                            <Code2 className="h-4 w-4" />
                             View Projects
                         </Button>
                         <Button
@@ -133,7 +141,7 @@ export default function Hero({ settings }: { settings: Settings | null }) {
                             className="rounded-full font-mono"
                             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                         >
-                            <Mail className="mr-2 h-4 w-4" />
+                            <Mail className="h-4 w-4" />
                             Get In Touch
                         </Button>
                         <Button
@@ -142,7 +150,7 @@ export default function Hero({ settings }: { settings: Settings | null }) {
                             className="rounded-full font-mono"
                             onClick={() => window.open(settings?.cv_url ?? "", "_blank")}
                         >
-                            <Download className="mr-2 h-4 w-4" />
+                            <Download className="h-4 w-4" />
                             Get CV
                         </Button>
                     </motion.div>
@@ -154,13 +162,7 @@ export default function Hero({ settings }: { settings: Settings | null }) {
                         transition={{ duration: 0.5, delay: 0.7 }}
                         className="flex gap-4 justify-center"
                     >
-                        {[
-                            { icon: Github, href: settings?.github_url, label: "GitHub" },
-                            { icon: Linkedin, href: settings?.linkedin_url, label: "LinkedIn" },
-                            { icon: Twitter, href: settings?.twitter_url, label: "Twitter" },
-                            { icon: Facebook, href: settings?.facebook_url, label: "Facebook" },
-                            { icon: Instagram, href: settings?.instagram_url, label: "Instagram" },
-                        ].map((social, index) => (
+                        {socialLinks.map((social, index) => (
                             <motion.a
                                 key={social.label}
                                 href={social.href ?? ""}
