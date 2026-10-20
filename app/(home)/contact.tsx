@@ -1,19 +1,18 @@
 "use client";
 
+import { SectionHeading } from "@/components/site/section-heading";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { contactCreateSchema } from "@/lib/validations";
+import { profile } from "@/lib/data";
+import { contactSchema, type ContactFormData } from "@/lib/validations";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { motion } from "motion/react";
+import { Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import type { z } from "zod";
-
-type ContactFormData = z.infer<typeof contactCreateSchema>;
 
 export default function Contact() {
 	const {
@@ -23,7 +22,7 @@ export default function Contact() {
 		reset,
 		setError,
 	} = useForm<ContactFormData>({
-		resolver: zodResolver(contactCreateSchema),
+		resolver: zodResolver(contactSchema),
 		defaultValues: {
 			name: "",
 			email: "",
@@ -32,43 +31,43 @@ export default function Contact() {
 	});
 
 	const onSubmit = async (data: ContactFormData) => {
+		// Honeypot: real users never fill this hidden field
+		const website = (document.getElementById("website") as HTMLInputElement | null)?.value ?? "";
+
 		try {
-			const response = await fetch('/api/contact', {
-				method: 'POST',
+			// Handled by the Cloudflare Pages Function in functions/api/contact.ts
+			const response = await fetch("/api/contact", {
+				method: "POST",
 				headers: {
-					'Content-Type': 'application/json',
+					"Content-Type": "application/json",
 				},
-				body: JSON.stringify(data),
+				body: JSON.stringify({ ...data, website }),
 			});
 
-			const responseData = await response.json();
+			const responseData = await response.json().catch(() => ({}));
 
 			if (response.ok) {
 				toast.success("Message sent successfully! I'll get back to you soon.", {
 					description: "Thank you for reaching out!",
 				});
 				reset();
+			} else if (responseData.errors) {
+				Object.entries(responseData.errors).forEach(([field, message]) => {
+					setError(field as keyof ContactFormData, {
+						type: "server",
+						message: message as string,
+					});
+				});
+				toast.error("Please fix the errors in the form");
 			} else {
-				// Handle validation errors from server (backup)
-				if (responseData.errors) {
-					// Set field-level errors from server
-					Object.entries(responseData.errors).forEach(([field, message]) => {
-						setError(field as keyof ContactFormData, {
-							type: "server",
-							message: message as string,
-						});
-					});
-					toast.error("Please fix the errors in the form");
-				} else {
-					toast.error("Failed to send message", {
-						description: responseData.message || "Please try again later.",
-					});
-				}
+				toast.error("Failed to send message", {
+					description: responseData.message || `Please try again later or email ${profile.email}.`,
+				});
 			}
 		} catch (error) {
-			console.error('Contact form error:', error);
+			console.error("Contact form error:", error);
 			toast.error("Something went wrong", {
-				description: "Please try again later.",
+				description: `Please try again later or email ${profile.email}.`,
 			});
 		}
 	};
@@ -77,43 +76,30 @@ export default function Contact() {
 		{
 			icon: Mail,
 			title: "Email",
-			value: "rahulcodepython@gmail.com",
-			href: "mailto:contact@rahulcodepython.space",
-		},
-		{
-			icon: MapPin,
-			title: "Location",
-			value: "India",
-			href: null,
+			value: profile.email,
+			href: `mailto:${profile.email}`,
 		},
 		{
 			icon: Phone,
 			title: "Phone",
-			value: "+91 9775150082",
-			href: "tel:+919775150082",
+			value: profile.phone,
+			href: `tel:${profile.phone.replace(/\s/g, "")}`,
+		},
+		{
+			icon: MapPin,
+			title: "Location",
+			value: profile.location,
+			href: null,
 		},
 	];
 
 	return (
 		<section id="contact" className="py-20 px-4">
 			<div className="container mx-auto max-w-7xl">
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5 }}
-					viewport={{ once: true }}
-					className="text-center mb-16"
-				>
-					<h2 className="text-4xl md:text-5xl font-bold mb-4">
-						<span className="text-primary font-mono">{"<"}</span>
-						Get In Touch
-						<span className="text-primary font-mono">{" />"}</span>
-					</h2>
-					<div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
-					<p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-						Have a project in mind or just want to chat? Feel free to reach out. I'm always open to discussing new projects and opportunities.
-					</p>
-				</motion.div>
+				<SectionHeading
+					title="Get In Touch"
+					subtitle="Have a project in mind or just want to chat? Send me a message and I'll reply by email."
+				/>
 
 				<div className="grid lg:grid-cols-5 gap-8">
 					{/* Contact Info */}
@@ -122,63 +108,49 @@ export default function Contact() {
 						whileInView={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.5 }}
 						viewport={{ once: true }}
-						className="lg:col-span-2 space-y-6"
+						className="lg:col-span-2 space-y-4"
 					>
-						{contactInfo.map((info, index) => (
-							<motion.div
-								key={info.title}
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.5, delay: index * 0.1 }}
-								viewport={{ once: true }}
-							>
-								<Card className="border-primary/20 hover:border-primary/50 transition-all duration-300 bg-card">
-									<CardContent className="">
-										<div className="flex items-start gap-4">
-											<div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
-												<info.icon className="w-5 h-5 text-primary" />
-											</div>
-											<div className="flex-1">
-												<h3 className="font-semibold mb-1">{info.title}</h3>
-												{info.href ? (
-													<a
-														href={info.href}
-														className="text-sm text-muted-foreground hover:text-primary transition-colors"
-													>
-														{info.value}
-													</a>
-												) : (
-													<p className="text-sm text-muted-foreground">
-														{info.value}
-													</p>
-												)}
-											</div>
+						{contactInfo.map((info) => (
+							<Card key={info.title} className="border-primary/20 hover:border-primary/50 transition-all duration-300 bg-card py-5">
+								<CardContent>
+									<div className="flex items-center gap-4">
+										<div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
+											<info.icon className="w-5 h-5 text-primary" />
 										</div>
-									</CardContent>
-								</Card>
-							</motion.div>
-						))}
-
-						<motion.div
-							initial={{ opacity: 0, y: 20 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5, delay: 0.4 }}
-							viewport={{ once: true }}
-						>
-							<Card className="border-primary/20 bg-linear-to-br from-primary/10 via-purple-500/10 to-primary/10">
-								<CardContent className="">
-									<div className="text-center space-y-2">
-										<p className="text-sm text-muted-foreground font-mono">
-											<span className="text-purple-500">//</span> Available for freelance work
-										</p>
-										<p className="text-sm text-muted-foreground font-mono">
-											<span className="text-green-500">const</span> status ={" "}
-											<span className="text-green-500">"open to opportunities"</span>;
-										</p>
+										<div className="flex-1 min-w-0">
+											<h3 className="font-semibold mb-0.5">{info.title}</h3>
+											{info.href ? (
+												<a
+													href={info.href}
+													className="text-sm text-muted-foreground hover:text-primary transition-colors break-all"
+												>
+													{info.value}
+												</a>
+											) : (
+												<p className="text-sm text-muted-foreground">{info.value}</p>
+											)}
+										</div>
 									</div>
 								</CardContent>
 							</Card>
-						</motion.div>
+						))}
+
+						{profile.openToFreelance && (
+							<Card className="border-green-500/30 bg-linear-to-br from-green-500/10 via-primary/5 to-purple-500/10">
+								<CardContent className="space-y-2">
+									<div className="flex items-center gap-2 font-semibold">
+										<span className="relative flex h-2.5 w-2.5">
+											<span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75 animate-ping" />
+											<span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
+										</span>
+										Available for freelance work
+									</div>
+									<p className="text-sm text-muted-foreground">
+										Websites, web apps, dashboards and APIs. Share a short brief and your timeline, and I'll get back with next steps.
+									</p>
+								</CardContent>
+							</Card>
+						)}
 					</motion.div>
 
 					{/* Contact Form */}
@@ -191,61 +163,61 @@ export default function Contact() {
 					>
 						<Card className="border-primary/20 bg-card h-full">
 							<CardContent className="h-full">
-								<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-between space-y-6 h-full">
-									<div className="space-y-2">
-										<Label htmlFor="name" className="font-mono">
-											Name
-										</Label>
-										<Input
-											id="name"
-											placeholder="John Doe"
-											{...register("name")}
-											className={`font-mono ${errors.name ? 'border-destructive' : ''}`}
-										/>
-										{errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+								<form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col justify-between gap-6 h-full">
+									{/* Honeypot field, hidden from people and screen readers */}
+									<div className="hidden" aria-hidden="true">
+										<label htmlFor="website">Website</label>
+										<input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
 									</div>
 
-									<div className="space-y-2">
-										<Label htmlFor="email" className="font-mono">
-											Email
-										</Label>
-										<Input
-											id="email"
-											type="email"
-											placeholder="john@example.com"
-											{...register("email")}
-											className={`font-mono ${errors.email ? 'border-destructive' : ''}`}
-										/>
-										{errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+									<div className="grid sm:grid-cols-2 gap-6">
+										<div className="space-y-2">
+											<Label htmlFor="name">Name</Label>
+											<Input
+												id="name"
+												placeholder="John Doe"
+												autoComplete="name"
+												aria-invalid={!!errors.name}
+												{...register("name")}
+											/>
+											{errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+										</div>
+
+										<div className="space-y-2">
+											<Label htmlFor="email">Email</Label>
+											<Input
+												id="email"
+												type="email"
+												placeholder="john@example.com"
+												autoComplete="email"
+												aria-invalid={!!errors.email}
+												{...register("email")}
+											/>
+											{errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+										</div>
 									</div>
 
 									<div className="space-y-2 flex-1 flex flex-col">
-										<Label htmlFor="message" className="font-mono">
-											Message
-										</Label>
+										<Label htmlFor="message">Message</Label>
 										<Textarea
 											id="message"
 											placeholder="Tell me about your project..."
+											aria-invalid={!!errors.message}
 											{...register("message")}
-											className={`flex-1 font-mono resize-none ${errors.message ? 'border-destructive' : ''}`}
+											className="flex-1 min-h-40 resize-none"
 										/>
 										{errors.message && <p className="text-sm text-destructive">{errors.message.message}</p>}
 									</div>
 
-									<Button
-										type="submit"
-										size="lg"
-										className="w-full font-mono"
-										disabled={isSubmitting}
-									>
+									<Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
 										{isSubmitting ? (
 											<>
-												<div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2"></div>
+												<Loader2 className="w-4 h-4 animate-spin" />
 												Sending...
 											</>
 										) : (
 											<>
-												<Send className="w-4 h-4 mr-2" />
+												<Send className="w-4 h-4" />
 												Send Message
 											</>
 										)}

@@ -1,51 +1,28 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Settings } from "@/lib/database/schema";
-import { motion } from "framer-motion";
-import { Code2, Download, Facebook, Github, Instagram, Linkedin, Mail, Twitter } from "lucide-react";
+import { HyperText } from "@/components/ui/hyper-text";
+import { TypingAnimation } from "@/components/ui/typing-animation";
+import { profile, socials } from "@/lib/data";
+import { motion } from "motion/react";
+import { Code2, Download, Mail, MapPin } from "lucide-react";
 
-export default function Hero({ settings }: { settings: Settings }) {
-    const socialLinks = [
-        { icon: Github, href: settings.github_url, label: "GitHub" },
-        { icon: Linkedin, href: settings.linkedin_url, label: "LinkedIn" },
-        { icon: Twitter, href: settings.twitter_url, label: "Twitter" },
-        { icon: Facebook, href: settings.facebook_url, label: "Facebook" },
-        { icon: Instagram, href: settings.instagram_url, label: "Instagram" },
-    ]
-
+export default function Hero() {
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4">
-            {/* Animated Background Grid */}
+        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 pt-24 pb-16">
+            {/* Background grid */}
             <div
-                className="absolute inset-0 opacity-10"
+                className="absolute inset-0 opacity-60 dark:opacity-20 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]"
                 style={{
-                    backgroundImage: `linear-gradient(to right, rgba(128, 128, 128, 0.1) 1px, transparent 1px),
-                           linear-gradient(to bottom, rgba(128, 128, 128, 0.1) 1px, transparent 1px)`,
-                    backgroundSize: '50px 50px'
+                    backgroundImage: `linear-gradient(to right, rgba(128, 128, 128, 0.15) 1px, transparent 1px),
+                           linear-gradient(to bottom, rgba(128, 128, 128, 0.15) 1px, transparent 1px)`,
+                    backgroundSize: "48px 48px",
                 }}
-            >
+            />
 
-            </div>
-
-            {/* Terminal-like animated lines */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {[...Array(5)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute h-px bg-linear-to-r from-transparent via-primary to-transparent"
-                        initial={{ x: "-100%", y: i * 150 }}
-                        animate={{ x: "200%" }}
-                        transition={{
-                            duration: 3 + i,
-                            repeat: Infinity,
-                            ease: "linear",
-                            delay: i * 0.5,
-                        }}
-                        style={{ width: "50%" }}
-                    />
-                ))}
-            </div>
+            {/* Soft colour glows */}
+            <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-purple-500/20 blur-3xl pointer-events-none" />
 
             <div className="container mx-auto max-w-7xl relative z-10">
                 <div className="text-center">
@@ -57,67 +34,94 @@ export default function Hero({ settings }: { settings: Settings }) {
                         className="flex justify-center mb-8"
                     >
                         <div className="relative">
-                            {/* Animated border */}
                             <motion.div
-                                className="absolute inset-0 rounded-full bg-linear-to-r from-primary via-purple-500 to-primary"
+                                className="absolute -inset-1 rounded-full bg-linear-to-r from-primary via-purple-500 to-primary"
                                 animate={{ rotate: 360 }}
-                                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                                style={{ padding: "4px" }}
+                                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
                             />
-                            <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-background">
+                            <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-4 border-background">
                                 <img
-                                    src={settings?.image_url ?? "/01.jpg"}
-                                    alt="Rahul Das - Full Stack Developer"
-                                    className="object-cover"
+                                    src={profile.image}
+                                    alt={`${profile.name} - ${profile.role}`}
+                                    className="w-full h-full object-cover"
                                 />
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* Animated greeting */}
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
-                    >
-                        <span className="text-sm font-mono text-primary">
-                            {"<"}<span className="text-foreground">Hello Viewer</span>{" />"}
-                        </span>
-                    </motion.div>
+                    {/* Freelance availability */}
+                    {profile.openToFreelance && (
+                        <motion.a
+                            href="#contact"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 mb-6 text-sm font-medium text-green-700 dark:text-green-400 hover:bg-green-500/15 transition-colors"
+                        >
+                            <span className="relative flex h-2.5 w-2.5">
+                                <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75 animate-ping" />
+                                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
+                            </span>
+                            Open to freelance work
+                        </motion.a>
+                    )}
 
-                    {/* Main heading with typing effect look */}
-                    <motion.h1
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="text-5xl md:text-7xl font-bold mb-4 bg-linear-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent"
-                        style={{
-                            backgroundSize: '200% auto',
-                            animation: 'gradient 3s linear infinite'
-                        }}
+                        className="mb-4 flex justify-center"
                     >
-                        Rahul Das
-                    </motion.h1>
+                        <HyperText
+                            as="h1"
+                            delay={400}
+                            duration={1200}
+                            className="py-0 pb-2 text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight bg-linear-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent cursor-default"
+                            style={{
+                                backgroundSize: "200% auto",
+                                animation: "gradient 4s linear infinite",
+                            }}
+                        >
+                            {profile.name}
+                        </HyperText>
+                    </motion.div>
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="text-xl md:text-2xl text-muted-foreground mb-2 font-mono"
+                        className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-3 font-mono"
                     >
                         <span className="text-primary">role</span> :={" "}
-                        <span className="text-green-500">"Full Stack Developer"</span>;
+                        <span className="text-green-600 dark:text-green-500">
+                            "<TypingAnimation
+                                delay={900}
+                                duration={70}
+                                cursorStyle="line"
+                                className="leading-normal tracking-normal"
+                            >
+                                {profile.role}
+                            </TypingAnimation>"
+                        </span>;
                     </motion.div>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.5 }}
-                        className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 font-mono"
+                        className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-3"
                     >
-                        <span className="text-purple-500">{"// "}</span>
-                        Crafting elegant solutions with Next.js, Django, Fiber & Docker
+                        {profile.tagline}
+                    </motion.p>
+
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.55 }}
+                        className="flex items-center justify-center gap-1.5 text-sm text-muted-foreground mb-8"
+                    >
+                        <MapPin className="w-4 h-4 text-primary" />
+                        {profile.location}
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -125,69 +129,61 @@ export default function Hero({ settings }: { settings: Settings }) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.6 }}
-                        className="flex flex-wrap gap-4 justify-center mb-12"
+                        className="flex flex-wrap gap-3 justify-center mb-10"
                     >
-                        <Button
-                            size="lg"
-                            className="rounded-full font-mono"
-                            onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-                        >
-                            <Code2 className="h-4 w-4" />
-                            View Projects
+                        <Button size="lg" className="rounded-full shadow-lg shadow-primary/25" asChild>
+                            <a href="#projects">
+                                <Code2 className="h-4 w-4" />
+                                View Projects
+                            </a>
                         </Button>
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="rounded-full font-mono"
-                            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                        >
-                            <Mail className="h-4 w-4" />
-                            Get In Touch
+                        <Button size="lg" variant="outline" className="rounded-full" asChild>
+                            <a href="#contact">
+                                <Mail className="h-4 w-4" />
+                                Get In Touch
+                            </a>
                         </Button>
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="rounded-full font-mono"
-                            onClick={() => window.open(settings?.cv_url ?? "", "_blank")}
-                        >
-                            <Download className="h-4 w-4" />
-                            Get CV
-                        </Button>
+                        {profile.cvUrl && (
+                            <Button size="lg" variant="outline" className="rounded-full" asChild>
+                                <a href={profile.cvUrl} target="_blank" rel="noopener noreferrer">
+                                    <Download className="h-4 w-4" />
+                                    Get CV
+                                </a>
+                            </Button>
+                        )}
                     </motion.div>
 
                     {/* Social Links */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 0.7 }}
-                        className="flex gap-4 justify-center"
-                    >
-                        {socialLinks.map((social, index) => (
+                    <div className="flex gap-3 justify-center">
+                        {socials.map((social, index) => (
                             <motion.a
                                 key={social.label}
-                                href={social.href ?? ""}
+                                href={social.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-3 rounded-full bg-card border border-border hover:border-primary hover:bg-primary/10 transition-all duration-300"
+                                aria-label={social.label}
+                                className="p-3 rounded-full bg-card border border-border hover:border-primary hover:text-primary hover:bg-primary/10 transition-colors duration-300"
                                 whileHover={{ scale: 1.1, rotate: 5 }}
                                 whileTap={{ scale: 0.95 }}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
+                                transition={{ duration: 0.3, delay: 0.7 + index * 0.08 }}
                             >
                                 <social.icon className="w-5 h-5" />
                             </motion.a>
                         ))}
-                    </motion.div>
+                    </div>
                 </div>
             </div>
 
             {/* Scroll indicator */}
-            <motion.div
+            <motion.a
+                href="#about"
+                aria-label="Scroll to about section"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1.1 }}
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+                className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2"
             >
                 <motion.div
                     animate={{ y: [0, 10, 0] }}
@@ -196,7 +192,7 @@ export default function Hero({ settings }: { settings: Settings }) {
                 >
                     <div className="w-1 h-2 bg-primary rounded-full"></div>
                 </motion.div>
-            </motion.div>
+            </motion.a>
         </section>
     );
 }

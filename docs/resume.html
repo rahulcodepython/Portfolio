@@ -1,0 +1,164 @@
+<!doctype html>
+<!--
+  Source for public/resume.pdf. After editing, regenerate the PDF:
+  google-chrome-stable --headless=new --no-pdf-header-footer --print-to-pdf=public/resume.pdf "file://$PWD/docs/resume.html"
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rahul Das</title>
+<meta name="author" content="Rahul Das">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+    @page { size: A4; margin: 10mm 12mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Inter", sans-serif; font-size: 9pt; line-height: 1.34; color: #2b2d33; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 { font-family: "Montserrat", sans-serif; color: #1f2230; }
+    h1 { font-size: 24pt; font-weight: 800; letter-spacing: -0.5px; line-height: 1; }
+    .role { font-family: "Montserrat", sans-serif; font-size: 12pt; font-weight: 700; color: #2f49d1; margin-top: 4px; }
+    .contact { margin-top: 6px; color: #444; font-size: 9pt; }
+    .contact span + span::before { content: "|"; margin: 0 6px; color: #aaa; }
+    .contact a { border-bottom: 1px solid #c5ccf3; }
+    h2 { font-size: 11pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #2f49d1;
+         margin: 9px 0 5px; padding-bottom: 2px; border-bottom: 1.5px solid #dfe3f8; }
+    .entry { margin-bottom: 5px; break-inside: avoid; }
+    .head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    h3 { font-size: 10pt; font-weight: 700; }
+    h3 small { font-family: "Inter", sans-serif; font-weight: 500; font-size: 9pt; color: #555; }
+    .date { font-family: "Montserrat", sans-serif; font-weight: 600; font-size: 9pt; white-space: nowrap; color: #333; }
+    .meta { font-size: 8.8pt; color: #666; margin-top: 1px; }
+    ul { margin: 3px 0 0 15px; }
+    li { margin-bottom: 0.5px; }
+    li::marker { color: #2f49d1; }
+    .skills { display: grid; grid-template-columns: 128px 1fr; row-gap: 2px; }
+    .skills b { font-weight: 600; color: #1f2230; }
+    b { font-weight: 600; color: #1f2230; }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>RAHUL DAS</h1>
+    <div class="role">Full Stack Developer</div>
+    <div class="contact">
+        <span><a href="mailto:rahulcodepython@gmail.com">rahulcodepython@gmail.com</a></span>
+        <span>+91 9775150082</span>
+        <span>Ashoknagar, West Bengal, India</span>
+    </div>
+    <div class="contact">
+        <span><a href="https://rahulcodepython.in">rahulcodepython.in</a></span>
+        <span><a href="https://github.com/rahulcodepython">github.com/rahulcodepython</a></span>
+        <span><a href="https://www.linkedin.com/in/rahulcodepython/">linkedin.com/in/rahulcodepython</a></span>
+    </div>
+</header>
+
+<h2>Summary</h2>
+<p>Full stack developer with real-world experience taking products from idea to production for a startup and freelance clients.
+Building live products for real customers taught me to own features end to end, turn unclear requirements into reliable software and ship fast
+without cutting corners. I'm looking for a team where I can take ownership from day one and deliver work that measurably moves the business forward.</p>
+
+<h2>Technical Skills</h2>
+<div class="skills">
+    <b>Languages</b><span>TypeScript, JavaScript, Golang, Python</span>
+    <b>Frontend</b><span>React.js, Next.js, React Native, Tailwind CSS, Shadcn UI, React Query, Zustand, HTML5, CSS3</span>
+    <b>Backend</b><span>Node.js, NestJS, Express.js, Fiber, Django, Django REST Framework, Flask, Socket.io, REST APIs</span>
+    <b>Database &amp; BaaS</b><span>PostgreSQL, MongoDB, SQLite, Prisma, Raw SQL, Supabase, Firebase</span>
+    <b>DevOps &amp; Cloud</b><span>Docker, Git, GitHub, CI/CD, Linux, Nginx, Cloudflare, Vercel, Netlify, DigitalOcean, Railway</span>
+    <b>AI Tools</b><span>Claude, Gemini, DeepSeek, v0, Stitch</span>
+</div>
+
+<h2>Experience</h2>
+<div class="entry">
+    <div class="head">
+        <h3>Freelance Full Stack Developer | <a href="https://gentik.in">Gentik</a> <small>(Remote)</small></h3>
+        <span class="date">Oct 2026 - Present</span>
+    </div>
+    <ul>
+        <li>Building <b><a href="https://gendemy.in">Gendemy</a></b>, Gentik's main product: institute management software for batches, classes, attendance, fees and student progress.</li>
+        <li>Built the entire application end to end, from database design to the user interface, with separate apps for admins, faculty and students.</li>
+        <li>Developed the backend in <b>Golang</b> on <b>PostgreSQL</b>, and a fast, responsive frontend with <b>Next.js</b> and <b>React</b>.</li>
+    </ul>
+</div>
+<div class="entry">
+    <div class="head">
+        <h3>Full Stack Developer Intern | Zoraviks Technologies <small>(Hybrid)</small></h3>
+        <span class="date">Jul 2025 - Present</span>
+    </div>
+    <ul>
+        <li>Build and maintain features across the frontend and backend of <b><a href="https://fotopick.in">fotopick.in</a></b>, Zoraviks' main product.</li>
+        <li>Built the website for Orchid Photography, a client project of Zoraviks.</li>
+        <li>Developed APIs with <b>NestJS</b> and <b>PostgreSQL</b>, and interfaces with <b>Next.js</b> and <b>React</b>.</li>
+    </ul>
+</div>
+<div class="entry">
+    <div class="head">
+        <h3>Full Stack Web Developer | Grasp Gross</h3>
+        <span class="date">May 2023 - Jun 2024</span>
+    </div>
+    <ul>
+        <li>Developed a dynamic web platform end to end with <b>Next.js</b> and <b>Django</b>, working with cross-functional teams to turn complex requirements into practical solutions.</li>
+    </ul>
+</div>
+
+<h2>Projects</h2>
+<div class="entry">
+    <div class="head">
+        <h3>ppm: Python Project Manager <small>| Go, Python, CLI, uv</small></h3>
+        <span class="date"><a href="https://github.com/rahulcodepython/PPM">github.com/rahulcodepython/PPM</a></span>
+    </div>
+    <ul>
+        <li>Open source CLI that gives Python the workflow npm gives JavaScript, in one small binary.</li>
+        <li>One <b>ppm.yml</b> for dependencies and scripts; commands always run inside the project's virtualenv.</li>
+    </ul>
+</div>
+<div class="entry">
+    <div class="head">
+        <h3>Notes Sharing <small>| Next.js, React, Google Drive API, Google OAuth</small></h3>
+        <span class="date"><a href="https://notes.rahulcodepython.in">notes.rahulcodepython.in</a></span>
+    </div>
+    <ul>
+        <li>Lets students create class communities, upload notes of any file type and share them with classmates in one place.</li>
+        <li>Files stay in each student's own Google Drive, with Google sign-in and no extra accounts.</li>
+    </ul>
+</div>
+<div class="entry">
+    <div class="head">
+        <h3>MyMoney <small>| React Native, Expo, Android</small></h3>
+        <span class="date"><a href="https://mymoney.rahulcodepython.in">mymoney.rahulcodepython.in</a></span>
+    </div>
+    <ul>
+        <li>Offline-first personal finance app: one double-entry ledger for accounts, budgets, debts and autopay, 100% on-device.</li>
+        <li>Instant backwards balance calculation and peer-to-peer debt graphs; shipped as a downloadable Android APK.</li>
+    </ul>
+</div>
+
+<h2>Education</h2>
+<div class="entry">
+    <div class="head">
+        <h3>Master of Computer Application (MCA) | Brainware University</h3>
+        <span class="date">2026 - 2028</span>
+    </div>
+    <div class="meta">Pursuing. Software engineering, system design and modern application development.</div>
+</div>
+<div class="entry">
+    <div class="head">
+        <h3>Bachelor of Computer Application (BCA) | Brainware University</h3>
+        <span class="date">2023 - 2026</span>
+    </div>
+    <div class="meta">CGPA 8.9/10. Second position in a coding competition; volunteered at the college tech fest.</div>
+</div>
+<div class="entry">
+    <div class="head">
+        <h3>Higher Secondary (Science) | Kalyangarh Vidyamandir (H.S)</h3>
+        <span class="date">2021 - 2023</span>
+    </div>
+    <div class="meta">82%. School ranker in Computer Science.</div>
+</div>
+
+<h2>Languages &amp; Interests</h2>
+<p><b>Languages:</b> Bengali, English, Hindi &nbsp;&nbsp; <b>Interests:</b> Chess (inter-school champion), AI tools, open source</p>
+
+</body>
+</html>

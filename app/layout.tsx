@@ -1,18 +1,25 @@
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "next-themes"
 import { Toaster } from "@/components/ui/sonner"
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from "next"
-import { Montserrat } from "next/font/google"
+import { JetBrains_Mono, Montserrat } from "next/font/google"
 import type React from "react"
 import "./globals.css"
 
-const montserrat = Montserrat({ subsets: ["latin"] })
+const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat" })
+const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" })
 
 export const metadata: Metadata = {
-    title: 'Rahul Das | Full Stack Developer',
-    description: 'This is a personal portfolio website to describe me and also my experties and specialities even my services delivered by Rahul Das.',
-    keywords: ['Full Stack Developer', 'Next.js', 'React.js', 'Django', 'Portfolio', 'Rahul Das', 'Docker', 'rahulcodepython'],
-};
+    metadataBase: new URL("https://rahulcodepython.in"),
+    title: "Rahul Das | Full Stack Developer",
+    description: "Portfolio of Rahul Das, a Full Stack Developer from West Bengal, India building web apps with Next.js, NestJS, Golang and PostgreSQL. Open to freelance work.",
+    keywords: ["Full Stack Developer", "Freelance Developer", "Next.js", "React.js", "NestJS", "Golang", "PostgreSQL", "Portfolio", "Rahul Das", "rahulcodepython"],
+    openGraph: {
+        title: "Rahul Das | Full Stack Developer",
+        description: "Full Stack Developer building fast, production-ready web apps. Open to freelance work.",
+        images: ["/01.jpg"],
+        type: "website",
+    },
+}
 
 export default function RootLayout({
     children,
@@ -21,17 +28,15 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <head />
-            <body className={`antialiased ${montserrat.className}`}>
+            <body className={`antialiased ${montserrat.variable} ${jetbrainsMono.variable} font-sans`}>
                 <ThemeProvider
                     attribute="class"
-                    defaultTheme="system"
-                    enableSystem
+                    defaultTheme="light"
+                    enableSystem={false}
                     disableTransitionOnChange
                 >
                     {children}
-                    <Toaster />
-                    <Analytics />
+                    <Toaster richColors position="top-center" />
                 </ThemeProvider>
             </body>
         </html>

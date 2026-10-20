@@ -1,18 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    typescript: {
-        ignoreBuildErrors: true,
-    },
+    // Fully static build in `out/`, served by Cloudflare Pages
+    output: "export",
     reactStrictMode: false,
     images: {
-        remotePatterns: [
-            {
-                protocol: "https",
-                hostname: "raw.githubusercontent.com",
-                port: '',
-                pathname: '/rahulcodepython/file-storage/main/**',
-            },
-        ],
+        unoptimized: true,
     },
 }
 
